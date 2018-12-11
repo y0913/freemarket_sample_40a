@@ -34,12 +34,6 @@ Things you may want to cover:
 |tel|integer|null: false, unique: true|
 |name|string|null: false|
 |name_kana|string|null: false|
-|post_number|integer|null: false|
-|prefecture_id|references|null: false, foreign_key: true|
-|city|string|null: false|
-|address|string|null: false|
-|building|string|-------|
-|building_tel|integer|-------|
 |card_number|integer|null: false|
 |expiration_date_month|integer|null: false|
 |expiration_date_year|integer|null: false|
@@ -52,14 +46,32 @@ Things you may want to cover:
 
 ### Association
 - has_many :reviews
-- has_many :sns_credentials
-- has_many :exhibit_items
-- has_many :buy_items
+- has_many :sns_credentials, dependent: :destroy
+- has_many :exhibit_items, dependent: :destroy
+- has_many :buy_items, dependent: :destroy
 - belongs_to :prefecture
-- has_many :items
-- has_many :trades
-- has_many :trading_tables, through: :trades
+- has_many :items, dependent: :destroy
+- has_many :trades, dependent: :destroy
+- has_many :trading_tables, through: :trades, dependent: :destroy
 - has_many :item_comments
+- has_one :address
+
+
+## addressesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|post_number|integer|null: false|
+|prefecture_id|references|null: false, foreign_key: true|
+|city|string|null: false|
+|address|string|null: false|
+|building|string|-------|
+|building_tel|integer|-------|
+
+### Association
+- belongs_to :user
+- belongs_to :prefecture
 
 
 ## reviewsテーブル
@@ -71,7 +83,7 @@ Things you may want to cover:
 |comment|text|-------|
 
 ### Association
-- belongs_to :review, dependent: :destroy
+- belongs_to :user
 
 
 ## sns_credentialsテーブル
@@ -83,7 +95,7 @@ Things you may want to cover:
 |provider|string|-------|
 
 ### Association
-- belongs_to :user, dependent: :destroy
+- belongs_to :user
 
 
 ## exhibit_itemsテーブル
@@ -95,7 +107,7 @@ Things you may want to cover:
 |state|integer, default: 0|null: false|
 
 ### Association
-- belongs_to :user, dependent: :destroy
+- belongs_to :user
 - has_many :items, dependent: :destroy
 
 
@@ -108,7 +120,7 @@ Things you may want to cover:
 |state|integer, default: 0|null: false|
 
 ### Association
-- belongs_to :user, dependent: :destroy
+- belongs_to :user
 - has_many :items, dependent: :destroy
 
 
@@ -144,8 +156,8 @@ Things you may want to cover:
 |item_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user, dependent: :destroy
-- belongs_to :item, dependent: :destroy
+- belongs_to :user
+- belongs_to :item
 
 
 ## trading_tablesテーブル
@@ -157,8 +169,8 @@ Things you may want to cover:
 |item_id|references|null: false, foreign_key: true|
 
 ### Association
-- has_many :trades
-- has_many :users, through: :trades
+- has_many :trades, dependent: :destroy
+- has_many :users, through: :trades, dependent: :destroy
 - belongs_to :item
 
 
@@ -190,18 +202,18 @@ Things you may want to cover:
 |category_id|references|null: false, foreign_key: true|
 
 ### Association
-- has_many :likes
-- has_many :trading_tables
-- belongs_to :user, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :trading_tables, dependent: :destroy
+- belongs_to :user
 - belongs_to :prefecture
 - belongs_to :buy_item
 - belongs_to :exhibit_item
 - belongs_to :state
-- has_many :category_items
+- has_many :category_items, dependent: :destroy
 - has_many :categorys, through: :category_items
 - belongs_to :delivery_day
 - baelongs_to :profit
-- has_many :images
+- has_many :images, dependent: :destroy
 - belongs_to :brand
 - belongs_to :postage
 - belongs_to :delivery_method
@@ -238,7 +250,7 @@ Things you may want to cover:
 |name|string|null: false|
 
 ### Association
-- has_many :category_items
+- has_many :category_items, dependent: :destroy
 - has_many :items, through: :category_items, dependent: :destroy
 - belongs_to :size
 
@@ -251,7 +263,7 @@ Things you may want to cover:
 |size|string|null: false|
 
 ### Association
-- has_many :items, dependent: :destroy
+- has_many :items
 - has_many :categorys
 
 
@@ -262,7 +274,7 @@ Things you may want to cover:
 |days|string|null: false|
 
 ### Association
-- has_many :items, dependent: :destroy
+- has_many :items
 
 
 ## profitsテーブル
@@ -274,7 +286,7 @@ Things you may want to cover:
 |profit|integer|null: false|
 
 ### Association
-- has_many :items, dependent: :destroy
+- has_many :items
 
 
 ## imagesテーブル
@@ -285,7 +297,7 @@ Things you may want to cover:
 |image|string|null: false|
 
 ### Association
-- belongs_to :item, dependent: :destroy
+- belongs_to :item
 
 
 ## brandsテーブル
@@ -295,7 +307,7 @@ Things you may want to cover:
 |name|string|null: false|
 
 ### Association
-- has_many :items, dependent: :destroy
+- has_many :items
 
 
 ## postagesテーブル
@@ -305,7 +317,7 @@ Things you may want to cover:
 |burden|string|null: false|
 
 ### Association
-- has_many :items, dependent: :destroy
+- has_many :items
 
 
 ## delivery_methodsテーブル
@@ -315,4 +327,4 @@ Things you may want to cover:
 |method|string|null: false|
 
 ### Association
-- has_many :items, dependent: :destroy
+- has_many :items
