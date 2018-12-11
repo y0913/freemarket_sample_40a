@@ -58,3 +58,7 @@ gem 'erb2haml'
 gem 'devise'
 gem 'pry-rails'
 gem 'rspec-rails'
+
+group :production do
+  gem 'unicorn'
+end
