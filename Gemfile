@@ -63,7 +63,8 @@ gem 'erb2haml'
 gem 'devise'
 gem 'pry-rails'
 gem 'rspec-rails'
-
+gem 'font-awesome-rails'
 group :production do
   gem 'unicorn'
 end
+
