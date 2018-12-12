@@ -1,0 +1,26 @@
+.flex-tandem{
+  display: flex;
+  flex-direction:column;
+  line-height: 30px;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction:row;
+}
+
+.flex-between{
+  display: flex;
+  justify-content:space-between;
+}
+
+.middle-center{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.middle{
+  display: flex;
+  align-items:center;
+}
