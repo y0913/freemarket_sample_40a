@@ -100,27 +100,7 @@
   border-top-color: red;
 }
 
-.status{
-  padding: 5px 6px;
-  margin-top: 8px;
-  font-size: 12px;
-  height: 22px;
-  color: white;
-  border-radius: 2px;
-  display: inline-block;
-  background-color: black;
-}
 
-.done{
-  background-color: gray;
-}
-.doing{
-  background-color: blue;
-}
-
-.stop-show{
-  background-color: red;
-}
 
 .sold-item{
   width: 40px;
@@ -137,7 +117,7 @@
     transform: rotate( -45deg );
     position: absolute;
     top:-15px;
-    left: -20px;
+    left: -23px;
   }
 
 }

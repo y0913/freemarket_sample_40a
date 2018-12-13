@@ -37,16 +37,16 @@
                 .right-content__block__object__link-box__body
                   .right-content__block__object__link-box__body--text 7日後、クーポンの有効期限が切れます！タップして詳細を確認しましょう。
                   .right-content__block__object__link-box__body--time.flex-row
-                    .right-content__block__object__link-box__body--time--icon □
+                    %i.fa.fa-history
                     .right-content__block__object__link-box__body--time--date 1日前
-                .arrow >
+                %i.fa.fa-angle-right.fa-2x
             %li
               %a.right-content__block__object__link-box.flex-row
                 =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
                 .right-content__block__object__link-box__body
                   .right-content__block__object__link-box__body--text 7日後、阿部寛が家に来ます。
                   .right-content__block__object__link-box__body--time.flex-row
-                    .right-content__block__object__link-box__body--time--icon □
+                    %i.fa.fa-history
                     .right-content__block__object__link-box__body--time--date 10日前
                 .arrow >
             %li
@@ -55,7 +55,7 @@
                 .right-content__block__object__link-box__body
                   .right-content__block__object__link-box__body--text てめぇらの血は何色だァーーーーー！！
                   .right-content__block__object__link-box__body--time.flex-row
-                    .right-content__block__object__link-box__body--time--icon □
+                    %i.fa.fa-history
                     .right-content__block__object__link-box__body--time--date 1日前
                 .arrow >
             %li
@@ -64,7 +64,7 @@
                 .right-content__block__object__link-box__body
                   .right-content__block__object__link-box__body--text 1234125125日後、宝くじがあたるといいな。
                   .right-content__block__object__link-box__body--time.flex-row
-                    .right-content__block__object__link-box__body--time--icon □
+                    %i.fa.fa-history
                     .right-content__block__object__link-box__body--time--date 1日前
                 .arrow >
             %li
@@ -73,7 +73,7 @@
                 .right-content__block__object__link-box__body
                   .right-content__block__object__link-box__body--text twitterか
                   .right-content__block__object__link-box__body--time.flex-row
-                    .right-content__block__object__link-box__body--time--icon □
+                    %i.fa.fa-history
                     .right-content__block__object__link-box__body--time--date 1日前
                 .arrow >
             %li
@@ -101,12 +101,12 @@
                   .right-content__block__object__link-box__body--text 【新品・送料込み】阿部寛
                   .right-content__block__object__link-box__body__detail.flex-row
                     .right-content__block__object__link-box__body__detail--count-box.flex-row
-                      .like-icon ♡
+                      %i.fa.fa-heart-o
                       .like-count 50
                     .right-content__block__object__link-box__body__detail--count-box.flex-row
-                      .comment-icon □
+                      %i.fa.fa-comment-o
                       .comment-count 1000
-                    .status.doing 出品中
+                    .status-blue 出品中
                 .arrow >
 
             %li
@@ -114,7 +114,7 @@
                 =image_tag "avatar.jpg", alt: "item-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
                 .right-content__block__object__link-box__body
                   .right-content__block__object__link-box__body--text 「阿部寛」を購入しました。取引が完了しました。
-                  .status.done 取引完了
+                  .status-gray 取引完了
                 .arrow >
 
             %li
@@ -124,12 +124,12 @@
                   .right-content__block__object__link-box__body--text 【新品・送料込み】阿部寛
                   .right-content__block__object__link-box__body__detail.flex-row
                     .right-content__block__object__link-box__body__detail--count-box.flex-row
-                      .like-icon ♡
+                      %i.fa.fa-heart-o
                       .like-count 50
                     .right-content__block__object__link-box__body__detail--count-box.flex-row
-                      .comment-icon □
+                      %i.fa.fa-comment-o
                       .comment-count 1000
-                    .status.stop-show 公開停止中
+                    .status-red 公開停止中
                 .arrow >
 
             %li
