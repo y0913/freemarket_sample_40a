@@ -75,7 +75,6 @@ header.exhibit_header {
     }
     &__content {
       width: 700px;
-      height: 355px;
       padding: 40px;
       border-bottom: 1px solid #f3f1f2;
       &__name {
@@ -167,7 +166,6 @@ header.exhibit_header {
     }
     &__profit {
       width: 700px;
-      height: 299px;
       padding: 40px;
       border-bottom: 1px solid #f3f1f2;
       @include flex-between;
