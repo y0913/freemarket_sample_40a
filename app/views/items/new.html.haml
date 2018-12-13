@@ -1,10 +1,10 @@
 .exhibit_wrapper
   .main__exhibit
-    .main__exhibit__title
-      %h2{class: "exhibit_information"}
+    .main__exhibit__title.middle-center
+      %h3
         商品の情報を入力
     .main__exhibit__image
-      %h3{class: "exhibit_image"}
+      %h4
         出品画像
         %span{class: "exhibit_must"}
           必須
@@ -124,7 +124,7 @@
               任意
         .select_box.hide.brand
           %input{class: "exhibit_select", placeholder: '例）阿部寛'}
-        %h3{class: "state"}
+        %h3{class: "state bold"}
           商品の状態
           %span{class: "exhibit_must"}
             必須
@@ -143,7 +143,7 @@
         %a{href: "", class: "help"}
           ?
       .main__exhibit__delivery__item
-        %h3{class: "exhibit_burden"}
+        %h3{class: "exhibit_burden bold"}
           配送料の負担
           %span{class: "exhibit_must"}
             必須
@@ -170,7 +170,7 @@
                 送料込み(出品者負担)
               %option
                 着払い(購入者負担)
-        %h3{class: "exhibit_date"}
+        %h3{class: "exhibit_date bold"}
           発送元の地域
           %span{class: "exhibit_must"}
             必須
@@ -183,7 +183,7 @@
               奈良県
             %option
               奈良県
-        %h3{class: "exhibit_date"}
+        %h3{class: "exhibit_date bold"}
           発送までの日数
           %span{class: "exhibit_must"}
             必須
@@ -204,23 +204,23 @@
       .main__exhibit__profit__item
         .main__exhibit__profit__item__price
           .main__exhibit__profit__item__price__left
-            %p{class: "exhibit_price"}
+            %p{class: "exhibit_price bold"}
               価格
               %span{class: "exhibit_must"}
                 必須
           .main__exhibit__profit__item__price__right
             %p{class: "exhibit_enn"}
               ¥
-            %input{class: "price__input", placeholder: '例）300', id: "9"}
+            %input{class: "price__input", placeholder: '例）300', id: "price"}
         .main__exhibit__profit__item__cost
           %p{class: "exhibit_cost"}
             販売手数料(10%)
           %p{class: "exhibit_cost price"}
             \-
         .main__exhibit__profit__item__salary
-          %p{class: "exhibit_salary"}
+          %p{class: "exhibit_salary bold"}
             販売利益
-          %p{class: "exhibit_salary price"}
+          %p{class: "exhibit_salary price bold"}
             \-
     .main__exhibit__btn-box
       %p{class: "exhibit_btn-box"}

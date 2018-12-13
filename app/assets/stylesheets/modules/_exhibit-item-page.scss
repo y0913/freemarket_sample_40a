@@ -1,3 +1,9 @@
+@mixin input-box {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 10px 16px 8px 16px;
+}
+
 header.exhibit_header {
   height: 128px;
   width: 100vw;
@@ -22,11 +28,8 @@ header.exhibit_header {
     margin: 0 auto;
     &__title {
       height: 97px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       border-bottom: 1px solid #f3f1f2;
-      h2.exhibit_information{
+      h3 {
         font-size: 22px;
       }
     }
@@ -34,10 +37,9 @@ header.exhibit_header {
       width: 620px;
       height: 325px;
       padding: 40px;
-      box-sizing: border-box;
       border-bottom: 1px solid #f3f1f2;
       position: relative;
-      h3.exhibit_image {
+      h4 {
         font-size: 16px;
       }
       p.exhibit_text {
@@ -53,8 +55,7 @@ header.exhibit_header {
         border: 1px dashed #ccc;
         input.image_hidden {
           opacity: 0;
-          width: 100%;
-          height: 100%;
+          @include full-size;
         }
         pre.upload_item_image {
           position: absolute;
@@ -76,7 +77,6 @@ header.exhibit_header {
       width: 700px;
       height: 355px;
       padding: 40px;
-      box-sizing: border-box;
       border-bottom: 1px solid #f3f1f2;
       &__name {
         width: 620px;
@@ -89,10 +89,7 @@ header.exhibit_header {
           input.exhibit_input {
             width: 620px;
             height: 48px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            padding: 10px 16px 8px 16px;
+            @include input-box;
             font-size: 16px;
             line-height: 1.5;
           }
@@ -109,9 +106,7 @@ header.exhibit_header {
           textarea.exhibit_textarea {
             width: 100%;
             height: 134px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            padding: 10px 16px 8px 16px;
+            @include input-box;
             font-size: 16px;
             line-height: 1.5;
           }
@@ -121,10 +116,8 @@ header.exhibit_header {
     &__sell {
       width: 700px;
       padding: 40px;
-      box-sizing: border-box;
       border-bottom: 1px solid #f3f1f2;
-      display: flex;
-      justify-content: space-between;
+      @include flex-between;
       h3.exhibit_sell {
         font-size: 14px;
         color: #888;
@@ -138,17 +131,14 @@ header.exhibit_header {
         h3.state {
           margin-top: 40px;
           font-size: 14px;
-          font-weight: 600;
         }
       }
     }
     &__delivery {
       width: 700px;
       padding: 40px;
-      box-sizing: border-box;
       border-bottom: 1px solid #f3f1f2;
-      display: flex;
-      justify-content: space-between;
+      @include flex-between;
       h3.exhibit_delivery {
         font-size: 14px;
         color: #888;
@@ -158,13 +148,11 @@ header.exhibit_header {
       }
       h3.exhibit_burden {
         font-size: 14px;
-        font-weight: 600;
       }
       select.exhibit_select {
         margin-top: 8px;
         width: 100%;
         height: 48px;
-        box-sizing: border-box;
         background-color: #fff;
         -webkit-appearance: none;
         padding: 0 16px;
@@ -174,7 +162,6 @@ header.exhibit_header {
       }
       h3.exhibit_date {
         font-size: 14px;
-        font-weight: 600;
         margin-top: 40px;
       }
     }
@@ -182,10 +169,8 @@ header.exhibit_header {
       width: 700px;
       height: 299px;
       padding: 40px;
-      box-sizing: border-box;
       border-bottom: 1px solid #f3f1f2;
-      display: flex;
-      justify-content: space-between;
+      @include flex-between;
       h3.exhibit_profit {
         font-size: 14px;
         color: #888;
@@ -197,22 +182,19 @@ header.exhibit_header {
           width: 400px;
           height: 72px;
           border-bottom: 1px solid #ccc;
-          display: flex;
-          justify-content: space-between;
+          @include flex-between;
           position: relative;
           &__left {
             height: 48px;
             width: 100px;
             p.exhibit_price {
               font-size: 14px;
-              font-weight: 600;
               line-height: 48px;
             }
           }
           &__right {
             height: 48px;
-            display: flex;
-            justify-content: space-between;
+            @include flex-between;
             position: absolute;
             right: 0;
             p.exhibit_enn {
@@ -224,10 +206,7 @@ header.exhibit_header {
             input.price__input {
               width: 160px;
               height: 48px;
-              border-radius: 4px;
-              border: 1px solid #ccc;
-              box-sizing: border-box;
-              padding: 10px 16px 8px 16px;
+              @include input-box;
               font-size: 16px;
               line-height: 1.5;
               text-align: right;
@@ -238,8 +217,7 @@ header.exhibit_header {
           width: 400px;
           height: 63px;
           border-bottom: 1px solid #ccc;
-          display: flex;
-          justify-content: space-between;
+          @include flex-between;
           p.exhibit_cost {
             line-height: 63px;
             font-size: 13px;
@@ -248,16 +226,13 @@ header.exhibit_header {
         &__salary {
           width: 400px;
           height: 83px;
-          display: flex;
-          justify-content: space-between;
+          @include flex-between;
           p.exhibit_salary {
             line-height: 83px;
             font-size: 16px;
-            font-weight: bold;
           }
           p.exhibit_salary.price {
             font-size: 34px;
-            font-weight: bold;
           }
         }
       }
@@ -266,7 +241,6 @@ header.exhibit_header {
       width: 700px;
       height: 329px;
       padding: 40px;
-      box-sizing: border-box;
       .exhibit_btn-box {
         font-size: 14px;
         line-height: 1.5;
@@ -305,17 +279,13 @@ header.exhibit_header {
     width: 456px;
     padding: 40px 0;
     margin: 0 auto;
-    box-sizing: border-box;
     position: relative;
     ul {
-      list-style: none;
-      display: flex;
       font-size: 12px;
       padding: 0 40px;
-      justify-content: space-between;
+      @include flex-between;
       li {
         a {
-          text-decoration: none;
           color: black;
         }
       }
@@ -367,10 +337,6 @@ a.help {
   text-decoration: none;
 }
 
-.hidden {
-  display: none;
-}
-
 .second {
   display: none;
 }
@@ -399,7 +365,6 @@ input.exhibit_select {
   margin-top: 8px;
   width: 100%;
   height: 48px;
-  box-sizing: border-box;
   background-color: #fff;
   padding: 0 16px;
   font-size: 16px;

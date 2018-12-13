@@ -125,7 +125,7 @@ $(function() {
     }
   })
   $(".price__input").on('keyup', function(){
-    const num = document.getElementById("9").value;
+    const num = document.getElementById("price").value;
     console.log(num)
     var cost = (num * 0.1)
     var cost_num = parseInt(cost)
