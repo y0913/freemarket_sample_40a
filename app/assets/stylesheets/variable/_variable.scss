@@ -6,3 +6,34 @@
   background-color:#eee;
 }
 
+.back-silver {
+  background-color:#fafafa;
+}
+
+.font-gray{
+  color: #888;
+}
+
+@mixin status($color){
+  padding: 5px 6px;
+  margin-top: 8px;
+  font-size: 12px;
+  height: 22px;
+  color: white;
+  border-radius: 2px;
+  display: inline-block;
+  background-color: $color;
+}
+
+.status-gray{
+  @include status(gray);
+}
+
+.status-blue{
+  @include status(blue);
+}
+
+.status-red{
+  @include status(red);
+}
+
