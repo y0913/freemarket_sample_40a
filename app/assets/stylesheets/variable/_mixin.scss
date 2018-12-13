@@ -17,3 +17,8 @@
   display: inline-block;
   background-color: $color;
 }
+
+@mixin arrow-right{
+  position: absolute;
+  right: 16px;
+}
