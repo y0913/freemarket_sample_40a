@@ -1,0 +1,44 @@
+
+// 太字
+.bold{
+  font-weight: 600;
+}
+
+
+// 背景色
+.back-gray{
+  background-color:#eee;
+}
+
+.back-silver {
+  background-color:#fafafa;
+}
+
+.back-red{
+  background-color: #ea352d;
+}
+
+
+// フォント色
+.font-gray{
+  color: #888;
+}
+
+.font-white{
+  color: #fff;
+}
+
+
+// ステータスアイコン
+
+.status-gray{
+  @include status(gray);
+}
+
+.status-blue{
+  @include status(blue);
+}
+
+.status-red{
+  @include status(red);
+}

@@ -1,0 +1,153 @@
+
+@import "variable/flex";
+@import "variable/mixin";
+@import "variable/reset";
+@import "variable/variable";
+@import "font-awesome";
+@import "modules/header";
+@import "modules/my-page-sidebar";
+@import "modules/footer";
+
+
+
+
+.main-content{
+  padding: 40px;
+  width: 1020px;
+  margin: 40px auto 0 ;
+  display: flex;
+  align-items:flex-start;
+}
+
+
+
+
+
+
+
+.right-content{
+  flex-basis: 700px;
+  #back-img{
+    background-image:image-url("prof-back.JPG");
+    height:200px;
+    margin-bottom: 0px;
+  }
+  &__block{
+    width:100%;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    margin-bottom: 40px;
+    &--avatar{
+      border-radius: 50%;
+    }
+    p{
+      display: inline-block;
+    }
+
+    &__tabs{
+      height:74px;
+      width: 100%;
+      background-color: #eee;
+      li{
+       width: 50%;
+       height: 100%;
+        a{
+
+       }
+      }
+    }
+    &__object{
+      width: 100%;
+      &__link-box{
+        background-color: white;
+        align-items:center;
+        @include border_line;
+        padding:16px;
+        &__img{
+          position: relative;
+        }
+        &__body{
+          width: 560px;
+          padding-left: 20px;
+          &__detail{
+            &--count-box{
+              margin: 8px 6px 0 0;
+            }
+          }
+        }
+        &--string{
+          width: 660px;
+          height:50px;
+          background-color: silver;
+        }
+      }
+    }
+    &__title{
+      background-color: white;
+      width: 100%;
+      height: 72px;
+      padding: 0 16px;
+    }
+  }
+
+}
+
+.active{
+  background-color: white;
+  border-top:2px solid;
+  border-top-color: red;
+}
+
+
+
+.sold-item{
+  width: 40px;
+  height: 40px;
+  border-top: 20px solid red;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid red;
+  position: absolute;
+  top: 0;
+  &--text{
+    color: white;
+    font-size: 11px;
+    transform: rotate( -45deg );
+    position: absolute;
+    top:-15px;
+    left: -23px;
+  }
+
+}
+
+
+
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+.footer-sell-btn {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    display: block;
+    border-radius: 50%;
+    height: 160px;
+    width: 160px;
+    background-color: #ea352d;
+    font: 22px sans-serif;
+    color: #fff;
+    text-align: center;
+    z-index: 1000;
+    div {
+    padding-top: 20px;
+    }
+}
+
+
