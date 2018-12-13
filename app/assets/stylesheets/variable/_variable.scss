@@ -1,7 +1,11 @@
+
+// 太字
 .bold{
   font-weight: 600;
 }
 
+
+// 背景色
 .back-gray{
   background-color:#eee;
 }
@@ -10,10 +14,22 @@
   background-color:#fafafa;
 }
 
+.back-red{
+  background-color: #ea352d;
+}
+
+
+// フォント色
 .font-gray{
   color: #888;
 }
 
+.font-white{
+  color: #fff;
+}
+
+
+// ステータスアイコン
 @mixin status($color){
   padding: 5px 6px;
   margin-top: 8px;
