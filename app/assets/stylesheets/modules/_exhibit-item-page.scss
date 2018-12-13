@@ -4,6 +4,11 @@
   padding: 10px 16px 8px 16px;
 }
 
+@mixin border-padding {
+  padding: 40px;
+  border-bottom: 1px solid #f3f1f2;
+}
+
 header.exhibit_header {
   height: 128px;
   width: 100vw;
@@ -33,7 +38,7 @@ header.exhibit_header {
         font-size: 22px;
       }
     }
-    &__image {
+    &__box {
       width: 620px;
       height: 325px;
       padding: 40px;
@@ -73,14 +78,13 @@ header.exhibit_header {
         }
       }
     }
-    &__content {
+    &__box {
       width: 700px;
       padding: 40px;
       border-bottom: 1px solid #f3f1f2;
       &__name {
         width: 620px;
         height: 70px;
-
         &__input {
           margin-top: 8px;
           height: 56px;
@@ -112,67 +116,18 @@ header.exhibit_header {
         }
       }
     }
-    &__sell {
+    &__halfbox {
       width: 700px;
-      padding: 40px;
-      border-bottom: 1px solid #f3f1f2;
+      @include border-padding;
       @include flex-between;
-      h3.exhibit_sell {
-        font-size: 14px;
-        color: #888;
-      }
       &__item {
         width: 400px;
-        h3.category {
-          font-size: 14px;
-          font-weight: 600;
-        }
-        h3.state {
-          margin-top: 40px;
-          font-size: 14px;
-        }
-      }
-    }
-    &__delivery {
-      width: 700px;
-      padding: 40px;
-      border-bottom: 1px solid #f3f1f2;
-      @include flex-between;
-      h3.exhibit_delivery {
-        font-size: 14px;
-        color: #888;
-      }
-      &__item {
-        width: 400px;
-      }
-      h3.exhibit_burden {
-        font-size: 14px;
-      }
-      select.exhibit_select {
-        margin-top: 8px;
-        width: 100%;
-        height: 48px;
-        background-color: #fff;
-        -webkit-appearance: none;
-        padding: 0 16px;
-        cursor: pointer;
-        font-size: 16px;
-        border: 1px solid #ccc;
-      }
-      h3.exhibit_date {
-        font-size: 14px;
-        margin-top: 40px;
       }
     }
     &__profit {
       width: 700px;
-      padding: 40px;
-      border-bottom: 1px solid #f3f1f2;
+      @include border-padding;
       @include flex-between;
-      h3.exhibit_profit {
-        font-size: 14px;
-        color: #888;
-      }
       &__item {
         width: 400px;
         height: 218px;
@@ -390,7 +345,6 @@ select.exhibit_select {
   margin-top: 8px;
   width: 100%;
   height: 48px;
-  box-sizing: border-box;
   background-color: #fff;
   -webkit-appearance: none;
   padding: 0 16px;
@@ -415,5 +369,19 @@ i.fa.fa-angle-down {
   top: 18px;
   right: 15px;
   font-size: 27px;
+  color: #888;
+}
+
+h3.top {
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+h3.subtitle {
+  font-size: 14px;
+}
+
+h3.about {
+  font-size: 14px;
   color: #888;
 }
