@@ -30,16 +30,6 @@
 
 
 // ステータスアイコン
-@mixin status($color){
-  padding: 5px 6px;
-  margin-top: 8px;
-  font-size: 12px;
-  height: 22px;
-  color: white;
-  border-radius: 2px;
-  display: inline-block;
-  background-color: $color;
-}
 
 .status-gray{
   @include status(gray);
