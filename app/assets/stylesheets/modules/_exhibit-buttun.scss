@@ -1,0 +1,20 @@
+
+
+
+.footer-sell-btn {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    display: block;
+    border-radius: 50%;
+    height: 160px;
+    width: 160px;
+    background-color: #ea352d;
+    font: 22px sans-serif;
+    color: #fff;
+    text-align: center;
+    z-index: 1000;
+    div {
+    padding-top: 20px;
+    }
+}

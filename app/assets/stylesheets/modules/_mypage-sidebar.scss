@@ -1,0 +1,25 @@
+.left-content{
+  flex-basis: 280px;
+  margin-right:40px;
+  &__bar{
+    margin-bottom: 40px;
+    h4{
+      font-weight: 700;
+    }
+    ul{
+      padding-inline-start:0;
+      li{
+        height: 48px;
+        background-color:white;
+        padding: 16px;
+        display: flex;
+        align-items:center;
+        @include border_line;
+        position: relative;
+        i{
+          @include arrow-right;
+        }
+      }
+    }
+  }
+}

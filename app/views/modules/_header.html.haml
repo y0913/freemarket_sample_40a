@@ -1,0 +1,57 @@
+%header
+  .header-inner
+    .cleafix
+      .left
+        %a{:href => "https://www.mercari.com/jp/"}
+          %img{:alt => "mercari", :height => "36", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?206587138", :width => "134"}
+      = form_for @tweets , :html => {:class => "form"} do |f|
+        = button_tag type: 'submit', class: 'submit_btn' do
+          %i.fa.fa-search
+        = f.text_field :text, class: 'text_field', placeholder: 'キーワードから探す'
+    .nav-box
+      .list-left
+        %ul.category
+          %li
+            = link_to "カテゴリーから探す",new_item_path
+            %ul.category__first-child
+              %li
+                = link_to "レディース",new_item_path
+                %ul.category__second-child
+                  %li.second
+                    = link_to "トップス",new_item_path
+                    %ul.category__third-child
+                      %li.third
+                        = link_to "Tシャツ/カットソー(半袖/袖なし)",new_item_path
+                  %li.second
+                    = link_to "ジャケット/アウター",new_item_path
+              %li
+                = link_to "メンズ",new_item_path
+              %li
+                = link_to "おもちゃ・ホビー・グッズ",new_item_path
+          %li
+            = link_to "ブランドから探す",new_item_path
+            %ul.brand__first-child
+              %li
+                = link_to "シャネル",new_item_path
+              %li
+                = link_to "ナイキ",new_item_path
+              %li
+                = link_to "",new_item_path
+      .list-right
+        %ul
+          %li.sign-in
+            = link_to "ログイン",root
+          %li.sign-up
+            = link_to "新規会員登録",root
+          = link_to root do
+            %li
+              %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", :width => "32"}
+              %p マイページ
+          = link_to new_items_path do
+            %li
+              %i.fa.fa-bell-o
+              %p お知らせ
+          = link_to new_items_path do
+            %li
+              %i.fa.fa-check
+              %p やることリスト
