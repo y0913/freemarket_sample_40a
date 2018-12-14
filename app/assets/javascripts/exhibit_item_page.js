@@ -126,12 +126,9 @@ $(function() {
   })
   $(".price__input").on('keyup', function(){
     const num = document.getElementById("price").value;
-    console.log(num)
     var cost = (num * 0.1)
     var cost_num = parseInt(cost)
-    console.log(cost)
     var profit = num - cost_num
-    console.log(profit)
     if (num >= 300 && 9999999 >= num) {
       $('.exhibit_cost.price').val(''),
       $('.exhibit_cost.price').html(`<p class="exhibit_cost.price">¥${cost_num.toLocaleString()}</p>`),
