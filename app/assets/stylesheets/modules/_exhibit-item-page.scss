@@ -130,6 +130,7 @@ header.sub_header {
           @include border-line;
           @include flex-between;
           position: relative;
+          border-bottom: 1px solid #ccc;
           &__left {
             height: 48px;
             width: 100px;
