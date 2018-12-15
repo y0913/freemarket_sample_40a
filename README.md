@@ -63,9 +63,9 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |post_number|integer|null: false|
-|prefecture_id|references|null: false, foreign_key: true|
+|prefecture_id|integer|null: false, foreign_key: true|
 |city|string|null: false|
 |address|string|null: false|
 |building|string|-------|
