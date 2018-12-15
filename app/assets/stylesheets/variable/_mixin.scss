@@ -1,4 +1,4 @@
-@mixin border_line {
+@mixin border-line {
   margin-top: 1px;
 }
 
@@ -16,4 +16,9 @@
   border-radius: 2px;
   display: inline-block;
   background-color: $color;
+}
+
+@mixin arrow-right{
+  position: absolute;
+  right: 16px;
 }

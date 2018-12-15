@@ -1,18 +1,19 @@
-.flex-tandem{
+@mixin flex-tandem{
   display: flex;
   flex-direction:column;
-  line-height: 30px;
+
 }
 
-.flex-row{
+@mixin flex-row{
   display: flex;
   flex-direction:row;
 }
 
-.flex-between{
+@mixin flex-between{
   display: flex;
   justify-content:space-between;
 }
+
 
 .middle-center{
   display: flex;
