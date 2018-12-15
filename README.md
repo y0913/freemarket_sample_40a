@@ -39,10 +39,10 @@ Things you may want to cover:
 |expiration_date_year|integer|null: false|
 |sequrity_code|integer|null: false|
 |introduction|text|-------|
-|avatar|varbinary|-------|
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
+|avatar|string|-------|
+|birth_year|integer|-------|
+|birth_month|integer|-------|
+|birth_day|integer|-------|
 
 ### Association
 - has_many :reviews
