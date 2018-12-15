@@ -21,6 +21,7 @@
 
 .link-bar{
   width: 100%;
+  background-color: gray;
   height: 50px;
   display: flex;
   justify-content:center;
@@ -30,11 +31,12 @@
 .pay-way{
   text-align: right;
   padding: 50px 64px;
-
-  &--text{
-      }
 }
 
 .fa-credit-card{
   margin-right: 10px;
+}
+
+.buttun-disabled{
+  background-color: #888;
 }
