@@ -225,7 +225,7 @@ Things you may want to cover:
 - has_many :category_items, dependent: :destroy
 - has_many :categorys, through: :category_items
 - belongs_to :delivery_day
-- baelongs_to :profit
+- belongs_to :profit
 - has_many :images, dependent: :destroy
 - belongs_to :brand
 - belongs_to :postage
