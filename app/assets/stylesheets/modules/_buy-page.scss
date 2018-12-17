@@ -1,3 +1,13 @@
+// 変数ここから
+.text-center{
+  text-align: center;
+}
+
+.marginT-8px{
+  margin-top: 8px;
+}
+// ここまで
+
 .confirm-buy{
   margin:32px 0 ;
 }
@@ -6,7 +16,7 @@
   width: 320px;
 }
 
-.right-content__box{
+.abeshi-right-content__box{
 
   &--price{
     @include flex-row;
@@ -28,11 +38,4 @@
       text-align: right;
     }
   }
-}
-.text-center{
-  text-align: center;
-}
-
-.marginT-8px{
-  margin-top: 8px;
 }
