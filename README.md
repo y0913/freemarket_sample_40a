@@ -192,7 +192,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|state|integer|null: false|
+|state|string|null: false|
 
 ### Association
 - belongs_to :item
@@ -208,8 +208,10 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 |postage_id|integer|null: false, foreign_key: true|
 |delivery_method_id|integer|null: false, foreign_key: true|
+|prefecture_id|integer|null: false, foreign_key: true|
+|delivery_day_id|integer|null: false, foreign_key: true|
 |price|integer|null: false|
-|brand_id|integer|null: false, foreign_key: true|
+|brand_id|integer|foreign_key: true|
 |likes_count|integer|default: 0|
 |category_id|integer|null: false, foreign_key: true|
 |item_state_id|integer|null: false, foreign_key: true|
