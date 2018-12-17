@@ -11,5 +11,4 @@ end
 def card
 end
 
-
 end

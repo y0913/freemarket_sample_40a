@@ -1,0 +1,41 @@
+// 変数ここから
+.text-center{
+  text-align: center;
+}
+
+.marginT-8px{
+  margin-top: 8px;
+}
+// ここまで
+
+.confirm-buy{
+  margin:32px 0 ;
+}
+
+.width-320{
+  width: 320px;
+}
+
+.abeshi-right-content__box{
+
+  &--price{
+    @include flex-row;
+    justify-content:center;
+    &--postage{
+      align-self: flex-end;
+    }
+  }
+  &--payment{
+    @include flex-between;
+  }
+  &__inner-address{
+    margin:24px 0;
+    &--text{
+      margin: 8px 0;
+      line-height:1.4;
+    }
+    &--change{
+      text-align: right;
+    }
+  }
+}
