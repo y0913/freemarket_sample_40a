@@ -12,24 +12,24 @@
     .main-header__inner__nav-box
       .main-header__inner__nav-box__left
         %ul.category
-          %li
+          %li.category__list
             = link_to "カテゴリーから探す",new_item_path
             %ul.category__first-child
-              %li
+              %li.category__list__first
                 = link_to "レディース",new_item_path
                 %ul.category__second-child
-                  %li.second
+                  %li.category__list__second
                     = link_to "トップス",new_item_path
                     %ul.category__third-child
-                      %li.third
+                      %li.category__list__third
                         = link_to "Tシャツ/カットソー(半袖/袖なし)",new_item_path
-                  %li.second
+                  %li.category__list__second
                     = link_to "ジャケット/アウター",new_item_path
-              %li
+              %li.category__list__first
                 = link_to "メンズ",new_item_path
-              %li
+              %li.category__list__first
                 = link_to "おもちゃ・ホビー・グッズ",new_item_path
-          %li
+          %li.category__list
             = link_to "ブランドから探す",new_item_path
             %ul.brand__first-child
               %li
