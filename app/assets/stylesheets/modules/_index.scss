@@ -1,0 +1,61 @@
+section.carousel {
+  height: 390px;
+  background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/top-banner-kusanagi-xmas.jpg);
+}
+section.pickup {
+  padding: 40px 0;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction: column;
+  .pickup__area{
+    width: 100%;
+    &__text-center {
+      width: 100%;
+      margin: 26px 0;
+      font-size: 22px;
+      font-weight: 600;
+      color: #0099e8;
+      text-align: center;
+    }
+    &__items-box {
+      margin: auto;
+      width: 65%;
+      @include flex-between;
+      &__items {
+        &__photo {
+          border:none;
+          img {
+            width: 213px;
+            height: 213px;
+          }
+        }
+        &__body {
+          box-sizing:border-box;
+          width: 213px;
+          height: 110px;
+          padding: 16px;
+          background-color: white;
+        }
+        &__name {
+          display: block;
+          height: 3em;
+        }
+        &__num {
+          @include flex-between;
+          margin: 5px 0 0 0;
+          height: 1.5em;
+          &__price {
+            font-size: 20px;
+          }
+          &__likes {
+          }
+        }
+        &__tax {
+          width: 100%;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
