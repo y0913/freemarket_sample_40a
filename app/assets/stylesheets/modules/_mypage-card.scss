@@ -1,23 +1,4 @@
-.right-content__box{
-  background-color: white;
-  padding: 16px;
-  @include border-line;
-  &__contena{
-    width: 320px;
-    margin: auto;
-    &--border{
-      @include border-line;
-    }
-    &__card{
-      &--text{
-        margin-top: 64px;
-      }
-      &--bar{
-        margin:24px 0;
-      }
-    }
-  }
-}
+// 変数ここから
 
 .link-bar{
   width: 100%;
@@ -39,4 +20,27 @@
 
 .buttun-disabled{
   background-color: #888;
+}
+
+// ここまで
+
+.abeshi-right-content__box{
+  background-color: white;
+  padding: 16px;
+  @include border-line;
+  &__contena{
+    width: 320px;
+    margin: auto;
+    &--border{
+      @include border-line;
+    }
+    &__card{
+      &--text{
+        margin-top: 64px;
+      }
+      &--bar{
+        margin:24px 0;
+      }
+    }
+  }
 }
