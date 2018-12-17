@@ -195,7 +195,7 @@ Things you may want to cover:
 |state|string|null: false|
 
 ### Association
-- belongs_to :item
+- has_many :items
 
 
 ## itemsテーブル
