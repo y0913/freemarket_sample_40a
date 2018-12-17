@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
   has_many :likes, dependent: :destroy
-  has_many :transactions, dependent: :destroy
   belongs_to :user
   belongs_to :prefecture
   belongs_to :condition
@@ -11,6 +10,5 @@ class Item < ApplicationRecord
   belongs_to :brand
   belongs_to :postage
   belongs_to :delivery_method
-  has_many :item_comments
   belongs_to :item_state
 end
