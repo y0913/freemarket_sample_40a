@@ -1,5 +1,5 @@
-.large--content-box.bold
-  .large-profile-content.middle
+.large-content__box.bold
+  .large-profile__content.middle
     = render 'modules/mypage-sidebar'
     .profile-box
       %h2.profile.head.middle-center プロフィール
@@ -7,6 +7,6 @@
       .profile-icon.middle-center{ src:""}
         %img.content{ src: "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", }/
         %input.nickname{name: "nickname", placeholder: "例)AYA☆セール中", type: "text", value: ""}/
-      .message-profile-content
-        %textarea.message-profile-default{name: "introduction", placeholder: "例）こんにちは☆ "}
-        %button.btn-default.btn-profile.font-white.back-red{type:"submit"} 変更する
+      .message-profile__content
+        %textarea.message-profile__default{name: "introduction", placeholder: "例）こんにちは☆ "}
+        %button.btn__default.btn-profile.font-white.back-red{type:"submit"} 変更する
