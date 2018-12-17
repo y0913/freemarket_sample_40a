@@ -17,7 +17,7 @@
 
    %table.item-detail-table
     %tr
-     %th 出品者
+     %th.back-silver 出品者
      %td
       = link_to "kaeru", "https://www.mercari.com/jp/u/914459821/", class: "items-link_to"
       .user-rating
@@ -31,7 +31,7 @@
        %i.fas.fa-frown
        %span 6
     %tr
-     %th カテゴリー
+     %th.back-silver カテゴリー
      %td
       = link_to "メンズ", "https://www.mercari.com/jp/category/31/",class: "items-link_to"
       .item-detail-table-sub-category
@@ -41,27 +41,27 @@
       %i.fa.fa-chevron-right.items-link_to
       = link_to "ダウンジャケット", "https://www.mercari.com/jp/category/318/", class: "items-link_to"
     %tr
-     %th ブランド
+     %th.back-silver ブランド
      %td
       = link_to "ザ ノースフェイス", "https://www.mercari.com/jp/brand/572/", class: "items-link_to"
     %tr
-     %th 商品のサイズ
+     %th.back-silver 商品のサイズ
      %td M
     %tr
-     %th 商品の状態
+     %th.back-silver 商品の状態
      %td 新品、未使用
     %tr
-     %th 配送料の負担
+     %th.back-silver 配送料の負担
      %td 送料込み(出品者負担)
     %tr
-     %th 配送の方法
+     %th.back-silver 配送の方法
      %td らくらくメルカリ便
     %tr
-     %th 発送元地域
+     %th.back-silver 発送元地域
      %td
       = link_to "岐阜県", "https://www.mercari.com/jp/area/21/", class: "items-link_to"
     %tr
-     %th発送日の目安
+     %th.back-silver 発送日の目安
      %td 2~3日で発送
  .item-price-box
   %span.item-price.bold ￥300,000
@@ -74,7 +74,7 @@
   あまり使っておらず、美品です。
   お仕事で使用されるカバンをお探しの方、いかがでしょうか？
  .item-button-container
-  .item-button-left
+  .item-button-container__left
    %button{:name => "like", :type => "button"}
     %i.far.fa-heart
      %span いいね！
@@ -83,13 +83,14 @@
     %i.far.fa-flag
      %span 不適切な商品の報告
   .item-button__right.items-link_to
-   %i.fa.fa-lock
-    = link_to "あんしん・あんぜんへの取り組み", "https://www.mercari.com/jp/safe/description/"
+   = fa_icon "lock"
+   = link_to "あんしん・あんぜんへの取り組み", "https://www.mercari.com/jp/safe/description/"
  .item-detail-message
-  .message-content
+  .message-content__box
    %ul
-.message-content
- .message-content__box
+
+.message-content__box
+ .message-content__box__form
   %form.message-form{:method => "post"}
    %input{:type => "hidden"}
     %p.attention 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -98,14 +99,14 @@
     %textarea.text{:type => "text", :name => "body"}
   .message-sumit__details
    %button{:type => "submit", :class => "submit"}
-    %span コメントする
+    %span.font-white コメントする
 .next_or_back
  .previous-product.items-link_to
-  %i.fa.fa-chevron-left{:class => "link_to"}
+  =fa_icon "chevron-left"
   = link_to "前の商品へ", "https://item.mercari.com/jp/"
  .next-product.items-link_to
   = link_to "次の商品へ", "https://item.mercari.com/jp/"
-  %i.fa.fa-chevron-right
+  = fa_icon "chevron-right"
 .item-snsbox
  .sns
   .facebook

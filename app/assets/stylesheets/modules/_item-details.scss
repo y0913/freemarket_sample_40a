@@ -1,3 +1,13 @@
+// 共通ファイルに入れるもの
+//リンクの文字
+// .items-link_to{
+//   color: #0099e8;
+// }
+// #f5f5f5 いいね、不適切な商品の報告の色
+// #FFCC00 評価普通の顔の色
+// 
+
+
 .item__details{
  width: 700px;
  height: 100%;
@@ -41,21 +51,17 @@
     img.sub{
      height: 75px;
      width: 75px;
-}
+    }
   }
 }
 
 
-
 table.item-detail-table{
- padding-right: 16px;
- padding-left: 16px;
  border-collapse: collapse;
  height: 380px;
  width: 300px;
  text-align: left;
  th{
-  background-color: #fafafa;
   font-weight: 400;
   width: 39%;
   font-size: 12px;
@@ -75,7 +81,6 @@ table.item-detail-table{
   }
 }
 
-// 共通ファイルに入れる
 .items-link_to{
   color: #0099e8;
 }
@@ -89,7 +94,6 @@ table.item-detail-table{
     }
   }
 }
-
 .user-rating{
  .fas.fa-meh{
   color: #FFCC00;
@@ -136,57 +140,32 @@ table.item-detail-table{
   align-items: center;
   margin: 16px 0 0;
   outline: 0;
- .item-button-left{
+ &__left{
    border-radius: 40px;
-  }
-}
-.item-button-container{
-  button[type="button"]{
+   button[type="button"]{
     border: 1px solid #f5f5f5;
     background-color: #f5f5f5;
     font-size: 14px;
     margin-top: 5px;
     border-radius: 40px;
     outline: 0;
+   }
   }
 }
-
-.message-content__box{
-  p.attention{
-    padding: 8px;
-    font-size: 14px;
-    background:#fff6de;
-    margin-bottom: 8px;
-    text-align: left;
-  }
-}
-
 .item-description{
   p.item-description-inner{
     padding-top: 32px;
     white-space: pre-wrap;
   }
 }
-.message-content{
-  textarea.text{
-   width: 100%;
-   min-height: 104px;
-   padding: 10px;
-   border: 1px solid #ccc;
-   background:#fff;
-   font-size: 16px;
-   line-height: 1.5;
-  }
-}
 
 .message-sumit__details{
- button.submit{
+ button[type="submit"]{
   width: 100%;
   margin: 8px 0 0;
   text-align: center;
   line-height: 48px;
   background:#aaa;
-  color: #fff;
   font-size: 14px;
   outline: 0;
  }
@@ -198,16 +177,35 @@ table.item-detail-table{
   }
 }
 
-.message-content{
+.message-content__box{
   background: white;
   width: 700px;
   margin: 0 auto;
-  .message-content__box{
+  &__form{
   padding: 24px;
   margin-top: 8px;
-    .message-sumit{
-    margin-bottom: 24px;
+   p.attention{
+    padding: 8px;
+    font-size: 14px;
+    background:#fff6de;
+    margin-bottom: 8px;
+    text-align: left;
+    .message-submit{
+     margin-bottom: 24px;
     }
+   }
+  }
+}
+
+.message-content__box{
+  textarea.text[type="text"]{
+   width: 100%;
+   min-height: 104px;
+   padding: 10px;
+   border: 1px solid #ccc;
+   background:#fff;
+   font-size: 16px;
+   line-height: 1.5;
   }
 }
 
@@ -230,7 +228,6 @@ table.item-detail-table{
     justify-content: center;
     font-size: 50px;
     margin-top: 24px;
-
   }
 }
 
