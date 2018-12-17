@@ -1,4 +1,31 @@
-.right-content__box{
+// 変数ここから
+
+.link-bar{
+  width: 100%;
+  background-color: gray;
+  height: 50px;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.pay-way{
+  text-align: right;
+  padding: 50px 64px;
+}
+
+.fa-credit-card{
+  margin-right: 10px;
+}
+
+.buttun-disabled{
+  background-color: #888;
+}
+
+// ここまで
+
+
+.abeshi-right-content__box{
   background-color: white;
   padding: 16px;
   @include border-line;
@@ -19,22 +46,4 @@
   }
 }
 
-.link-bar{
-  width: 100%;
-  height: 50px;
-  display: flex;
-  justify-content:center;
-  align-items:center;
-}
 
-.pay-way{
-  text-align: right;
-  padding: 50px 64px;
-
-  &--text{
-      }
-}
-
-.fa-credit-card{
-  margin-right: 10px;
-}
