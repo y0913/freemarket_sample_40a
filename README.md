@@ -32,17 +32,19 @@ Things you may want to cover:
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
 |tel|integer|null: false, unique: true|
-|name|string|null: false|
-|name_kana|string|null: false|
-|card_number|integer|null: false|
-|expiration_date_month|integer|null: false|
-|expiration_date_year|integer|null: false|
-|sequrity_code|integer|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
+|card_number|integer|-------|
+|expiration_date_month|integer|-------|
+|expiration_date_year|integer|-------|
+|sequrity_code|integer|-------|
 |introduction|text|-------|
-|avatar|varbinary|-------|
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
+|avatar|string|-------|
+|birth_year|integer|-------|
+|birth_month|integer|-------|
+|birth_day|integer|-------|
 
 ### Association
 - has_many :reviews
@@ -61,9 +63,9 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |post_number|integer|null: false|
-|prefecture_id|references|null: false, foreign_key: true|
+|prefecture_id|integer|null: false, foreign_key: true|
 |city|string|null: false|
 |address|string|null: false|
 |building|string|-------|
