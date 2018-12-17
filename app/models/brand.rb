@@ -1,4 +1,4 @@
 class Brand < ApplicationRecord
   has_many :items
-  has_many :categoryies
+  has_many :categories
 end
