@@ -32,38 +32,38 @@ Things you may want to cover:
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
 |tel|integer|null: false, unique: true|
-|name|string|null: false|
-|name_kana|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |card_number|integer|null: false|
 |expiration_date_month|integer|null: false|
 |expiration_date_year|integer|null: false|
 |sequrity_code|integer|null: false|
 |introduction|text|-------|
-|avatar|varbinary|-------|
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
+|avatar|string|-------|
+|birth_year|integer|-------|
+|birth_month|integer|-------|
+|birth_day|integer|-------|
 
 ### Association
-- has_many :reviews
-- has_many :sns_credentials, dependent: :destroy
-- has_many :exhibit_items, dependent: :destroy
-- has_many :buy_items, dependent: :destroy
-- belongs_to :prefecture
-- has_many :items, dependent: :destroy
-- has_many :trades, dependent: :destroy
-- has_many :trading_tables, through: :trades, dependent: :destroy
 - has_many :item_comments
-- has_one :address
+- has_many :sns_credentials, dependent: :destroy
+- has_one  :address
+- has_many :items, dependent: :destroy
+- has_many :transaction_users, dependent: :destroy
+- has_many :transaction_comments, through: :transaction_users, dependent: :destroy
+- has_many :rates
+- has_many :likes
 
 
 ## addressesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |post_number|integer|null: false|
-|prefecture_id|references|null: false, foreign_key: true|
+|prefecture_id|integer|null: false, foreign_key: true|
 |city|string|null: false|
 |address|string|null: false|
 |building|string|-------|
@@ -192,7 +192,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |description|text|null: false|
-|state_id|references|null: false, foreign_key: true|
+|condition_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 |postage_id|references|null: false, foreign_key: true|
 |delivery_method_id|references|null: false, foreign_key: true|
@@ -208,7 +208,7 @@ Things you may want to cover:
 - belongs_to :prefecture
 - belongs_to :buy_item
 - belongs_to :exhibit_item
-- belongs_to :state
+- belongs_to :condition
 - has_many :category_items, dependent: :destroy
 - has_many :categorys, through: :category_items
 - belongs_to :delivery_day
@@ -221,11 +221,11 @@ Things you may want to cover:
 - has_many :item_comments
 
 
-## statesテーブル
+## conditionsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|state|string|null: false|
+|condition|string|null: false|
 
 ### Association
 - has_many :items
@@ -248,6 +248,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|parent_id|integer|-------|
 
 ### Association
 - has_many :category_items, dependent: :destroy
