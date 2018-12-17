@@ -40,7 +40,7 @@
           list-style: none;
           display: flex;
           padding-left: 0;
-          li {
+          li.category__list {
             &:hover ul.category__first-child {
               display: block;
             }
@@ -55,7 +55,7 @@
             top: 85px;
             left: 210px;
             box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
-            li {
+            li.category__list__first {
               &:hover {
                 background-color: red;
                 color: white;
@@ -73,7 +73,7 @@
                 background-color: #f7f7f7;
                 display: none;
                 text-align: left;
-                li.second {
+                li.category__list__second {
                    color: black;
                   &:hover{
                     background-color: #EEE;
@@ -82,7 +82,7 @@
                     display: block;
                     position: absolute;
                     top: 0px;
-                    left: 201px;
+                    left: 200px;
                     width: 280px;
                     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
                   }
@@ -91,7 +91,7 @@
                   background-color: #f7f7f7;
                   display: none;
                   text-align: left;
-                  li.third {
+                  li.category__list__third {
                     color: black;
                     &:hover{
                       background-color: #EEE;
