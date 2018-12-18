@@ -192,10 +192,10 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|state|integer|null: false|
+|state|string|null: false|
 
 ### Association
-- belongs_to :item
+- has_many :items
 
 
 ## itemsテーブル
@@ -208,8 +208,10 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 |postage_id|integer|null: false, foreign_key: true|
 |delivery_method_id|integer|null: false, foreign_key: true|
+|prefecture_id|integer|null: false, foreign_key: true|
+|delivery_day_id|integer|null: false, foreign_key: true|
 |price|integer|null: false|
-|brand_id|integer|null: false, foreign_key: true|
+|brand_id|integer|foreign_key: true|
 |likes_count|integer|default: 0|
 |category_id|integer|null: false, foreign_key: true|
 |item_state_id|integer|null: false, foreign_key: true|
@@ -223,7 +225,7 @@ Things you may want to cover:
 - has_many :category_items, dependent: :destroy
 - has_many :categorys, through: :category_items
 - belongs_to :delivery_day
-- baelongs_to :profit
+- belongs_to :profit
 - has_many :images, dependent: :destroy
 - belongs_to :brand
 - belongs_to :postage
