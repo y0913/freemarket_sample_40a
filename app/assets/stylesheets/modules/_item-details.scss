@@ -1,0 +1,256 @@
+// 共通ファイルに入れるもの
+//リンクの文字
+// .items-link_to{
+//   color: #0099e8;
+// }
+// #f5f5f5 いいね、不適切な商品の報告の色
+// #FFCC00 評価普通の顔の色
+// 
+
+
+.item__details{
+ width: 700px;
+ height: 100%;
+ margin: 0 auto;
+ background: #fff;
+ padding: 24px 40px;
+  &__main-content-boxes{
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: space-between;
+   padding-top: 16px;
+    &__subject{
+     position: relative;
+	   min-width: 280px;
+     max-width: 360px;
+     min-height: 280px;
+     box-sizing: border-box;
+     img.main{
+      width: 300px;
+      height: 300px;
+      object-fit: contain;
+     }
+    }
+  }
+}
+.item__details{
+  h2.item-name{
+  text-align: center;
+  }
+}
+
+.item__details__main-content{
+  .photos{
+    display: flex;
+    justify-content:row;
+    height: 75px;
+    width: 75px;
+    padding: 0;
+    margin: 0;
+    img.sub{
+     height: 75px;
+     width: 75px;
+    }
+  }
+}
+
+
+table.item-detail-table{
+ border-collapse: collapse;
+ height: 380px;
+ width: 300px;
+ text-align: left;
+ th{
+  font-weight: 400;
+  width: 39%;
+  font-size: 12px;
+   td{
+   	width: 100%;
+   	font-size: 12px;
+  }
+ }
+}
+
+table.item-detail-table{
+  th, td{
+    border: 1px solid #f5f5f5;
+    border-collapse: collapse;
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.items-link_to{
+  color: #0099e8;
+}
+table.item-detail-table{
+  border-width: 0;
+  .user-rating{
+    display: flex;
+    padding-top: 8px;
+    .fas.fa-laugh{
+     color: pink;
+    }
+  }
+}
+.user-rating{
+ .fas.fa-meh{
+  color: #FFCC00;
+ }
+}
+
+.user-rating{
+ .fas.fa-frown{
+  color: #5d9dc9;
+ }
+}
+
+.item-price-box{
+  .buy-btn, .status-red{
+   height: 50px;
+   color: #fff;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 16px;
+   font-weight: 600;
+   font-size: 20px;
+  }
+}
+
+.item-price-box{
+ text-align: center;
+ margin-top: 24px;
+ .item-price.bold{
+  font-size: 50px;
+  margin-right: 16px;
+ }
+}
+
+.item-tax{
+ font-size: 10px;
+  .item-shiooing-fee{
+  	font-size: 16px;
+  }
+}
+.item-button-container{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  margin: 16px 0 0;
+  outline: 0;
+ &__left{
+   border-radius: 40px;
+   button[type="button"]{
+    border: 1px solid #f5f5f5;
+    background-color: #f5f5f5;
+    font-size: 14px;
+    margin-top: 5px;
+    border-radius: 40px;
+    outline: 0;
+   }
+  }
+}
+.item-description{
+  p.item-description-inner{
+    padding-top: 32px;
+    white-space: pre-wrap;
+  }
+}
+
+.message-sumit__details{
+ button[type="submit"]{
+  width: 100%;
+  margin: 8px 0 0;
+  text-align: center;
+  line-height: 48px;
+  background:#aaa;
+  font-size: 14px;
+  outline: 0;
+ }
+}
+.item-detail-message{
+  ul{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.message-content__box{
+  background: white;
+  width: 700px;
+  margin: 0 auto;
+  &__form{
+  padding: 24px;
+  margin-top: 8px;
+   p.attention{
+    padding: 8px;
+    font-size: 14px;
+    background:#fff6de;
+    margin-bottom: 8px;
+    text-align: left;
+    .message-submit{
+     margin-bottom: 24px;
+    }
+   }
+  }
+}
+
+.message-content__box{
+  textarea.text[type="text"]{
+   width: 100%;
+   min-height: 104px;
+   padding: 10px;
+   border: 1px solid #ccc;
+   background:#fff;
+   font-size: 16px;
+   line-height: 1.5;
+  }
+}
+
+.next_or_back{
+  width: 700px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.item-snsbox{
+  width: 700px;
+  margin: 0 auto;
+  height: 136px;
+  line-height: 150px;
+  background: white;
+  .sns{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    margin-top: 24px;
+  }
+}
+
+.sns{
+ /*facebookアイコンの色*/
+ .fab.fa-facebook-square{
+  color: #385185;
+  padding-left: 10px;
+ }
+}
+
+.sns{
+ /*twitterアイコンの色*/
+ i.fab.fa-twitter-square{
+  color: #5d9dc9;
+  padding-left: 10px;
+ }
+}
+.sns{
+ /*pinterestアイコンの色*/
+ i.fab.fa-pinterest-square{
+ color: #aa262a;
+ padding-left: 10px;
+ }
+}
+
