@@ -1,0 +1,31 @@
+%section.l-single-container
+  %h3.l-single-head.bold 新規会員登録
+  .l-single-inner
+    .l-single-content
+      .content.back-gray
+        %i.far.fa-envelope
+        .content-box メールアドレスで登録
+      .content.input-box.back-gray
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .field
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: 'sign-up_field'
+            / - if @minimum_password_length
+            /   %em
+            /     (#{@minimum_password_length} characters minimum)
+            = f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: 'sign-up_field'
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再度パスワードを入力", class: 'sign-up_field'
+            = f.submit "新規登録", class: 'sign-up_btn back-red font-white'
+        / = render "devise/shared/links"
+      = link_to new_user_session_path, class: "facebook font-white" do
+        %i.fab.fa-facebook
+        .content-box Facebookで登録
+      = link_to new_user_session_path, class: "google back-red font-white" do
+        %i.fab.fa-google-plus-g
+        .content-box Google+で登録
+
+%p ↓これがコントローラー名
+= controller.controller_name
+
+%p ↓これがアクション名
+= controller.action_name
