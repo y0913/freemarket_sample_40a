@@ -6,4 +6,6 @@ class ItemsController < ApplicationController
   def new
     render :new, layout: "sub-layout"
   end
+  def show
+  end
 end
