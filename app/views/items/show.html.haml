@@ -67,7 +67,11 @@
   %span.item-price.bold ￥300,000
   %span.item-tax (税込)
   %span.item-shipping-fee 送料込み
-  = link_to "購入画面へ進む", "https://www.mercari.com/jp/transaction/buy", class: "buy-btn, status-red"
+  - if user_signed_in?
+   = link_to "購入画面へ進む", "/transaction/buy", class: "buy-btn, status-red",method: :get
+  -else
+   = link_to "購入画面へ進む", user_session_path, class: "buy-btn, status-red", method: :get
+
  .item-description
   %p.item-description-inner
   カバンです。
