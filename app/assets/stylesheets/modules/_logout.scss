@@ -1,11 +1,10 @@
-
 .logout-content {
   background-color: white;
   height: 180px;
   width:700px;
-}
-.logout-content-inner{
-  height:50px;
-  width: 320px;
-  text-decoration: none;
+  &-inner{
+    height:50px;
+    width: 320px;
+    text-decoration: none;
+  }
 }
