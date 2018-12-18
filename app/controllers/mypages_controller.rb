@@ -2,6 +2,7 @@ class MypagesController < ApplicationController
 
 
 def index
+  @items = Item.new
 end
 
 
