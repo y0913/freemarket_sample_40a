@@ -138,6 +138,12 @@ table.item-detail-table{
   }
 }
 
+.item-edit__box{
+  margin: 32px 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
 .message-sumit__details{
  button[type="submit"]{
   width: 100%;
@@ -213,7 +219,31 @@ table.item-detail-table{
   }
 }
 
+.item-edit__box{
+  width: 700px;
+  height: 100%;
+  margin: 0 auto;
+  margin-top:8px;
+  background-color: white;
+  padding: 24px 16px;
+  text-align: center;
+   &__price{
+    height: 50px;
+    line-height: 50px;
+    &__box__main-contents{
+      background-color: #aaa;
+    }
+   }
+}
 
-
-
-
+.item-edit__box{
+  button[type="submit"]{
+  width: 100%;
+  margin: 8px 0 0;
+  text-align: center;
+  line-height: 48px;
+  background:#aaa;
+  font-size: 14px;
+  outline: 0;
+  }
+}
