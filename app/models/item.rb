@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   has_many :likes, dependent: :destroy
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :prefecture
   belongs_to :condition
   has_many :category_items, dependent: :destroy
