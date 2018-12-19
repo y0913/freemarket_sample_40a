@@ -5,14 +5,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
     create_table :users do |t|
       ## Database authenticatable
       t.string  :nickname,           null: false
-      t.string  :email,              null: false, default: ""
+      t.string  :email,              null: false, unique: true, default: ""
       t.string  :encrypted_password, null: false, default: ""
-      t.integer :tel,                null: false, unique: true
+      t.bigint  :tel,                null: false, unique: true
       t.string  :first_name,         null: false
       t.string  :last_name,          null: false
       t.string  :first_name_kana,    null: false
       t.string  :last_name_kana,     null: false
-      t.integer :card_number
+      t.bigint  :card_number
       t.integer :expiration_date_month
       t.integer :expiration_date_year
       t.integer :sequrity_code
