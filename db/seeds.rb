@@ -49,7 +49,7 @@ CSV.foreach('db/prefecture.csv') do |row|
 end
 
 CSV.foreach('db/size.csv') do |row|
-  Size.find_or_create_by(item_id: row[0], size: row[1])
+  Size.find_or_create_by(size: row[0])
 end
 
 CSV.foreach('db/transaction_state.csv') do |row|
@@ -57,7 +57,7 @@ CSV.foreach('db/transaction_state.csv') do |row|
 end
 
 CSV.foreach('db/item.csv') do |row|
-  Item.find_or_create_by!(name: row[0], description: row[1], condition_id: row[2], user_id: row[3], postage_id: row[4], delivery_method_id: row[5], prefecture_id: row[6], delivery_day_id: row[7], price: row[8], brand_id: row[9], likes_count: row[10], category_id: row[11], item_state_id: row[12])
+  Item.find_or_create_by!(name: row[0], description: row[1], condition_id: row[2], user_id: row[3], postage_id: row[4], delivery_method_id: row[5], prefecture_id: row[6], delivery_day_id: row[7], price: row[8], brand_id: row[9], likes_count: row[10], category_id: row[11], item_state_id: row[12], size_id: row[13])
 end
 
 CSV.foreach('db/user.csv') do |row|
