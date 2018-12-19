@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20181218025244) do
   end
 
   create_table "item_states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "state", null: false
+    t.string "state", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -80,17 +80,17 @@ ActiveRecord::Schema.define(version: 20181218025244) do
     t.datetime "updated_at", null: false
     t.string "name", null: false
     t.text "description", null: false
-    t.integer "condition_id", null: false
-    t.integer "user_id", null: false
-    t.integer "postage_id", null: false
-    t.integer "delivery_method_id", null: false
-    t.integer "prefecture_id", null: false
-    t.integer "delivery_id", null: false
+    t.integer "condition_id", default: 0, null: false
+    t.integer "user_id", default: 0, null: false
+    t.integer "postage_id", default: 0, null: false
+    t.integer "delivery_method_id", default: 0, null: false
+    t.integer "prefecture_id", default: 0, null: false
+    t.integer "delivery_day_id", default: 0, null: false
     t.integer "price", null: false
     t.integer "brand_id"
     t.integer "likes_count", default: 0
-    t.integer "category_id", null: false
-    t.integer "item_state_id", null: false
+    t.integer "category_id", default: 0, null: false
+    t.integer "item_state_id", default: 0, null: false
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -123,12 +123,12 @@ ActiveRecord::Schema.define(version: 20181218025244) do
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.integer "tel", null: false
+    t.bigint "tel", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.integer "card_number"
+    t.bigint "card_number"
     t.integer "expiration_date_month"
     t.integer "expiration_date_year"
     t.integer "sequrity_code"
