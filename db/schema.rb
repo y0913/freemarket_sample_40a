@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181218025244) do
+ActiveRecord::Schema.define(version: 20181219071657) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id", null: false
@@ -69,6 +69,14 @@ ActiveRecord::Schema.define(version: 20181218025244) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "item_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "comment", null: false
+    t.integer "user_id", null: false
+    t.integer "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "item_states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "state", null: false
     t.datetime "created_at", null: false
@@ -80,17 +88,18 @@ ActiveRecord::Schema.define(version: 20181218025244) do
     t.datetime "updated_at", null: false
     t.string "name", null: false
     t.text "description", null: false
-    t.integer "condition_id", default: 0, null: false
-    t.integer "user_id", default: 0, null: false
-    t.integer "postage_id", default: 0, null: false
-    t.integer "delivery_method_id", default: 0, null: false
-    t.integer "prefecture_id", default: 0, null: false
-    t.integer "delivery_day_id", default: 0, null: false
+    t.integer "condition_id", null: false
+    t.integer "user_id", null: false
+    t.integer "postage_id", null: false
+    t.integer "delivery_method_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "delivery_day_id", null: false
     t.integer "price", null: false
     t.integer "brand_id"
     t.integer "likes_count", default: 0
-    t.integer "category_id", default: 0, null: false
-    t.integer "item_state_id", default: 0, null: false
+    t.integer "category_id", null: false
+    t.integer "item_state_id", default: 1, null: false
+    t.integer "size_id"
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -112,9 +121,63 @@ ActiveRecord::Schema.define(version: 20181218025244) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "profits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "item_id", null: false
+    t.integer "delivery_cost"
+    t.integer "profit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "rate", null: false
+    t.integer "user_id", null: false
+    t.text "comment"
+    t.integer "transaction_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "size", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.string "uid"
+    t.string "provider"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transaction_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id", null: false
+    t.text "comment"
+    t.integer "transaction_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transaction_states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transaction_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id", null: false
+    t.integer "transaction_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id", null: false
+    t.integer "item_id", null: false
+    t.integer "transaction_state_id", default: 1, null: false
+    t.integer "buyer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
