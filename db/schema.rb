@@ -105,6 +105,9 @@ ActiveRecord::Schema.define(version: 20181219071657) do
     t.integer "item_state_id", default: 1, null: false
     t.integer "size_id"
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> abeshi1019/master
+=======
 >>>>>>> abeshi1019/master
 =======
 >>>>>>> abeshi1019/master
