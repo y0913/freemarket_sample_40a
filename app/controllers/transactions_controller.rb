@@ -1,19 +1,26 @@
 class TransactionsController < ApplicationController
-  def index
+  def show
+    @item = Item.find(params[:id])
+    @user = @item.user
+    @address = @user.address
     render :index, layout: "sub-layout"
   end
 
   def pay
+    @item = Item.find(params[:id])
     Payjp.api_key = 'sk_test_274b737e3ca8b2ce2925f882'
     charge = Payjp::Charge.create(
-      :amount =>  1000,
+      :amount => @item.price,
       :card => params['payjp-token'],
       :currency => 'jpy',
     )
-    redirect_to done_transactions_path
+    redirect_to controller: 'transactions', action: 'done'
   end
 
   def done
+    @item = Item.find(params[:id])
+    @user = @item.user
+    @address = @user.address
     render :done, layout: "sub-layout"
   end
 end
