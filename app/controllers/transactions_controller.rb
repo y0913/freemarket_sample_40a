@@ -10,6 +10,10 @@ class TransactionsController < ApplicationController
       :card => params['payjp-token'],
       :currency => 'jpy',
     )
-    redirect_to root_path, notice: 'ありがとうございました。'
+    redirect_to done_transactions_path
+  end
+
+  def done
+    render :done, layout: "sub-layout"
   end
 end
