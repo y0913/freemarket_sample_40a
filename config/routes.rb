@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   resources :transactions, path: 'transaction/buy' do
     collection do
-      post 'pay' => 'transactions#pay'
-      get 'done' => 'transactions#done'
+      post 'pay/:id' => 'transactions#pay'
+      get 'done/:id' => 'transactions#done'
     end
   end
 end
