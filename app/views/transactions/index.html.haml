@@ -13,7 +13,8 @@
         %h1 支払い金額
         %h1 ¥ 680
       .font-red.marginT-8px 配送先と支払い方法の入力を完了してください。
-      .link-bar.buttun-disabled.marginT-8px.font-white 購入する
+      = form_tag(action: :pay, method: :post) do
+        %script.payjp-button{"data-key" => "pk_test_4f014af23918f8846025854d", :src => "https://checkout.pay.jp", :type => "text/javascript"}
 
 
   .abeshi-right-content__box
