@@ -68,6 +68,7 @@ gem 'rspec-rails'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem "gretel"
+gem "payjp"
 group :production do
   gem 'unicorn'
 end
