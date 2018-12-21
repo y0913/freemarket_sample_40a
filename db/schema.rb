@@ -78,19 +78,19 @@ ActiveRecord::Schema.define(version: 20181218025244) do
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", null: false
-    t.text "description", null: false
-    t.integer "condition_id", default: 0, null: false
-    t.integer "user_id", default: 0, null: false
-    t.integer "postage_id", default: 0, null: false
-    t.integer "delivery_method_id", default: 0, null: false
-    t.integer "prefecture_id", default: 0, null: false
-    t.integer "delivery_day_id", default: 0, null: false
-    t.integer "price", null: false
-    t.integer "brand_id"
-    t.integer "likes_count", default: 0
-    t.integer "category_id", default: 0, null: false
-    t.integer "item_state_id", default: 0, null: false
+    t.string "name"
+    t.text "description"
+    t.integer "condition_id", default: 1
+    t.integer "user_id", default: 1
+    t.integer "postage_id", default: 1
+    t.integer "delivery_method_id", default: 1
+    t.integer "prefecture_id", default: 1
+    t.integer "delivery_day_id", default: 1
+    t.integer "price"
+    t.integer "brand_id", default: 1
+    t.integer "likes_count", default: 1
+    t.integer "category_id", default: 1
+    t.integer "item_state_id", default: 1
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
