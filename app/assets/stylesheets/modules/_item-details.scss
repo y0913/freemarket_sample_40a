@@ -2,6 +2,7 @@
  width: 700px;
  height: 100%;
  margin: 0 auto;
+ margin-top: 40px;
  background: #fff;
  padding: 24px 40px;
   &__main-content-boxes{
@@ -19,7 +20,7 @@
      img.main{
       width: 300px;
       height: 300px;
-      object-fit: contain;
+      object-fit: cover;
      }
     }
   }
@@ -32,18 +33,22 @@
 
 .item__details__main-content{
   .photos{
-    display: flex;
-    justify-content:row;
     height: 75px;
     width: 75px;
     padding: 0;
     margin: 0;
-    img.sub{
-     height: 75px;
-     width: 75px;
+    .small-photo{
+     display: flex;
+     justify-content: space-between;
+     img.sub{
+      height: 75px;
+      width: 75px;
+      object-fit: cover;
+     }
     }
   }
 }
+
 
 
 table.item-detail-table{
@@ -137,6 +142,12 @@ table.item-detail-table{
   }
 }
 
+.item-edit__box{
+  margin: 32px 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
 .message-sumit__details{
  button[type="submit"]{
   width: 100%;
@@ -193,6 +204,7 @@ table.item-detail-table{
   display: flex;
   justify-content: space-between;
   margin-top: 24px;
+  line-height: 50px;
 }
 
 .item-snsbox{
@@ -201,6 +213,7 @@ table.item-detail-table{
   height: 136px;
   line-height: 150px;
   background: white;
+  margin-bottom: 48px;
   .sns{
     display: flex;
     justify-content: center;
@@ -212,7 +225,76 @@ table.item-detail-table{
   }
 }
 
+.item-edit__box{
+  width: 700px;
+  height: 100%;
+  margin: 0 auto;
+  margin-top:8px;
+  background-color: white;
+  padding: 24px 16px;
+  text-align: center;
+   &__price{
+    height: 50px;
+    line-height: 50px;
+    &__box__main-contents{
+      background-color: #aaa;
+    }
+   }
+}
 
+.item-edit__box{
+  button[type="submit"]{
+  width: 100%;
+  margin: 8px 0 0;
+  text-align: center;
+  line-height: 48px;
+  background:#aaa;
+  font-size: 14px;
+  outline: 0;
+  }
+}
+.items-show{
+  width: 700px;
+  margin: 0 auto;
+ .item-show__list{
+   section{
+    text-align: left;
+    font-size: 24px;
+    font-weight: 600;
+   }
+ }
+}
+.items-show{
+  .item-show__list{
+   img{
+   width: 220px;
+   height: 332px;
+   object-fit: cover;
+   }
+  }
+}
 
+.item-show__list__box{
+  display: flex;
+  justify-content:space-between;
+  width: 700px;
+  &__in__detail{
+  text-align: center;
+  height: 110px;
+  width: 220px;
+  background: white;
+   h3{
+   height: 3em;
+  }
+ }
+}
 
+.item-show__list__box__detail__box__in__container__price.bold{
+   display: flex;
+   justify-content:space-between;
+   font-size: 20px;
+  }
 
+ p.item-tax__position{
+  text-align: left;
+ }
