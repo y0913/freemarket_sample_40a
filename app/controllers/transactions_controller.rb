@@ -14,6 +14,8 @@ class TransactionsController < ApplicationController
       :card => params['payjp-token'],
       :currency => 'jpy',
     )
+    @item.item_state_id = 3
+    @item.save
     redirect_to controller: 'transactions', action: 'done'
   end
 
