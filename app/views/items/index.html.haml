@@ -8,6 +8,7 @@
     .pickup__area__text-center
       = link_to "レディース新着アイテム",new_item_path
     .pickup__area__items-box
+<<<<<<< HEAD
       .pickup__area__items-box__items
         = link_to new_item_path do
           .pickup__area__items-box__items__photo
@@ -59,3 +60,21 @@
     .pickup__view-all
       = link_to "すべての商品を見る",new_item_path
 
+=======
+      - @item.each do |item|
+        .pickup__area__items-box__items
+          = link_to new_item_path do
+            .pickup__area__items-box__items__photo
+              %img{ src: item.images.first[:image], class: "top_image"}
+            .pickup__area__items-box__items__body
+              %h4.pickup__area__items-box__items__name
+                = item.name
+              .pickup__area__items-box__items__num
+                .pickup__area__items-box__items__num__price.bold
+                  ¥#{item.price}
+                .pickup__area__items-box__items__num__likes
+                  %i.far.fa-heart
+                  %span
+                  =item.likes_count
+              %p.pickup__area__items-box__items__tax (税込)
+>>>>>>> abeshi1019/master
