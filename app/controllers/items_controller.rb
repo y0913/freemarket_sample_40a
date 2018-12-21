@@ -5,9 +5,6 @@ class ItemsController < ApplicationController
     @items = Item.new
   end
   def new
-    # ヘッダーがform_for @itemsのため仮置き
-    # 別担当者がヘッダー訂正次第削除予定です
-    @items = Item.new
     @item = Item.new
     4.times {@item.images.build}
     render :new, layout: "sub-layout"
