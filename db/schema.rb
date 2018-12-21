@@ -88,12 +88,12 @@ ActiveRecord::Schema.define(version: 20181219071657) do
     t.datetime "updated_at", null: false
     t.string "name", null: false
     t.text "description", null: false
-    t.integer "condition_id", null: false
-    t.integer "user_id", null: false
-    t.integer "postage_id", null: false
-    t.integer "delivery_method_id", null: false
-    t.integer "prefecture_id", null: false
-    t.integer "delivery_day_id", null: false
+    t.integer "condition_id", default: 0, null: false
+    t.integer "user_id", default: 0, null: false
+    t.integer "postage_id", default: 0, null: false
+    t.integer "delivery_method_id", default: 0, null: false
+    t.integer "prefecture_id", default: 0, null: false
+    t.integer "delivery_day_id", default: 0, null: false
     t.integer "price", null: false
     t.integer "brand_id"
     t.integer "likes_count", default: 0
