@@ -114,19 +114,19 @@ a.edit-profile{
 }
 
 i.fa.new{
-  &.fa-angle-down {
+  &.fa-chevron-down {
     position: absolute;
-    top: 12px;
+    top: 16px;
     right: 45px;
+    font-size: 18px;
   }
     &.prefec {
     position: absolute;
-    top: 20px;
+    top: 26px;
     right: 13px;
     }
 
-  &.fa-angle-right.fa-2x.bottom {
+  &.fa-chevron-right.bottom {
     color: #0099e8;
-    font-size: 26px;
   }
 }
