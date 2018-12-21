@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20181219071657) do
     t.integer "likes_count", default: 0
     t.integer "category_id", null: false
     t.integer "item_state_id", default: 1, null: false
+    t.integer "size_id"
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -138,7 +139,6 @@ ActiveRecord::Schema.define(version: 20181219071657) do
   end
 
   create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "item_id", null: false
     t.string "size", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
