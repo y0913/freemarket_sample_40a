@@ -16,9 +16,6 @@
         align-items:center;
         @include border_line;
         position: relative;
-        i{
-          @include arrow-right;
-        }
       }
     }
   }
