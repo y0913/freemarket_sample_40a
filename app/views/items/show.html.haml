@@ -9,6 +9,7 @@
      .small-photo
       - @item.images.each do |image|
        %img.sub{:src => image.image}/
+
    %table.item-detail-table
     %tr
      %th.back-silver 出品者
@@ -79,16 +80,16 @@
   .item-button-container__left
    %button{:name => "like", :type => "button"}
     %i.far.fa-heart
-     %span いいね！
-     %span
-      = @item.likes_count
+    %span いいね！
+    %span
+     = @item.likes_count
    %button{:name => "report", :type => "button"}
     %i.far.fa-flag
-     %span 不適切な商品の報告
+    %span 不適切な商品の報告
   .item-button__right.items-link_to
    = fa_icon "lock"
    = link_to "あんしん・あんぜんへの取り組み", "https://www.mercari.com/jp/safe/description/"
-/ -if current_user_id == @item.user_id
+
 .item-edit__box
  .item-edit__box-main
   .item-edit__box__price.back-red.font-white
@@ -109,11 +110,11 @@
 .message-content__box
  .message-content__box__form
   %form.message-form{:method => "post"}
-   %input{:type => "hidden"}
-    %p.attention 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    %input{:type => "hidden"}
-    %input{:type => "hidden"}
-    %textarea.text{:type => "text", :name => "body"}
+  %input{:type => "hidden"}
+  %p.attention 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+  %input{:type => "hidden"}
+  %input{:type => "hidden"}
+  %textarea.text{:type => "text", :name => "body"}
   .message-sumit__details
    %button{:type => "submit", :class => "submit"}
     %span.font-white コメントする
@@ -124,6 +125,7 @@
  .next-product.items-link_to
   = link_to "次の商品へ", "https://item.mercari.com/jp/"
   = fa_icon "chevron-right"
+
 .item-snsbox
  .sns
   .facebook
