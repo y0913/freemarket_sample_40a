@@ -4,7 +4,7 @@
       .main-header__inner__top__left
         %a{:href => "https://www.mercari.com/jp/"}
           %img{:alt => "mercari", :height => "36", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?206587138", :width => "134"}
-      = form_for @items , html: {class: "main-header__inner__top__form"} do |f|
+      = form_with url: items_path, method: :get, local: true ,html: {class: "main-header__inner__top__form"} do |f|
         .main-header__inner__top__form__search-field.back-silver
           = f.text_field :id, class: 'main-header__inner__top__form__search-field__text-field', placeholder: 'キーワードから探す'
           = button_tag type: 'submit', class: 'main-header__inner__top__form__search-field__search-btn' do
@@ -40,6 +40,8 @@
                 = link_to "",new_item_path
       .main-header__inner__nav-box__right
         %ul.right
+          %li
+            = link_to "ログアウト", destroy_user_session_path, class: "login-link", method: :delete
           %li
             = link_to "ログイン",new_user_session_path, class: "login-link"
           %li
