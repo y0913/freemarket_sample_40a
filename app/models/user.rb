@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_one :address
   has_many :items, dependent: :destroy
   has_many :transaction_users, dependent: :destroy
-  has_many :transactions, through: :transaction_users, dependent: :destroy
+  # has_many :transactions, through: :transaction_users, dependent: :destroy
   has_many :transaction_comments, dependent: :destroy
   has_many :rates
   has_many :likes
