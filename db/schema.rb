@@ -97,20 +97,9 @@ ActiveRecord::Schema.define(version: 20181219071657) do
     t.integer "price", null: false
     t.integer "brand_id"
     t.integer "likes_count", default: 0
-<<<<<<< HEAD
-    t.integer "category_id", default: 0, null: false
-    t.integer "item_state_id", default: 0, null: false
-=======
     t.integer "category_id", null: false
     t.integer "item_state_id", default: 1, null: false
     t.integer "size_id"
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> abeshi1019/master
-=======
->>>>>>> abeshi1019/master
-=======
->>>>>>> abeshi1019/master
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
