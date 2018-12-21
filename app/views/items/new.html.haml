@@ -42,7 +42,7 @@
         .select_box.hide{id: "select_box"}
           %i.fa.fa-angle-down.exhibit
           = item.collection_select :category_id, Category.all, :id, :name,{include_blank: "---",selected:0},{class: "exhibit_select",id: 1}
-        / 階層カテゴリ部分、現状不要なためコメントアウトしています。
+        / 階層カテゴリ部分、現状不要ですが将来的に利用する可能性があるためコメントアウトしています。
         / .select_box.second.1
         /   %i.fa.fa-angle-down.exhibit
         /   %select{class: "exhibit_select", id: "2"}
