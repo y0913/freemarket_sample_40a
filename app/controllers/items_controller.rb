@@ -25,13 +25,10 @@ class ItemsController < ApplicationController
   end
 
   private
-    def items_params
-    	params.require(:items).permit(:user_id, :text, :image, :id)
-
-    def exhibit_params
-      params[:item].permit(:name,:description,:category_id,:condition_id,:item_state_id,:delivery_method_id,:prefecture_id,:price,images_attributes:[:id,:image])
-    end
+  def exhibit_params
+    params[:item].permit(:name,:description,:category_id,:condition_id,:item_state_id,:delivery_method_id,:prefecture_id,:price,images_attributes:[:id,:image])
   end
-end
+  end
+
 
 
