@@ -49,18 +49,22 @@ CSV.foreach('db/prefecture.csv') do |row|
 end
 
 CSV.foreach('db/size.csv') do |row|
-  Size.find_or_create_by(item_id: row[0], size: row[1])
+  Size.find_or_create_by(size: row[0])
+end
+
+CSV.foreach('db/transaction_state.csv') do |row|
+  TransactionState.find_or_create_by!(state: row[0])
 end
 
 CSV.foreach('db/item.csv') do |row|
-  Item.find_or_create_by(name: row[0], description: row[1], condition_id: row[2], user_id: row[3], postage_id: row[4], delivery_method_id: row[5], prefecture_id: row[6], delivery_day_id: row[7], price: row[8], brand_id: row[9], likes_count: row[10], category_id: row[11], item_state_id: row[12])
+  Item.find_or_create_by!(name: row[0], description: row[1], condition_id: row[2], user_id: row[3], postage_id: row[4], delivery_method_id: row[5], prefecture_id: row[6], delivery_day_id: row[7], price: row[8], brand_id: row[9], likes_count: row[10], category_id: row[11], item_state_id: row[12], size_id: row[13])
 end
 
 CSV.foreach('db/user.csv') do |row|
   u = User.new(nickname: row[0], email: row[1], encrypted_password: row[2], tel: row[3], first_name: row[4], last_name: row[5], first_name_kana: row[6], last_name_kana: row[7], card_number: row[8], expiration_date_month: row[9], expiration_date_year: row[10], sequrity_code: row[11], introduction: row[12], avatar: row[13], birth_year: row[14], birth_month: row[15], birth_day: row[16])
-  u.save!(validate: false)
+  u.save(validate: false)
 end
 
 CSV.foreach('db/address.csv') do |row|
-  Address.find_or_create_by!(user_id: row[0], post_number: row[1], prefecture_id: row[2], city: row[3], address: row[4])
+  Address.find_or_create_by(user_id: row[0], post_number: row[1], prefecture_id: row[2], city: row[3], address: row[4])
 end

@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
 
   def index
+    @item = Item.all
     @items = Item.new
   end
-
   def new
     # ヘッダーがform_for @itemsのため仮置き
     # 別担当者がヘッダー訂正次第削除予定です
@@ -12,7 +12,18 @@ class ItemsController < ApplicationController
     4.times {@item.images.build}
     render :new, layout: "sub-layout"
   end
+  def create
+  	Item.create(image: items_params[:image], text: items_params[:text], user_id: current_user.id)
+  end
   def show
+  	@items = Item.new
+  	@item = Item.find(params[:id]) #指定したデータ取得できているかテストする
+    @user = User.find(params[:id])
+  end
+
+  private
+  def items_params
+  	params.require(:items).permit(:user_id, :text, :image, :id)
   end
 
   def create
