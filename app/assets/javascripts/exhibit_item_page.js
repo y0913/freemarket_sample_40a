@@ -117,10 +117,10 @@ $(function() {
   $('.select_box').on("change", function() {
     const str3 = document.getElementById("8").value;
     console.log(str3)
-    if (str3 == 21) {
+    if (str3 == "") {
     $('.delivery_hide').css('display', 'none');
     }
-    else if (str3 == 22 || str3 == 23) {
+    else if (str3 == 1|| str3 == 2) {
     $('.delivery_hide').css('display', 'block');
     }
   })
