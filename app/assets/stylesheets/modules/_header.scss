@@ -1,5 +1,6 @@
 .main-header{
   text-align: center;
+  background-color: #FFF;
   &__inner {
     display: inline-block;
     padding: 8px 0 0 0;
@@ -47,9 +48,9 @@
           }
           ul.category__first-child {
             background-color: #f7f7f7;
-            float: left;
             width: 240px;
             display: none;
+            z-index: 50;
             text-align: left;
             position: absolute;
             top: 85px;
@@ -109,7 +110,7 @@
             ul.brand__first-child{
               background-color: #f7f7f7;
               display: none;
-              float: right;
+              z-index: 50;
               position: absolute;
               top: 85px;
               left: 380px;
