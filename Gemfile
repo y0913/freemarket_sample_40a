@@ -69,7 +69,7 @@ gem 'rspec-rails'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem "gretel"
-gem 'fog'
+gem 'fog-aws'
 group :production do
   gem 'unicorn'
 end
