@@ -1,55 +1,29 @@
 %section.carousel
+  .slider
+    = image_tag 'https://www.mercari.com/jp/assets/img/common/jp/top/top-banner-kusanagi-xmas.jpg'
+    = image_tag 'https://www.mercari.com/jp/assets/img/common/jp/top/top-banner-new-register.png'
 %section.pickup
   %h1.pickup__head.bold ピックアップカテゴリー
   %section.pickup__area
     .pickup__area__text-center
       = link_to "レディース新着アイテム",new_item_path
     .pickup__area__items-box
-      .pickup__area__items-box__items
-        = link_to new_item_path do
-          .pickup__area__items-box__items__photo
-            %img{ src: "https://o.imgz.jp/fashionnews/108247/master_640_1.jpg"}
-          .pickup__area__items-box__items__body
-            %h4.pickup__area__items-box__items__name 新品UNIQLOメンズ冬用ブルゾン
-            .pickup__area__items-box__items__num
-              .pickup__area__items-box__items__num__price.bold ¥ 10,500
-              .pickup__area__items-box__items__num__likes
-                %i.far.fa-heart
-                %span 1
-            %p.pickup__area__items-box__items__tax (税込)
-      .pickup__area__items-box__items
-        = link_to new_item_path do
-          .pickup__area__items-box__items__photo
-            %img{ src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB3vgl5V6I7Dk7ofDu7aY3hS6QGYhAwvz2bdcq8c2KPV-LS3Tl"}
-          .pickup__area__items-box__items__body
-            %h4.pickup__area__items-box__items__name 新品UNIQLOメンズ冬用ブルゾン
-            .pickup__area__items-box__items__num
-              .pickup__area__items-box__items__num__price.bold ¥ 10,500
-              .pickup__area__items-box__items__num__likes
-                %i.far.fa-heart
-                %span 1
-            %p.pickup__area__items-box__items__tax (税込)
-      .pickup__area__items-box__items
-        = link_to new_item_path do
-          .pickup__area__items-box__items__photo
-            %img{ src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRws0Xe6-w4ZIOi4MnJgTZMKEgMTZk5y-T5bSAkeWelywbQ6vSVgQ"}
-          .pickup__area__items-box__items__body
-            %h4.pickup__area__items-box__items__name 新品UNIQLOメンズ冬用ブルゾン
-            .pickup__area__items-box__items__num
-              .pickup__area__items-box__items__num__price.bold ¥ 10,500
-              .pickup__area__items-box__items__num__likes
-                %i.far.fa-heart
-                %span 1
-            %p.pickup__area__items-box__items__tax (税込)
-      .pickup__area__items-box__items
-        = link_to new_item_path do
-          .pickup__area__items-box__items__photo
-            %img{ src: "https://giwiz-tpc.c.yimg.jp/q/iwiz-tpc/images/story/2018/8/29/1535496710_1535496680_HiroshiAbe_0022-p-s.jpg"}
-          .pickup__area__items-box__items__body
-            %h4.pickup__area__items-box__items__name 新品UNIQLOメンズ冬用ブルゾン
-            .pickup__area__items-box__items__num
-              .pickup__area__items-box__items__num__price.bold ¥ 10,500
-              .pickup__area__items-box__items__num__likes
-                %i.far.fa-heart
-                %span 1
-            %p.pickup__area__items-box__items__tax (税込)
+      - @item.each do |item|
+        .pickup__area__items-box__items
+          = link_to new_item_path do
+            .pickup__area__items-box__items__photo
+              = image_tag item.images.first.image,class: "top_image"
+
+            .pickup__area__items-box__items__body
+              %h4.pickup__area__items-box__items__name
+                = item.name
+              .pickup__area__items-box__items__num
+                .pickup__area__items-box__items__num__price.bold
+                  ¥#{item.price}
+                .pickup__area__items-box__items__num__likes
+                  %i.far.fa-heart
+                  %span
+                  =item.likes_count
+              %p.pickup__area__items-box__items__tax (税込)
+    .pickup__view-all
+      = link_to "すべての商品を見る",new_item_path
