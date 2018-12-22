@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
 
   def create
     @item =Item.new(exhibit_params)
+    binding.pry
     @item.save
   end
 

@@ -40,21 +40,24 @@
                 = link_to "",new_item_path
       .main-header__inner__nav-box__right
         %ul.right
-          %li
-            = link_to "ログアウト", destroy_user_session_path, class: "login-link", method: :delete
-          %li
-            = link_to "ログイン",new_user_session_path, class: "login-link"
-          %li
-            = link_to "新規会員登録",new_user_registration_path, class: "registration-link"
-          %li
-            = link_to new_item_path do
-              %img{:class => "avater-image", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", :width => "32"}
-              %span マイページ
-          %li
-            = link_to new_item_path do
-              %i.far.fa-bell
-              %span お知らせ
-          %li
-            = link_to new_item_path do
-              %i.fa.fa.fa-check
-              %span やることリスト
+          - if user_signed_in?
+            %li
+              = link_to "ログアウト", destroy_user_session_path, class: "login-link", method: :delete
+            %li
+              = link_to new_item_path do
+                %img{:class => "avater-image", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", :width => "32"}
+                %span マイページ
+            %li
+              = link_to new_item_path do
+                %i.far.fa-bell
+                %span お知らせ
+            %li
+              = link_to new_item_path do
+                %i.fa.fa.fa-check
+                %span やることリスト
+          - else
+            %li
+              = link_to "ログイン",new_user_session_path, class: "login-link"
+            %li
+              = link_to "新規会員登録",new_user_registration_path, class: "registration-link"
+
