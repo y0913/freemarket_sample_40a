@@ -3,7 +3,7 @@ class TransactionsController < ApplicationController
     @item = Item.find(params[:id])
     @user = @item.user
     @address = @user.address
-    render :index, layout: "sub-layout"
+    render :index, layout: "sub-layout" and return
   end
 
   def pay
@@ -11,7 +11,7 @@ class TransactionsController < ApplicationController
     Payjp.api_key = 'sk_test_274b737e3ca8b2ce2925f882'
     charge = Payjp::Charge.create(
       :amount => @item.price,
-      :card => params['payjp-token'],
+      :customer => 'cus_acd01324dde1603d181d040f7a8f',
       :currency => 'jpy',
     )
     @item.item_state_id = 3
