@@ -183,14 +183,14 @@ ActiveRecord::Schema.define(version: 20181219071657) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "nickname", null: false
+    t.string "nickname", default: ""
     t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.bigint "tel", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "first_name_kana", null: false
-    t.string "last_name_kana", null: false
+    t.string "encrypted_password", default: ""
+    t.bigint "tel"
+    t.string "first_name", default: ""
+    t.string "last_name", default: ""
+    t.string "first_name_kana", default: ""
+    t.string "last_name_kana", default: ""
     t.bigint "card_number"
     t.integer "expiration_date_month"
     t.integer "expiration_date_year"
