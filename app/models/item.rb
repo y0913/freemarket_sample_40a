@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   belongs_to :profit, optional: true
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
-  belongs_to :brand
+  belongs_to :brand,optional: true
   belongs_to :postage
   belongs_to :delivery_method
   belongs_to :size, optional: true
