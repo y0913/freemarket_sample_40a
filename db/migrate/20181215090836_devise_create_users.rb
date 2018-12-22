@@ -4,14 +4,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string  :nickname,           null: false
-      t.string  :email,              null: false, unique: true, default: ""
-      t.string  :encrypted_password, null: false, default: ""
-      t.bigint  :tel,                null: false, unique: true
-      t.string  :first_name,         null: false
-      t.string  :last_name,          null: false
-      t.string  :first_name_kana,    null: false
-      t.string  :last_name_kana,     null: false
+      t.string  :nickname
+      t.string  :email, unique: true, default: ""
+      t.string  :encrypted_password, default: ""
+      t.bigint  :tel, unique: true
+      t.string  :first_name
+      t.string  :last_name
+      t.string  :first_name_kana
+      t.string  :last_name_kana
       t.bigint  :card_number
       t.integer :expiration_date_month
       t.integer :expiration_date_year
@@ -58,3 +58,22 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
     # add_index :users, :unlock_token,         unique: true
   end
 end
+
+# 後でこれに戻します
+# t.string  :nickname,           null: false
+#       t.string  :email,              null: false, unique: true, default: ""
+#       t.string  :encrypted_password, null: false, default: ""
+#       t.bigint  :tel,                null: false, unique: true
+#       t.string  :first_name,         null: false
+#       t.string  :last_name,          null: false
+#       t.string  :first_name_kana,    null: false
+#       t.string  :last_name_kana,     null: false
+#       t.bigint  :card_number
+#       t.integer :expiration_date_month
+#       t.integer :expiration_date_year
+#       t.integer :sequrity_code
+#       t.text    :introduction
+#       t.string  :avatar
+#       t.integer :birth_year
+#       t.integer :birth_month
+#       t.integer :birth_day
