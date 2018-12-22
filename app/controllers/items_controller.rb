@@ -17,12 +17,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # ヘッダーがform_for @itemsのため仮置き
-    # 別担当者がヘッダー訂正次第削除予定です
-
-    @items = Item.new
     @item =Item.new(exhibit_params)
-    binding.pry
     @item.save
   end
 
