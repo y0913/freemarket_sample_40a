@@ -146,6 +146,7 @@ table.item-detail-table{
   margin: 32px 16px;
   margin-top: 16px;
   margin-bottom: 16px;
+
 }
 
 .message-sumit__details{
@@ -229,7 +230,6 @@ table.item-detail-table{
   width: 700px;
   height: 100%;
   margin: 0 auto;
-  margin-top:8px;
   background-color: white;
   padding: 24px 16px;
   text-align: center;
@@ -297,4 +297,8 @@ table.item-detail-table{
 
  p.item-tax__position{
   text-align: left;
+ }
+
+ .item-edit__box__or{
+  margin: 18px 0 10px;
  }

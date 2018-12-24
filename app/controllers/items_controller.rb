@@ -14,12 +14,20 @@ class ItemsController < ApplicationController
   	@items = Item.new
   	@item = Item.find(params[:id]) #指定したデータ取得できているかテストする
     @user = User.find(params[:id])
+
   end
 
   def create
     @item =Item.new(exhibit_params)
-    binding.pry
+
     @item.save
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    if item.user_id == current_user.id
+    item.destroy
+    end
   end
 
   private
