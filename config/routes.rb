@@ -10,5 +10,10 @@ Rails.application.routes.draw do
   # これ必要な数とアクションでルーティングしないとrake routesがキモい
   # resources :transactions, path: 'transaction/buy/:item_id'
 
-  resources :transactions, path: 'transaction/buy'
+  resources :transactions, path: 'transaction/buy' do
+    collection do
+      post 'pay/:id' => 'transactions#pay'
+      get 'done/:id' => 'transactions#done'
+    end
+  end
 end
