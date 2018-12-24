@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
 
   def create
     @item =Item.new(exhibit_params)
-
     @item.save
   end
 
