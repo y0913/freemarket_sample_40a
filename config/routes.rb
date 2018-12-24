@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'mypage/logout' => 'mypages#logout'
   get 'transaction/buy/done' => 'transactions#bought'
   resources :mypages, path: 'mypage'
-
+  delete 'items/:id' =>'items#destroy'
   # これ必要な数とアクションでルーティングしないとrake routesがキモい
   # resources :transactions, path: 'transaction/buy/:item_id'
 
