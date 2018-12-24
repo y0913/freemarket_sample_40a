@@ -23,14 +23,14 @@
           %span{class: "exhibit_must font-white"}
             必須
         .main__exhibit__box__name__input
-          = item.text_field :name,class: :exhibit_input,placeholder: '商品名（必須40文字まで）'
+          = item.text_field :name,required:true,maxlength:"40",class: :exhibit_input,placeholder: '商品名（必須40文字まで）'
       .main__exhibit__box__detail
         %p{class: "bold"}
           商品の説明
           %span{class: "exhibit_must font-white"}
             必須
         .main__exhibit__box__detail__textarea
-          = item.text_area  :description,class: :exhibit_textarea,placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+          = item.text_area  :description,required:true,maxlength:"1000",class: :exhibit_textarea,placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
     .main__exhibit__halfbox
       %p{class: "font-gray"}
         商品の詳細
@@ -41,7 +41,7 @@
             必須
         .select_box.hide{id: "select_box"}
           %i.fa.fa-angle-down.exhibit
-          = item.collection_select :category_id, Category.all, :id, :name,{include_blank: "---",selected:0},{class: "exhibit_select",id: 1}
+          = item.collection_select :category_id, Category.all, :id, :name,{include_blank: "---",selected:0},{class: "exhibit_select",id: 1,required:true}
         / 階層カテゴリ部分、現状不要ですが将来的に利用する可能性があるためコメントアウトしています。
         / .select_box.second.1
         /   %i.fa.fa-angle-down.exhibit
@@ -119,7 +119,7 @@
             必須
         .select_box
           %i.fa.fa-angle-down.exhibit
-          = item.collection_select :condition_id, Condition.all, :id, :condition,{include_blank: "---",selected:0},{class: "exhibit_select"}
+          = item.collection_select :condition_id, Condition.all, :id, :condition,{include_blank: "---",selected:0},{required:true,class: "exhibit_select"}
     .main__exhibit__halfbox
       %p{class: "font-gray"}
         配送について
@@ -132,7 +132,7 @@
             必須
         .select_box
           %i.fa.fa-angle-down.exhibit
-          = item.collection_select :postage_id,Postage.all, :id, :burden,{include_blank: "---",selected:0},{class: "exhibit_select",id: 8}
+          = item.collection_select :postage_id,Postage.all, :id, :burden,{include_blank: "---",selected:0},{required:true,class: "exhibit_select",id: 8}
         .delivery_hide
           %p{class: "bold"}
             配送料の負担
@@ -140,21 +140,21 @@
               必須
           .select_box
             %i.fa.fa-angle-down.exhibit
-            = item.collection_select :delivery_method_id,DeliveryMethod.all, :id, :method,{include_blank: "---",selected:0},{class: "exhibit_select",id: 9}
+            = item.collection_select :delivery_method_id,DeliveryMethod.all, :id, :method,{include_blank: "---",selected:0},{required:true,class: "exhibit_select",id: 9}
         %p{class: "top bold"}
           発送元の地域
           %span{class: "exhibit_must font-white"}
             必須
         .select_box
           %i.fa.fa-angle-down.exhibit
-          = item.collection_select :prefecture_id,Prefecture.all, :id, :prefecture,{include_blank: "---",selected:0},{class: "exhibit_select"}
+          = item.collection_select :prefecture_id,Prefecture.all, :id, :prefecture,{include_blank: "---",selected:0},{required:true,class: "exhibit_select"}
         %p{class: "top bold"}
           発送までの日数
           %span{class: "exhibit_must font-white"}
             必須
         .select_box
           %i.fa.fa-angle-down.exhibit
-          = item.collection_select :delivery_day_id,DeliveryDay.all, :id, :day,{include_blank: "---",selected:0},{class: "exhibit_select"}
+          = item.collection_select :delivery_day_id,DeliveryDay.all, :id, :day,{include_blank: "---",selected:0},{required:true,class: "exhibit_select"}
     .main__exhibit__halfbox
       %p{class: "font-gray"}
         販売価格(300~9,999,999)
@@ -170,7 +170,7 @@
           .main__exhibit__halfbox__item__price__right
             %p{class: "exhibit_enn"}
               ¥
-            = item.number_field  :price,class: "price__input",placeholder: '例）300',id: "price"
+            = item.number_field  :price,class: "price__input",placeholder: '例）300',id: "price",required:true
         .main__exhibit__halfbox__item__cost
           %p{class: "exhibit_cost"}
             販売手数料(10%)
