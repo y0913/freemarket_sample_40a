@@ -14,6 +14,7 @@
     justify-content:center;
     &--postage{
       align-self: flex-end;
+      margin-left: 8px;
     }
   }
   &--payment{
@@ -29,4 +30,52 @@
       text-align: right;
     }
   }
+}
+
+#payjp_checkout_box {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  input {
+    width: 100% !important;
+    height: 100% !important;
+    background: #ea352d !important;
+    border: 1px solid #ea352d !important;
+    font-size: 14px !important;
+  }
+}
+
+img.visa_image {
+  width: 26px;
+  height: 20px;
+  object-fit: cover;
+}
+
+.back-white {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.right-content__box--img {
+  width: 148px;
+  height: 148px;
+  object-fit: cover;
+}
+
+.text-center {
+  text-align: center;
+  line-height: 21px;
+}
+
+a.buy_mypage {
+  display: block;
+  margin-top: 16px;
+  color :#0099e8;
+}
+
+.margin-30px {
+  margin: 30px;
 }
