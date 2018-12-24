@@ -7,11 +7,12 @@ class TransactionsController < ApplicationController
   end
 
   def pay
+    @user = User.find(params[:id])
     @item = Item.find(params[:id])
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     charge = Payjp::Charge.create(
       :amount => @item.price,
-      :customer => 'cus_acd01324dde1603d181d040f7a8f',
+      :customer => "#{@user.customer_id}",
       :currency => 'jpy',
     )
     @item.item_state_id = 3
