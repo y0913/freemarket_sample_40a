@@ -88,18 +88,18 @@ ActiveRecord::Schema.define(version: 20181219071657) do
     t.datetime "updated_at", null: false
     t.string "name", null: false
     t.text "description", null: false
-    t.integer "condition_id", default: 0, null: false
-    t.integer "user_id", default: 0, null: false
-    t.integer "postage_id", default: 0, null: false
-    t.integer "delivery_method_id", default: 0, null: false
-    t.integer "prefecture_id", default: 0, null: false
-    t.integer "delivery_day_id", default: 0, null: false
+    t.integer "condition_id", null: false
+    t.integer "user_id", null: false
+    t.integer "postage_id", null: false
+    t.integer "delivery_method_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "delivery_day_id", null: false
     t.integer "price", null: false
-    t.integer "brand_id"
+    t.integer "brand_id", default: 1
     t.integer "likes_count", default: 0
     t.integer "category_id", null: false
     t.integer "item_state_id", default: 1, null: false
-    t.integer "size_id"
+    t.integer "size_id", default: 1
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -183,14 +183,14 @@ ActiveRecord::Schema.define(version: 20181219071657) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "nickname", default: ""
-    t.string "email", default: "", null: false
+    t.string "nickname", default: "太郎"
+    t.string "email", default: ""
     t.string "encrypted_password", default: ""
     t.bigint "tel"
-    t.string "first_name", default: ""
-    t.string "last_name", default: ""
-    t.string "first_name_kana", default: ""
-    t.string "last_name_kana", default: ""
+    t.string "first_name"
+    t.string "last_name"
+    t.string "first_name_kana"
+    t.string "last_name_kana"
     t.bigint "card_number"
     t.integer "expiration_date_month"
     t.integer "expiration_date_year"
