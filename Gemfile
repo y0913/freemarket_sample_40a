@@ -69,11 +69,8 @@ gem 'rspec-rails'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem "gretel"
-<<<<<<< HEAD
 gem "payjp"
-=======
 gem 'fog-aws'
->>>>>>> abeshi1019/master
 group :production do
   gem 'unicorn'
 end
