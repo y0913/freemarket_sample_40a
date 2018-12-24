@@ -32,9 +32,9 @@ CSV.foreach('db/delivery_method.csv') do |row|
   DeliveryMethod.find_or_create_by(method: row[0])
 end
 
-CSV.foreach('db/image.csv') do |row|
-  Image.find_or_create_by(image: row[0], item_id: row[1])
-end
+# CSV.foreach('db/image.csv') do |row|
+#   Image.find_or_create_by(image: row[0], item_id: row[1])
+# end
 
 CSV.foreach('db/item_state.csv') do |row|
   ItemState.find_or_create_by(state: row[0])
