@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
-  resources 'items'
+  resources 'items' do
+    collection do
+      get 'items/search' => 'items#search'
+    end
+  end
   get 'mypage/card' => 'mypages#card'
   get 'mypage/logout' => 'mypages#logout'
   get 'transaction/buy/done' => 'transactions#bought'

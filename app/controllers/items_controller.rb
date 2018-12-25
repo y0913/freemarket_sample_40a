@@ -12,13 +12,18 @@ class ItemsController < ApplicationController
 
   def show
   	@items = Item.new
-  	@item = Item.find(params[:id]) #指定したデータ取得できているかテストする
+  	@item = Item.find(params[:id])
     @user = User.find(params[:id])
+    redirect to action: :search
   end
 
   def create
     @item =Item.new(exhibit_params)
     @item.save
+  end
+
+  def search
+    @item = Item.where('item LIKE(?)', "%#{params[:keyword]}%").limit(20)
   end
 
   private
