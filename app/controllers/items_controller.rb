@@ -14,7 +14,6 @@ class ItemsController < ApplicationController
   	@items = Item.new
   	@item = Item.find(params[:id])
     @user = User.find(params[:id])
-    redirect to action: :search
   end
 
   def create

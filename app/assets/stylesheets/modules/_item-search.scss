@@ -1,0 +1,20 @@
+.search-result__container{
+	width: 1020px;
+	height: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	padding-top: 50px;
+	&__left{
+	 width: 280px;
+	 background-color: white;
+	  &__contents{
+
+	  }
+	}
+}
+
+.serch-result__main{
+	width: 700px;
+	background-color: white;
+}

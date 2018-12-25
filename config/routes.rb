@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'items#index'
   resources 'items' do
     collection do
-      get 'items/search' => 'items#search'
+      get 'search' => 'items#search'
     end
   end
   get 'mypage/card' => 'mypages#card'
