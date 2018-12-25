@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
   def new
     @item = Item.new
-    2.times {@item.images.build}
+    4.times {@item.images.build}
     render :new, layout: "sub-layout"
   end
 
