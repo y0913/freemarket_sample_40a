@@ -4,7 +4,7 @@
  .item__details__main-content
   .item__details__main-content-boxes
    .item__details__main-content-boxes__subject.back-silver
-    = image_tag @item.images.first.image,class: "main"
+    / = image_tag @item.images.first.image,class: "main"
     .photos
      .small-photo
       - @item.images.each do |image|
@@ -87,7 +87,7 @@
   .item-edit__box__main-contents__button
    %button{:type => "submit", :class => "submit"}
     %span.font-white
-     = link_to "この商品を削除する","/items/#{@item.id}", method: :delete
+     = link_to "この商品を削除する",item_path(@item), method: :delete
  - else
   .item-button-container
    .item-button-container__left
