@@ -15,7 +15,7 @@ CSV.foreach('db/brand.csv') do |row|
 end
 
 CSV.foreach('db/category.csv') do |row|
-  Category.find_or_create_by(name: row[0])
+  Category.find_or_create_by(name: row[0], parent_id: row[1])
 end
 
 CSV.foreach('db/category_item.csv') do |row|
