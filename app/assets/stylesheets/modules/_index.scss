@@ -31,13 +31,17 @@ section.pickup {
     &__items-box {
       margin: auto;
       width: 65%;
-      @include flex-between;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
       &__items {
         &__photo {
           border:none;
+          background-color: #fff;
           img {
             width: 213px;
             height: 213px;
+            object-fit: cover;
           }
         }
         &__body {
