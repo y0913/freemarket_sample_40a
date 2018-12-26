@@ -18,6 +18,10 @@ def listing
   @user = current_user
   @trades = Trade.where(transaction_state_id: 1)
   @listing = @trades.where(user_id: current_user.id)
+  @item = Item.find(7)
+end
+
+def purchase
 end
 
 def edit
