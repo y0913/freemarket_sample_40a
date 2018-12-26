@@ -14,6 +14,10 @@ def card
   @items = Item.new
 end
 
+def listing
+  @item = Item.find(params[:id])
+  @user = @item.user
+end
 
 def edit
   @items = Item.new
