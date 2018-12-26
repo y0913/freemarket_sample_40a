@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @item = Item.all
+    @item = Item.order("RAND()")
     @items = Item.new
   end
   def new
@@ -12,8 +12,8 @@ class ItemsController < ApplicationController
 
   def show
   	@items = Item.new
-  	@item = Item.find(params[:id]) #指定したデータ取得できているかテストする
-    @user = User.find(params[:id])
+  	@item = Item.find(params[:id])
+    @user = @item.user
   end
 
   def create
