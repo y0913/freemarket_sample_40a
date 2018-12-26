@@ -55,6 +55,7 @@ section.pickup {
         &__name {
           display: block;
           height: 3em;
+          overflow: hidden;
         }
         &__num {
           @include flex-between;
