@@ -69,6 +69,9 @@ gem 'rspec-rails'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem "gretel"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 group :production do
   gem 'unicorn'
 end
