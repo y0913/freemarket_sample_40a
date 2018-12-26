@@ -24,11 +24,15 @@
       .abeshi-right-content__box__inner-address
         .bold 配送先
         .abeshi-right-content__box__inner-address--text
-          = converting_to_post_number(@address.post_number)
+          / = converting_to_post_number(@address.post_number)
+          〒111-1111
           %br
-          = @address.prefecture.prefecture
-          = @address.city
-          = @address.address
+          / = @address.prefecture.prefecture
+          奈良県
+          / = @address.city
+          大和高田市
+          / = @address.address
+          111
           %br
           = @user.first_name
           = @user.last_name
