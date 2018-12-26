@@ -1,0 +1,36 @@
+- breadcrumb :mypage
+.main-content
+  = render 'modules/mypage-sidebar'
+
+  .abeshi-right-content
+    .abeshi-right-content__block#back-img.middle-center
+      = image_tag "avatar.jpg", alt: "avatar",class: "right-content__block--avatar"
+      .abeshi-right-content__block__user-name.bold #{@user.nickname}
+      .abeshi-right-content__block__user-about
+        %p.abeshi-right-content__block__review 評価
+        %span.bold 10
+        %p.abeshi-right-content__block__exhibit 出品数
+        %span.bold 10点
+
+    .abeshi-right-content__block
+      %ul.abeshi-right-content__block__tabs.back-gray
+        %li.active
+          %h4
+            = link_to "お知らせ", root_path,class:"middle-center bold"
+
+        %li
+          %h4
+            = link_to "やることリスト", root_path,class:"middle-center bold"
+
+
+      %ul.abeshi-right-content__block__object
+        %li
+          = link_to root_path do
+            .abeshi-right-content__block__object__link-box
+              =image_tag @item.images.first.image, alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              .abeshi-right-content__block__object__link-box__body
+                .abeshi-right-content__block__object__link-box__body--text #{@item.name}
+                .abeshi-right-content__block__object__link-box__body--time
+                  %i.fa.fa-history
+                  .abeshi-right-content__block__object__link-box__body--time--date 1日前
+              %i.fa.fa-angle-right.fa-2x
