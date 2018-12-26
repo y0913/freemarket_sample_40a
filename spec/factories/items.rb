@@ -9,7 +9,7 @@ FactoryBot.define do
     delivery_day_id     {2}
     price               {2}
     condition_id        {2}
-    user_id             {2}
+    user_id             {1}
   end
 end
 

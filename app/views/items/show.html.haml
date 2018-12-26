@@ -141,7 +141,7 @@
    = @item.user.nickname
    さんの出品
   .item-show__list__box
-   - @user.items.first.images.first(3).each do |image|
+   - @item.user.items.first.images.first(3).each do |image|
     .item-show__list__box__in
      %img{:src => image.image}
      .item-show__list__box__in__detail
