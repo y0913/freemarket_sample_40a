@@ -21,6 +21,9 @@ def listing
   @item = Item.find(7)
 end
 
+def in_progress
+end
+
 def purchase
 end
 
