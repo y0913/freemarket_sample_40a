@@ -16,9 +16,7 @@ end
 
 def listing
   @user = current_user
-  @trades = Trade.where(transaction_state_id: 1)
-  @listing = @trades.where(user_id: current_user.id)
-  @item = Item.find(7)
+  @items = @user.items
 end
 
 def in_progress
