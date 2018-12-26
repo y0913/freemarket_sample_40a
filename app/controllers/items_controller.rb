@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
   def new
     @item = Item.new
-    2.times {@item.images.build}
+    4.times {@item.images.build}
     render :new, layout: "sub-layout"
   end
 
@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
 
   def create
     @item =Item.new(exhibit_params)
-    binding.pry
     @item.save
   end
 
@@ -26,7 +25,7 @@ class ItemsController < ApplicationController
   def exhibit_params
     params[:item].permit(:name,:description,:condition_id,:postage_id,:delivery_method_id,:prefecture_id,:delivery_day_id,:price,:category_id,images_attributes:[:id,:image]).merge(user_id:current_user.id)
   end
-  end
+end
 
 
 

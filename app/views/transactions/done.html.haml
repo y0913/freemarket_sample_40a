@@ -1,0 +1,49 @@
+.abeshi-right-content.center
+  .abeshi-right-content__box.middle-center
+    %h2.bold.confirm-buy 購入が完了しました
+  .abeshi-right-content__box
+    .width-320.center.text-center
+      = image_tag "#{@item.images.first.image}", alt: "avatar", class: "right-content__box--img marginT-8px;"
+      %h4.abeshi-right-content__box--title.bold.marginT-8px
+        = @item.name
+  .abeshi-right-content__box
+    .width-320.center.text-center
+      .abeshi-right-content__box--price.margin-30px
+        %h1
+          = converting_to_jpy(@item.price)
+        .abeshi-right-content__box--price--postage 送料込み
+      / .link-bar.back-gray.marginT-8px ポイントはありません
+      / .abeshi-right-content__box--payment.bold.marginT-8px
+      /   %h1 支払い金額
+      /   %h1 ¥ 680
+      / .font-red.marginT-8px 配送先と支払い方法の入力を完了してください。
+      / .link-bar.buttun-disabled.marginT-8px.font-white 購入する
+
+
+  .abeshi-right-content__box
+    .width-320.center
+      .abeshi-right-content__box__inner-address
+        .bold 配送先
+        .abeshi-right-content__box__inner-address--text
+          = converting_to_post_number(@address.post_number)
+          %br
+          = @address.prefecture.prefecture
+          = @address.city
+          = @address.address
+          %br
+          = @user.first_name
+          = @user.last_name
+  .abeshi-right-content__box
+    .width-320.center
+      .abeshi-right-content__box__inner-address.middle-center
+        .bold 発送通知後の流れ
+      .abeshi-right-content__box__inner-address.text-center
+        商品を受け取ったら
+        %br
+        出品者の評価をしましょう。
+        %br
+        購入代金が出品者に振り込まれます。
+        %br
+        評価後に取引は完了です。
+        %br
+        = link_to "マイページへもどる", root_path, class: "buy_mypage"
