@@ -206,7 +206,7 @@ ActiveRecord::Schema.define(version: 20181224022806) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "customer_id"
+    t.string "customer_id", default: "cus_acd01324dde1603d181d040f7a8f"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
