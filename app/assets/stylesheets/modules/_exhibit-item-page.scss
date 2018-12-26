@@ -32,26 +32,32 @@ header.sub_header {
       .upload_image_box {
         height: 184px;
         width: 620px;
-        background-color: #f5f5f5;
-        position: absolute;
-        bottom: 40px;
-        border: 1px dashed #ccc;
-        input.image_hidden {
-          opacity: 0;
-          @include full-size;
+        background-color: white;
+        @include flex-row;
+        &--img{
+          @include flex-row;
+          li{
+            width: 140px;
+            border: 1px solid #ccc;
+            margin-right:20px;
+          }
+          &--image{
+              height: 130px;
+            }
+          &--buttun{
+            height: calc(184px - 130px);
+            @include flex-row;
+            a{
+
+            }
+          }
         }
-        pre.upload_item_image {
-          position: absolute;
-          top: 50%;
-          left: 16px;
-          right: 16px;
+        &--text{
           text-align: center;
-          line-height: 1.5;
-          -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-          pointer-events: none;
-          white-space: pre-wrap;
-          word-wrap: break-word;
+          @include flex-tandem;
+          justify-content:center;
+          flex-grow:4;
+          border: 1px dashed #ccc;
         }
       }
       &__name {
