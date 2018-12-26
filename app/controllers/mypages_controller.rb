@@ -24,6 +24,9 @@ end
 def purchase
 end
 
+def purchased
+end
+
 def edit
   @items = Item.new
 end
