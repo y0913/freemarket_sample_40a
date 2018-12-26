@@ -1,9 +1,9 @@
 class TransactionsController < ApplicationController
-  def show
+  def buy
     @item = Item.find(params[:id])
-    @user = @item.user
+    @user = current_user
     @address = @user.address
-    render :index, layout: "sub-layout" and return
+    render :buy, layout: "sub-layout"
   end
 
   def pay

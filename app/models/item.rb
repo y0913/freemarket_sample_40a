@@ -4,8 +4,7 @@ class Item < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :prefecture
   belongs_to :condition
-  has_many :category_items, dependent: :destroy
-  has_many :categorys, through: :category_items
+  belongs_to :category
   belongs_to :delivery_day
   belongs_to :profit, optional: true
   has_many :images, dependent: :destroy
