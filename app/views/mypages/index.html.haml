@@ -5,12 +5,12 @@
   .abeshi-right-content
     .abeshi-right-content__block#back-img.middle-center
       = image_tag "avatar.jpg", alt: "avatar",class: "right-content__block--avatar"
-      .abeshi-right-content__block__user-name.bold 阿部 寛
+      .abeshi-right-content__block__user-name.bold #{@user.nickname}
       .abeshi-right-content__block__user-about
         %p.abeshi-right-content__block__review 評価
-        %span.bold 90
+        %span.bold 10
         %p.abeshi-right-content__block__exhibit 出品数
-        %span.bold 50点
+        %span.bold 10点
 
     .abeshi-right-content__block
       %ul.abeshi-right-content__block__tabs.back-gray

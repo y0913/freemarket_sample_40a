@@ -2,7 +2,7 @@ class MypagesController < ApplicationController
 
 
 def index
-  @items = Item.new
+  @user = current_user
 end
 
 
