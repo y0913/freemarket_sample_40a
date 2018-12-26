@@ -4,7 +4,7 @@
  .item__details__main-content
   .item__details__main-content-boxes
    .item__details__main-content-boxes__subject.back-silver
-    / = image_tag @item.images.first.image,class: "main"
+    = image_tag @item.images.first.image,class: "main"
     .photos
      .small-photo
       - @item.images.each do |image|
@@ -67,9 +67,11 @@
    = converting_to_jpy(@item.price)
   %span.item-tax (税込)
   %span.item-shipping-fee 送料込み
-  - if user_signed_in? && (@item.user_id != current_user.id)
-   = link_to "購入画面へ進む", "/transaction/buy", class: "buy-btn, status-red",method: :get
-  - unless user_signed_in?
+  - if @item.item_state_id == 3
+   = link_to "売り切れました", root_path, class: "buy-btn status-gray",method: :get
+  - elsif user_signed_in? && (@item.user_id != current_user.id) && @item.item_state_id == 1
+   = link_to "購入画面へ進む", "/transaction/buy/#{@item.id}", class: "buy-btn, status-red",method: :get
+  - unless user_signed_in? || @item.item_state_id == 3
    = link_to "購入画面へ進む", user_session_path, class: "buy-btn, status-red", method: :get
 
  .item-description
@@ -134,21 +136,22 @@
   .pinterest
    %i.fab.fa-pinterest-square
 
-.items-show
- .item-show__list
-  %section.items-link_to
-   = @item.user.nickname
-   さんの出品
-  .item-show__list__box
-   - @user.items.each do |item|
-    .item-show__list__box__in
-     / = image_tag item.images.first.image
-     .item-show__list__box__in__detail
-      %h3
-       = item.name
-      .item-show__list__box__in__detail__container
-       .item-show__list__box__detail__box__in__container__price.bold
-        = converting_to_jpy(@item.price)
-        %i.far.fa-heart
-         = item.likes_count
-      %p.item-tax__position (税込)
+/ ユーザーの出品アイテム(一時コメントアウト中)
+/ .items-show
+/  .item-show__list
+/   %section.items-link_to
+/    = @item.user.nickname
+/    さんの出品
+/   .item-show__list__box
+/    - @user.items.each do |item|
+/     .item-show__list__box__in
+/      = image_tag item.images.first.image
+/      .item-show__list__box__in__detail
+/       %h3
+/        = item.name
+/       .item-show__list__box__in__detail__container
+/        .item-show__list__box__detail__box__in__container__price.bold
+/         = converting_to_jpy(@item.price)
+/         %i.far.fa-heart
+/          = item.likes_count
+/       %p.item-tax__position (税込)

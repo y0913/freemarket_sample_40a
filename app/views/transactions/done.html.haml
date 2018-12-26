@@ -3,7 +3,7 @@
     %h2.bold.confirm-buy 購入が完了しました
   .abeshi-right-content__box
     .width-320.center.text-center
-      = image_tag "#{@item.images.first.image}", alt: "avatar", class: "right-content__box--img marginT-8px;"
+      = image_tag @item.images.first.image, alt: "avatar", class: "right-content__box--img marginT-8px;"
       %h4.abeshi-right-content__box--title.bold.marginT-8px
         = @item.name
   .abeshi-right-content__box
