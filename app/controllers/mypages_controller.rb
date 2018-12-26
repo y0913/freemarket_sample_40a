@@ -16,7 +16,8 @@ end
 
 def listing
   @user = current_user
-  @transaction =
+  @trades = Trade.where(transaction_state_id: 1)
+  @listing = @trades.where(user_id: current_user.id)
 end
 
 def edit

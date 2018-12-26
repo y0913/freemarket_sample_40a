@@ -17,8 +17,8 @@ class TransactionsController < ApplicationController
     )
     @item.item_state_id = 3
     @item.save
-    @transaction = Transaction.new(user_id: @item.user_id, item_id: @item.id, transaction_state_id: 1, buyer_id: current_user.id)
-    @transaction.save
+    @trade = Trade.new(user_id: @item.user_id, item_id: @item.id, transaction_state_id: 1, buyer_id: current_user.id)
+    @trade.save
     redirect_to controller: 'transactions', action: 'done'
   end
 
