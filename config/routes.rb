@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'mypage/logout' => 'mypages#logout'
   get 'mypage/listing' => 'mypages#listing'
   get 'mypage/in_progress' => 'mypages#in_progress'
+  get 'mypage/completed' => 'mypages#completed'
   get 'mypage/purchase' => 'mypages#purchase'
   get 'mypage/purchased' => 'mypages#purchased'
   resources :mypages, path: 'mypage'

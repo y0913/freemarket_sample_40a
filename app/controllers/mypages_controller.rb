@@ -24,6 +24,9 @@ end
 def in_progress
 end
 
+def completed
+end
+
 def purchase
 end
 
