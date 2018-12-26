@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @item = Item.all
+    @item = Item.order("RAND()")
     @items = Item.new
   end
   def new
@@ -11,14 +11,24 @@ class ItemsController < ApplicationController
   end
 
   def show
-  	@items = Item.new
-  	@item = Item.find(params[:id]) #指定したデータ取得できているかテストする
-    @user = User.find(params[:id])
+  	@item = Item.find(params[:id]) 
+    @user = @item.user
   end
 
   def create
     @item =Item.new(exhibit_params)
     @item.save
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    if item.user_id == current_user.id
+      if item.destroy
+        redirect_to root_path notice:'削除できました'
+      else
+        redirect_to root_path notice: 'エラーが発生しました。'
+      end
+    end
   end
 
   private
