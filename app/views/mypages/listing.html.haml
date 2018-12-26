@@ -27,7 +27,7 @@
         %li
           = link_to root_path do
             .abeshi-right-content__block__object__link-box
-              =image_tag @item.images.first.image, alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              = image_tag @item.images.first.image, alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
               .abeshi-right-content__block__object__link-box__body
                 .abeshi-right-content__block__object__link-box__body--text #{@item.name}
                 .abeshi-right-content__block__object__link-box__body--time
