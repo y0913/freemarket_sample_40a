@@ -5,14 +5,14 @@ Rails.application.routes.draw do
   get 'mypage/card' => 'mypages#card'
   get 'mypage/card/create' => 'mypages#buy'
   get 'mypage/logout' => 'mypages#logout'
-  get 'transaction/buy/done' => 'transactions#bought'
   resources :mypages, path: 'mypage'
 
   # これ必要な数とアクションでルーティングしないとrake routesがキモい
   # resources :transactions, path: 'transaction/buy/:item_id'
 
-  resources :transactions, path: 'transaction/buy' do
+  resources :transactions, path: 'transaction' do
     collection do
+      get 'buy/:id' => 'transactions#buy'
       post 'pay/:id' => 'transactions#pay'
       get 'done/:id' => 'transactions#done'
     end
