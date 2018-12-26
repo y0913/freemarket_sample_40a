@@ -72,6 +72,9 @@ gem "gretel"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem "payjp"
+gem 'fog-aws'
+gem 'mini_magick'
 group :production do
   gem 'unicorn'
 end
