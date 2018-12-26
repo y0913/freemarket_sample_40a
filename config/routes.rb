@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'mypage/card' => 'mypages#card'
   get 'mypage/card/create' => 'mypages#buy'
   get 'mypage/logout' => 'mypages#logout'
-  get 'mypage/card/listing' => 'mypages#listing'
+  get 'mypage/listing' => 'mypages#listing'
   resources :mypages, path: 'mypage'
   delete 'items/:id' =>'items#destroy'
   # これ必要な数とアクションでルーティングしないとrake routesがキモい
