@@ -15,8 +15,8 @@ def card
 end
 
 def listing
-  @item = Item.find(params[:id])
-  @user = @item.user
+  @user = current_user
+  @transaction =
 end
 
 def edit
@@ -25,6 +25,7 @@ end
 
 def show
   @items = Item.new
+  @user = current_user
 end
 
 def logout
