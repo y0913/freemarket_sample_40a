@@ -17,18 +17,18 @@
             = link_to "売却済み", mypage_completed_path,class:"middle-center bold"
 
       - if @items.present?
-        - @items.each do |item|
+        - @trades.each do |trade|
           %ul.abeshi-right-content__block__object
-            = link_to item_path(item.id) do
+            = link_to "/transaction/order_status/#{trade.item.id}" do
               %li
                 .abeshi-right-content__block__object__link-box
-                  =image_tag item.images.first.image, alt: "item-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+                  =image_tag trade.item.images.first.image, alt: "item-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
                   .abeshi-right-content__block__object__link-box__body
-                    .abeshi-right-content__block__object__link-box__body--text #{item.name}
+                    .abeshi-right-content__block__object__link-box__body--text #{trade.item.name}
                     .abeshi-right-content__block__object__link-box__body__detail.middle
                       .abeshi-right-content__block__object__link-box__body__detail--count-box
                         %i.fa.fa-heart-o
-                        .like-count #{item.likes_count}
+                        .like-count #{trade.item.likes_count}
                       .abeshi-right-content__block__object__link-box__body__detail--count-box
                         %i.fa.fa-comment-o
                         .comment-count 0
