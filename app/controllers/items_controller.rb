@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
     @item = Item.order("RAND()")
     @items = Item.new
   end
+
   def new
     @item = Item.new
     4.times {@item.images.build}
@@ -11,8 +12,11 @@ class ItemsController < ApplicationController
   end
 
   def show
-  	@item = Item.find(params[:id]) 
+  	@item = Item.find(params[:id])
     @user = @item.user
+  end
+
+  def buy
   end
 
   def create
@@ -35,6 +39,7 @@ class ItemsController < ApplicationController
   def exhibit_params
     params[:item].permit(:name,:description,:condition_id,:postage_id,:delivery_method_id,:prefecture_id,:delivery_day_id,:price,:category_id,images_attributes:[:id,:image]).merge(user_id:current_user.id)
   end
+
 end
 
 
