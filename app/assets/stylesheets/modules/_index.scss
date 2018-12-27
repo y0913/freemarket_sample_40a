@@ -31,13 +31,18 @@ section.pickup {
     &__items-box {
       margin: auto;
       width: 65%;
-      @include flex-between;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
       &__items {
         &__photo {
           border:none;
+          background-color: #fff;
+          position: relative;
           img {
             width: 213px;
             height: 213px;
+            object-fit: cover;
           }
         }
         &__body {
@@ -50,6 +55,7 @@ section.pickup {
         &__name {
           display: block;
           height: 3em;
+          overflow: hidden;
         }
         &__num {
           @include flex-between;
@@ -75,4 +81,23 @@ section.pickup {
     right: 250px;
     color: #0099e8;
   }
+}
+
+.sold-item-big {
+  width: 120px;
+  height: 120px;
+  border: 60px solid red;
+  border-right: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-left: 60px solid red;
+  position: absolute;
+}
+
+.sold-item--text-big {
+  color: white;
+  font-size: 27px;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: -35px;
+  left: -57px;
 }

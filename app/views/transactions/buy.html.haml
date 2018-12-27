@@ -3,15 +3,15 @@
     %h2.bold.confirm-buy 購入を確定しますか?
   .abeshi-right-content__box
     .width-320.center.text-center
-      = image_tag "#{@item.images.first.image}", alt: "avatar", class: "right-content__box--img marginT-8px;"
+      = image_tag @item.images.first.image, alt: "avatar", class: "right-content__box--img marginT-8px;"
       %h4.abeshi-right-content__box--title.bold.marginT-8px
         = @item.name
-      .abeshi-right-content__box--price.marginT-8px
+      .abeshi-right-content__box--price.margin-30px
         %h1
           = converting_to_jpy(@item.price)
         .abeshi-right-content__box--price--postage 送料込み
       .link-bar.back-white.marginT-8px ポイントはありません
-      .abeshi-right-content__box--payment.bold.marginT-8px
+      .abeshi-right-content__box--payment.bold.margin-30px
         %h1 支払い金額
         %h1
           = converting_to_jpy(@item.price)
@@ -24,11 +24,15 @@
       .abeshi-right-content__box__inner-address
         .bold 配送先
         .abeshi-right-content__box__inner-address--text
-          = converting_to_post_number(@address.post_number)
+          / = converting_to_post_number(@address.post_number)
+          〒111-1111
           %br
-          = @address.prefecture.prefecture
-          = @address.city
-          = @address.address
+          / = @address.prefecture.prefecture
+          奈良県
+          / = @address.city
+          大和高田市
+          / = @address.address
+          111
           %br
           = @user.first_name
           = @user.last_name

@@ -2,7 +2,7 @@
   .main-header__inner
     .main-header__inner__top
       .main-header__inner__top__left
-        %a{:href => "https://www.mercari.com/jp/"}
+        %a{:href => root_path}
           %img{:alt => "mercari", :height => "36", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?206587138", :width => "134"}
       = form_with url: search_items_path, method: :get, local: true ,html: {class: "main-header__inner__top__form"} do |f|
         .main-header__inner__top__form__search-field.back-silver
@@ -15,29 +15,23 @@
           %li.category__list
             = link_to "カテゴリーから探す",new_item_path
             %ul.category__first-child
-              %li.category__list__first
-                = link_to "レディース",new_item_path
-                %ul.category__second-child
-                  %li.category__list__second
-                    = link_to "トップス",new_item_path
-                    %ul.category__third-child
-                      %li.category__list__third
-                        = link_to "Tシャツ/カットソー(半袖/袖なし)",new_item_path
-                  %li.category__list__second
-                    = link_to "ジャケット/アウター",new_item_path
-              %li.category__list__first
-                = link_to "メンズ",new_item_path
-              %li.category__list__first
-                = link_to "おもちゃ・ホビー・グッズ",new_item_path
+              - @categorys.each do |category1|
+                %li.category__list__first
+                  = link_to "#{category1.name}",new_item_path
+                  %ul.category__second-child
+                    - Category.where(parent_id: category1.id).each do |category2|
+                      %li.category__list__second
+                        = link_to "#{category2.name}",new_item_path
+                        %ul.category__third-child
+                          - Category.where(parent_id: category2.id).each do |category3|
+                            %li.category__list__third
+                              = link_to "#{category3.name}",new_item_path
           %li.category__list
             = link_to "ブランドから探す",new_item_path
             %ul.brand__first-child
-              %li
-                = link_to "シャネル",new_item_path
-              %li
-                = link_to "ナイキ",new_item_path
-              %li
-                = link_to "",new_item_path
+              - @brands.each do |brand|
+                %li
+                  = link_to "#{brand.name}",new_item_path
       .main-header__inner__nav-box__right
         %ul.right
           - if user_signed_in?
@@ -57,7 +51,6 @@
                 %span やることリスト
           - else
             %li
-              = link_to "ログイン",new_user_session_path, class: "login-link"
+              = link_to "ログイン", new_user_session_path, class: "login-link"
             %li
-              = link_to "新規会員登録",new_user_registration_path, class: "registration-link"
-
+              = link_to "新規会員登録", new_user_registration_path, class: "registration-link"

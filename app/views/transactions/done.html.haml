@@ -3,7 +3,7 @@
     %h2.bold.confirm-buy 購入が完了しました
   .abeshi-right-content__box
     .width-320.center.text-center
-      = image_tag "#{@item.images.first.image}", alt: "avatar", class: "right-content__box--img marginT-8px;"
+      = image_tag @item.images.first.image, alt: "avatar", class: "right-content__box--img marginT-8px;"
       %h4.abeshi-right-content__box--title.bold.marginT-8px
         = @item.name
   .abeshi-right-content__box
@@ -12,12 +12,6 @@
         %h1
           = converting_to_jpy(@item.price)
         .abeshi-right-content__box--price--postage 送料込み
-      / .link-bar.back-gray.marginT-8px ポイントはありません
-      / .abeshi-right-content__box--payment.bold.marginT-8px
-      /   %h1 支払い金額
-      /   %h1 ¥ 680
-      / .font-red.marginT-8px 配送先と支払い方法の入力を完了してください。
-      / .link-bar.buttun-disabled.marginT-8px.font-white 購入する
 
 
   .abeshi-right-content__box
@@ -25,11 +19,15 @@
       .abeshi-right-content__box__inner-address
         .bold 配送先
         .abeshi-right-content__box__inner-address--text
-          = converting_to_post_number(@address.post_number)
+          / = converting_to_post_number(@address.post_number)
+          〒111-1111
           %br
-          = @address.prefecture.prefecture
-          = @address.city
-          = @address.address
+          / = @address.prefecture.prefecture
+          奈良県
+          / = @address.city
+          大和高田市
+          / = @address.address
+          111
           %br
           = @user.first_name
           = @user.last_name

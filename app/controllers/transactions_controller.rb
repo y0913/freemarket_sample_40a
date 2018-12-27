@@ -1,13 +1,13 @@
 class TransactionsController < ApplicationController
-  def show
+  def buy
     @item = Item.find(params[:id])
-    @user = @item.user
+    @user = current_user
     @address = @user.address
-    render :index, layout: "sub-layout" and return
+    render :buy, layout: "sub-layout"
   end
 
   def pay
-    @user = User.find(params[:id])
+    @user = current_user
     @item = Item.find(params[:id])
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     charge = Payjp::Charge.create(
@@ -22,7 +22,7 @@ class TransactionsController < ApplicationController
 
   def done
     @item = Item.find(params[:id])
-    @user = @item.user
+    @user = current_user
     @address = @user.address
     render :done, layout: "sub-layout"
   end

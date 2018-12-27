@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
 
   def index
-    @item = Item.all
+    @item = Item.order("RAND()")
+    @items = Item.new
   end
+
   def new
     @item = Item.new
     4.times {@item.images.build}
@@ -11,7 +13,10 @@ class ItemsController < ApplicationController
 
   def show
   	@item = Item.find(params[:id])
-    @user = User.find(params[:id])
+    @user = @item.user
+  end
+
+  def buy
   end
 
   def create
@@ -19,14 +24,22 @@ class ItemsController < ApplicationController
     @item.save
   end
 
-  def search
-    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+  def destroy
+    item = Item.find(params[:id])
+    if item.user_id == current_user.id
+      if item.destroy
+        redirect_to root_path notice:'削除できました'
+      else
+        redirect_to root_path notice: 'エラーが発生しました。'
+      end
+    end
   end
 
   private
   def exhibit_params
     params[:item].permit(:name,:description,:condition_id,:postage_id,:delivery_method_id,:prefecture_id,:delivery_day_id,:price,:category_id,images_attributes:[:id,:image]).merge(user_id:current_user.id)
   end
+
 end
 
 
