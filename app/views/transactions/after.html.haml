@@ -1,0 +1,24 @@
+- breadcrumb :mypage
+.main-content
+  = render 'modules/mypage-sidebar'
+
+  .abeshi-right-content.center
+    .abeshi-right-content__box.middle-center
+      %h2.bold.confirm-buy 取引画面
+    .abeshi-right-content__box
+      .width-320.center
+        .trade_box
+          %i.fa.fa-check
+          %p.font-red.bold 商品の発送を通知しました
+        %p.wait 購入者の受取確認と評価をしばらくお待ち下さい
+    .message-content__box
+      .message-content__box__form
+        %form.message-form{:method => "post"}
+        %input{:type => "hidden"}
+        %p.attention 取引メッセージの内容は、必要に応じて事務局で確認しています
+        %input{:type => "hidden"}
+        %input{:type => "hidden"}
+        %textarea.text{:type => "text", :name => "body"}
+        .message-sumit__details
+          %button{:type => "submit", :class => "submit"}
+            %span.font-white コメントする
