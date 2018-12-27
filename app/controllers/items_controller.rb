@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     render :new, layout: "sub-layout"
   end
 
