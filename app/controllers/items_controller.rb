@@ -16,6 +16,9 @@ class ItemsController < ApplicationController
     @user = @item.user
   end
 
+  def buy
+  end
+
   def create
     @item =Item.new(exhibit_params)
     @item.save
