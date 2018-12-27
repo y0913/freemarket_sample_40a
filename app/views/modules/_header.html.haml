@@ -3,7 +3,7 @@
     .main-header__inner__top
       .main-header__inner__top__left
         %a{:href => root_path}
-          %img{:alt => "mercari", :height => "36", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?206587138", :width => "134"}
+          = image_tag("abecari-logo.svg", class: "mercari-image")
       = form_with url: items_path, method: :get, local: true ,html: {class: "main-header__inner__top__form"} do |f|
         .main-header__inner__top__form__search-field.back-silver
           = f.text_field :id, class: 'main-header__inner__top__form__search-field__text-field', placeholder: 'キーワードから探す'
@@ -38,9 +38,52 @@
             %li
               = link_to "ログアウト", destroy_user_session_path, class: "login-link", method: :delete
             %li
-              = link_to new_item_path do
-                %img{:class => "avater-image", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", :width => "32"}
+              = link_to '/mypage' do
+                = image_tag("avatar.jpg", class: "avater-image")
                 %span マイページ
+              %ul.mypage-box
+                .profile-area
+                  .profile-area__avatar
+                    = image_tag("avatar.jpg")
+                  .profile-area__nickname
+                    %h4= current_user.nickname
+                  .profile-area__list.middle-center
+                    %li 評価:1
+                    %li 出品数:4
+                  .profile-area__sales-point
+                    %ul.center
+                      %li
+                        .sales.back-silver
+                          .sales-left 売上金
+                          .sales-right
+                            %p ¥ 1,281,000
+                            %i.fa.fa-angle-right
+                      %li
+                        .sales.back-silver
+                          .sales-left ポイント
+                          .sales-right
+                            %p P 3000
+                            %i.fa.fa-angle-right
+                .mypage-nav
+                  %ul
+                    %li
+                      .nav-left いいね！一覧
+                      %i.fa.fa-angle-right
+                    %li
+                      .nav-left  出品した商品 - 出品中
+                      %i.fa.fa-angle-right
+                    %li
+                      .nav-left  出品した商品 - 取引中
+                      %i.fa.fa-angle-right
+                    %li
+                      .nav-left  出品した商品 - 売却済み
+                      %i.fa.fa-angle-right
+                    %li
+                      .nav-left  購入した商品 - 取引中
+                      %i.fa.fa-angle-right
+                    %li
+                      .nav-left  購入した商品 - 過去の取引
+                      %i.fa.fa-angle-right
             %li
               = link_to new_item_path do
                 %i.far.fa-bell
