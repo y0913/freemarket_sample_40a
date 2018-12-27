@@ -69,7 +69,7 @@
   %span.item-shipping-fee 送料込み
   - if @item.trade.transaction_state_id == 1
    = form_tag("/transaction/#{@item.id}", method: :post) do
-    %input.submit{:type => "submit", :value => "商品の発送をしたので、発送通知をする", :class => "buy-btn, status-red center", :width => 620}/
+    %input.submit{:type => "submit", :value => "商品の発送をしたので、発送通知をする", :class => "buy-btn status-red center width100"}/
   - else
    %p.submit{:class => "buy-btn status-gray center", :width => 620}/
    商品の発送をしました

@@ -16,7 +16,7 @@
           %h4
             = link_to "売却済み", mypage_completed_path,class:"middle-center bold"
 
-      - if @items.present?
+      - if @trades.present?
         - @trades.each do |trade|
           %ul.abeshi-right-content__block__object
             = link_to "/transaction/order_status/#{trade.item.id}" do
