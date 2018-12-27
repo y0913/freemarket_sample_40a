@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       post 'pay/:id' => 'transactions#pay'
       get 'done/:id' => 'transactions#done'
       get 'order_status/:id' => 'transactions#order_status'
+      get 'after' => 'transactions#after'
+      post ':id' => 'transactions#condition'
     end
   end
 end
