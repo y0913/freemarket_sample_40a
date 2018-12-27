@@ -30,5 +30,19 @@ class TransactionsController < ApplicationController
   end
 
   def order_status
+    @item = Item.find(params[:id])
+    @user = @item.user
+    @trade = @item.trade
+  end
+
+  def after
+  end
+
+  def condition
+    @item = Item.find(params[:id])
+    @trade = Trade.find_by(item_id: @item.id)
+    @trade.transaction_state_id = 2
+    @trade.save
+    redirect_to controller: 'transactions', action: 'after'
   end
 end
