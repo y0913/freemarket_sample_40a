@@ -16,19 +16,27 @@ end
 
 def listing
   @user = current_user
-  @items = @user.items
+  @items = @user.items.where(item_state_id: 1).order("created_at DESC")
 end
 
 def in_progress
+  @user = current_user
+  @items = @user.items.where(item_state_id: 3).order("created_at DESC")
 end
 
 def completed
+  @user = current_user
+  @trades = Trade.where(user_id: @user.id, transaction_state_id: 2)
 end
 
 def purchase
+  @user = current_user
+  @trades = Trade.where(buyer_id: @user.id, transaction_state_id: 1)
 end
 
 def purchased
+  @user = current_user
+  @trades = Trade.where(buyer_id: @user.id, transaction_state_id: 2)
 end
 
 def edit
