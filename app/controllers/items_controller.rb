@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.all
-    @items = Item.new
   end
   def new
     @item = Item.new
@@ -11,7 +10,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-  	@items = Item.new
   	@item = Item.find(params[:id])
     @user = User.find(params[:id])
   end
@@ -22,7 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @item = Item.where('item LIKE(?)', "%#{params[:keyword]}%").limit(20)
+    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
   end
 
   private

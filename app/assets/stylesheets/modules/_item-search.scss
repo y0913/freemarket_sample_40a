@@ -7,6 +7,7 @@
 	padding-top: 50px;
 	&__left{
 	 width: 280px;
+	 height: 1227.5px;
 	 background-color: white;
 	  &__contents{
 
@@ -14,7 +15,14 @@
 	}
 }
 
-.serch-result__main{
-	width: 700px;
-	background-color: white;
+select.select-default{
+ margin-top: 0;
+}
+
+.search__pickup__area__text-center{
+ width: 700px;
+ .pickup__area__items-box{
+  display: flex;
+  flex-wrap: wrap;
+ }
 }
