@@ -16,65 +16,21 @@
           %h4
             = link_to "売却済み", mypage_completed_path,class:"middle-center bold"
 
-
-      %ul.abeshi-right-content__block__object
-        = link_to root_path do
-          %li
-            .abeshi-right-content__block__object__link-box
-              =image_tag "avatar.jpg", alt: "item-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
-              .abeshi-right-content__block__object__link-box__body
-                .abeshi-right-content__block__object__link-box__body--text 【新品・送料込み】阿部寛
-                .abeshi-right-content__block__object__link-box__body__detail.middle
-                  .abeshi-right-content__block__object__link-box__body__detail--count-box
-                    %i.fa.fa-heart-o
-                    .like-count 50
-                  .abeshi-right-content__block__object__link-box__body__detail--count-box
-                    %i.fa.fa-comment-o
-                    .comment-count 1000
-                  .status-blue 出品中
-              %i.fa.fa-angle-right.fa-2x
-
-        = link_to root_path do
-          %li
-            .abeshi-right-content__block__object__link-box
-              =image_tag "avatar.jpg", alt: "item-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
-              .abeshi-right-content__block__object__link-box__body
-                .abeshi-right-content__block__object__link-box__body--text 「阿部寛」を購入しました。取引が完了しました。
-                .abeshi-right-content__block__object__link-box__body__detail.middle
-                  .abeshi-right-content__block__object__link-box__body__detail--count-box
-                    %i.fa.fa-heart-o
-                    .like-count 50
-                  .abeshi-right-content__block__object__link-box__body__detail--count-box
-                    %i.fa.fa-comment-o
-                    .comment-count 1000
-                  .status-gray 取引完了
-              %i.fa.fa-angle-right.fa-2x
-
-
-
-        = link_to root_path do
-          %li
-            .abeshi-right-content__block__object__link-box
-              =image_tag "avatar.jpg", alt: "item-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
-              .abeshi-right-content__block__object__link-box__body
-                .abeshi-right-content__block__object__link-box__body--text 【新品・送料込み】阿部寛
-                .abeshi-right-content__block__object__link-box__body__detail.middle
-                  .abeshi-right-content__block__object__link-box__body__detail--count-box
-                    %i.fa.fa-heart-o
-                    .like-count 50
-                  .abeshi-right-content__block__object__link-box__body__detail--count-box
-                    %i.fa.fa-comment-o
-                    .comment-count 1000
-                  .status-red 公開停止中
-              %i.fa.fa-angle-right.fa-2x
-
-        = link_to root_path do
-          %li
-            .abeshi-right-content__block__object__link-box
-              =image_tag "avatar.jpg", alt: "item-img",width:"47.99px",height:"47.99px",class: ".abeshi-right-content__block__object__link-box__img"
-              .sold-item
-                .sold-item--text SOLD
-              .abeshi-right-content__block__object__link-box__body
-                .abeshi-right-content__block__object__link-box__body--text 【新品・送料込み】阿部寛
-                .abeshi-right-content__block__object__link-box__body__detail.middle ¥5,000
-              %i.fa.fa-angle-right.fa-2x
+      - if @items.present?
+        - @items.each do |item|
+          %ul.abeshi-right-content__block__object
+            = link_to item_path(item.id) do
+              %li
+                .abeshi-right-content__block__object__link-box
+                  =image_tag item.images.first.image, alt: "item-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+                  .abeshi-right-content__block__object__link-box__body
+                    .abeshi-right-content__block__object__link-box__body--text #{item.name}
+                    .abeshi-right-content__block__object__link-box__body__detail.middle
+                      .abeshi-right-content__block__object__link-box__body__detail--count-box
+                        %i.fa.fa-heart-o
+                        .like-count #{item.likes_count}
+                      .abeshi-right-content__block__object__link-box__body__detail--count-box
+                        %i.fa.fa-comment-o
+                        .comment-count 0
+                      .status-gray 取引完了
+                  %i.fa.fa-angle-right.fa-2x
