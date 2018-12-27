@@ -22,8 +22,13 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.update(exhibit_params) if item.user.id == current_user
-      redirect_to item_path(:id)
+    if @item.user_id == current_user.id
+      if @item.update(exhibit_params)
+        redirect_to root_path notice:'編集できました'
+      else
+        redirect_to root_path notice: 'エラーが発生しました。'
+      end
+    end
   end
 
   def show
@@ -38,9 +43,9 @@ class ItemsController < ApplicationController
 
 
   def destroy
-    item = Item.find(params[:id])
-    if item.user_id == current_user.id
-      if item.destroy
+    @item = Item.find(params[:id])
+    if @item.user_id == current_user.id
+      if @item.destroy
         redirect_to root_path notice:'削除できました'
       else
         redirect_to root_path notice: 'エラーが発生しました。'
