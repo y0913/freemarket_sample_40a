@@ -5,15 +5,7 @@
         商品の情報を入力
     .main__exhibit__box
     - @item.images.each do |image|
-      = item.fields_for :images,image do |f|
-        %h4.bold
-          出品画像
-          %span{class: "exhibit_must font-white"}
-            必須
-        %p{class: "exhibit_text"}
-          最大4枚までアップロードできます
-        .upload_image_box
-          = f.file_field :image,class: :exhibit_input,placeholder: '商品名（必須40文字まで）'
+      = render "item_excard"
     .main__exhibit__box
       .main__exhibit__box__name
         %p{class: "bold"}
