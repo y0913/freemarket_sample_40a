@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get 'buy/:id' => 'transactions#buy'
       post 'pay/:id' => 'transactions#pay'
       get 'done/:id' => 'transactions#done'
+      get 'order_status/:id' => 'transactions#order_status'
     end
   end
 end

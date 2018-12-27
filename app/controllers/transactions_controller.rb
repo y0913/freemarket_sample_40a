@@ -28,4 +28,7 @@ class TransactionsController < ApplicationController
     @address = @user.address
     render :done, layout: "sub-layout"
   end
+
+  def order_status
+  end
 end
