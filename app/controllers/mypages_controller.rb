@@ -21,7 +21,7 @@ end
 
 def in_progress
   @user = current_user
-  @items = @user.items.where(item_state_id: 3).order("created_at DESC")
+  @trades = Trade.where(user_id: @user.id, transaction_state_id: 1)
 end
 
 def completed
