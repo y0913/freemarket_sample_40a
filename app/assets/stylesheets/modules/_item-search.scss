@@ -23,6 +23,23 @@ select.select-default{
  width: 700px;
  .pickup__area__items-box{
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
+  &__items__boxes{
+  	display: flex;
+  	justify-content: space-between;
+  }
  }
+}
+
+
+.pickup__area__items-box__items__photo{
+ .top_image{
+  width: 160px;
+  height: 160px;
+ }
+}
+
+p.pickup__area__items-box__items__tax{
+ font-size: 10px;
 }

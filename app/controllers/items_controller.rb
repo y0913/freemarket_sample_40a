@@ -24,6 +24,10 @@ class ItemsController < ApplicationController
     @item.save
   end
 
+  def search
+    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+  end
+
   def destroy
     item = Item.find(params[:id])
     if item.user_id == current_user.id
