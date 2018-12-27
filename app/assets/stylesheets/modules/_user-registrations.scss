@@ -18,6 +18,18 @@ section.l-single-container {
         justify-content: center;
         line-height: 48px;
         position: relative;
+        #error_explanation {
+          display: block;
+          margin: 0 20px;
+          color: red;
+          h2 {
+            font-size: 20px;
+            line-height: 20px;
+          }
+          li {
+            line-height: 40px;
+          }
+        }
         .field {
           position: relative;
           left: 20px;
