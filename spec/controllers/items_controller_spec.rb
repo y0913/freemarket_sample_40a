@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ItemsController, type: :controller do
-end
-
-  # 後で書きます
-
 
   # describe '#new' do
   # end
@@ -21,33 +17,20 @@ end
   #   it 'リダイレクト'
   # end
 
-#   describe 'DELETE#destroy' do
-#     before do
-#       @item = FactoryBot.build(:item)
-#       @user = User.new(id: 1, nickname: "abeshi", email: "abeshi@gmail.com")
-#       if @item.user_id == @user.id
-#         @item.destroy
-#     end
-#   end
-# end
-#     it '商品削除できるか' do
-#       expect(@item.delete).to change{Item.count}.by(1)
-#     end
-#   end
+  # describe '#update' do
+  #   let!(:item){ create(:item) }
+  #   let(:param){ {"utf8"=>"✓", "_method"=>"patch", "item"=>{"images_attributes"=>{"0"=>{"image"=>nil}, "commit"=>"出品する", "controller"=>"items", "action"=>"update", "id"=>"1"}}
+  #   # context 'アイテム出品者と同じユーザーが#updateしようとした場合'
+  #     it 'updateする' do
+  #       patch :update, params: param
 
-# delete :destroy, id:
-#         expect(response).to eq{""}
+  #       expect(assigns(:item)).to eq item
+  #     end
+    # context 'アイテム出品者と違うユーザーが#updateしようとした場合'
+    # #   it 'updateしない'
+    # end
 
-
-  #   it "商品削除できるか" do
-  #     expect{@item.delete}.to change{Item.count}.by(-1)
-  #     expect =(item.delete).to be_truthy
-
-  # end
-
-
-#     end
-#   end
+end
 
 
 
