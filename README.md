@@ -346,3 +346,20 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
+
+
+%section#modalArea.modalArea
+       .modalBg
+       .modalWrapper
+        .modalContents
+         .modal-bold 確認
+         %p 削除すると二度と復活できません。
+         %br
+         削除する代わりに停止することもできます。
+         %br
+         本当に削除しますか？
+         .clearfix
+          %li#closeModal.cansel-button
+           =link_to 'キャンセル',method: :post
+          %li.delete-button
+           =link_to '削除', "", method: :delete

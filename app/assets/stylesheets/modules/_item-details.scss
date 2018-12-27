@@ -302,3 +302,107 @@ table.item-detail-table{
  .item-edit__box__or{
   margin: 18px 0 10px;
  }
+
+
+
+
+
+
+
+
+
+
+
+
+  .modalArea {
+  display: none;
+  position: fixed;
+  z-index: 10; /*サイトによってここの数値は調整 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modalBg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30,30,30,0.9);
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  width: 600px;
+  max-width: 600px;
+  padding: 10px 0 0 0;
+  background-color: #fff;
+}
+
+.modalContents{
+
+}
+
+
+#openModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+}
+
+
+.kakunin{
+  font-size:16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p{
+  font-size:12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.under{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #ccc;
+}
+
+.closeModal{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  height: 50px;
+}
+
+.delete{
+  width: 50%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid #ccc;
+  color:#0099e8;
+  font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
