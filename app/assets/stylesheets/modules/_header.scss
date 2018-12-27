@@ -40,6 +40,7 @@
         ul.category {
           list-style: none;
           display: flex;
+          position: relative;
           padding-left: 0;
           li.category__list {
             &:hover ul.category__first-child {
@@ -47,14 +48,14 @@
             }
           }
           ul.category__first-child {
-            background-color: #f7f7f7;
+            background-color: #FFF;
             width: 240px;
+            height: 500px;
             display: none;
             z-index: 50;
             text-align: left;
             position: absolute;
-            top: 85px;
-            left: 210px;
+            top: 35px;
             box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
             li.category__list__first {
               &:hover {
@@ -68,14 +69,17 @@
                 top: 0px;
                 left: 240px;
                 width: 200px;
-                box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
+                height: 500px;
+                box-shadow: 0 2px 0.1px 0 rgba(0,0,0,0.24);
               }
               ul.category__second-child {
-                background-color: #f7f7f7;
+                background-color: #FFF;
                 display: none;
                 text-align: left;
+                font-size: 14px;
                 li.category__list__second {
                    color: black;
+                   line-height: 30px;
                   &:hover{
                     background-color: #EEE;
                   }
@@ -85,11 +89,12 @@
                     top: 0px;
                     left: 200px;
                     width: 280px;
-                    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
+                    height: 500px;
+                    box-shadow: 0 2px 0.1px 0 rgba(0,0,0,0.24);
                   }
                 }
                 ul.category__third-child {
-                  background-color: #f7f7f7;
+                  background-color: #FFF;
                   display: none;
                   text-align: left;
                   li.category__list__third {
@@ -108,12 +113,11 @@
                 display: block;
               }
             ul.brand__first-child{
-              background-color: #f7f7f7;
+              background-color: #FFF;
               display: none;
               z-index: 50;
               position: absolute;
-              top: 85px;
-              left: 380px;
+              top: 35px;
               width: 200px;
               box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
               text-align: left;
@@ -133,6 +137,84 @@
           flex-direction: row;
           li {
             padding: 0 0 0 16px;
+            position: relative;
+              &:hover .mypage-box {
+                display: block;
+              }
+            ul.mypage-box {
+              display: none;
+              width: 320px;
+              background-color: #FFF;
+              z-index: 50;
+              position: absolute;
+              top: 35px;
+              .profile-area {
+                padding-bottom: 10px;
+                @include flex-tandem;
+                background: url(user-bg.jpg);
+                background-size: 100% auto;
+                background-repeat: no-repeat;;
+                img {
+                  width: 70px;
+                  border-radius: 50px;
+                  position: relative;
+                  top: 30px;
+                }
+                .profile-area__nickname {
+                  padding-top: 20px;
+                }
+                .profile-area__list {
+                  line-height: 10px;
+                }
+                .profile-area__sales-point {
+                  padding-top: 20px;
+                  ul {
+                    border: solid 1px;
+                    border-bottom: none;
+                    border-color: #eee;
+                    width: 280px;
+                    li {
+                      padding-left: 0;
+                      margin-left: 0;
+                      border-bottom: solid 1px;
+                      border-color: #eee;
+                      .sales {
+                        @include flex-between;
+                        .sales-left{
+                          padding-left: 10px;
+                        }
+                        .sales-right {
+                          @include flex-row;
+                           i {
+                            padding: 0 10px;
+                             line-height: inherit;
+                            color: #ccc;
+                           }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              .mypage-nav {
+                ul {
+                  border: solid 1px;
+                  border-bottom: none;
+                  border-color: #eee;
+                  li {
+                    @include flex-between;
+                    line-height: 50px;
+                    border-bottom: solid 1px;
+                    border-color: #eee;
+                    i {
+                      padding: 0 10px;
+                      line-height: inherit;
+                      color: #ccc;
+                    }
+                  }
+                }
+              }
+            }
             i {
               display: inline-block;
             }
@@ -142,6 +224,7 @@
             .avater-image {
               border-radius: 20px;
               vertical-align: top;
+              width: 32px;
             }
             .login-link {
              padding: 7px 10px;
@@ -166,4 +249,8 @@
       }
     }
   }
+}
+
+.mercari-image {
+  width: 150px;
 }
