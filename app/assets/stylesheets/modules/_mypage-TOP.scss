@@ -145,3 +145,22 @@ p.wait {
   margin-top: 8px;
   padding-bottom: 24px;
 }
+
+.nothing_box {
+  height: 236px;
+  background-color: #fff;
+  text-align: center;
+  &_sub {
+    padding-top: 45px;
+    a.thin_mercari {
+      img.mercari_thin {
+        height: 80px;
+        width: 100px;
+      }
+    }
+  }
+  &_text {
+    padding-top: 30px;
+    color: #333333;
+  }
+}
