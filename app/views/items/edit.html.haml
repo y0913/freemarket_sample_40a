@@ -1,49 +1,11 @@
-/ カテゴリの階層化する場合、selectのidの値をJSを参考にして適切なものにしてください
-
 .exhibit_wrapper
   = form_with model:@item,local: true,class: :main__exhibit do |item|
     .main__exhibit__title.middle-center
       %h3.bold
         商品の情報を入力
     .main__exhibit__box
-      %h4.bold
-        出品画像
-        %span{class: "exhibit_must font-white"}
-          必須
-      %p{class: "exhibit_text"}
-        最大4枚までアップロードできます
-      .upload_image_box
-        %ul.upload_image_box--img.back-silver
-          = item.fields_for :images do |f|
-            %li
-              .upload_image_box--img--image.middle
-                = f.file_field :image,class: :exhibit_input,placeholder: '参考画像）'
-              .upload_image_box--img--buttun
-                %a.middle-center 編集
-                %a.middle-center 削除
-          / %li
-          /   .upload_image_box--img--image.middle
-          /     参考画像
-          /   .upload_image_box--img--buttun
-          /     %a.middle-center 編集
-          /     %a.middle-center 削除
-        / .upload_image_box--text.back-gray
-        /   = item.fields_for :images do |f|
-        /     = f.file_field :image,class: :exhibit_input,placeholder: '商品名（必須40文字まで）'
-        /     .upload_item_image.bold 念じる
-        /     %br
-        /     .upload_item_image.bold またはファイルしてクリックをアップロード
-
-    / .main__exhibit__box
-    /   = item.fields_for :images do |f|
-    /     %h4.bold
-    /       出品画像
-    /       %span{class: "exhibit_must font-white"}
-    /         必須
-    /     %p{class: "exhibit_text"}
-    /       最大4枚までアップロードできます
-    /     .upload_image_box
-    /       = f.file_field :image,class: :exhibit_input,placeholder: '商品名（必須40文字まで）'
+    - @item.images.each do |image|
+      = render "item_excard"
     .main__exhibit__box
       .main__exhibit__box__name
         %p{class: "bold"}
@@ -222,28 +184,15 @@
 
     / 本来の画像アップロード部分
     / .main__exhibit__box
-    /   %h4.bold
-    /     出品画像
-    /     %span{class: "exhibit_must font-white"}
-    /       必須
-    /   %p{class: "exhibit_text"}
-    /     最大4枚までアップロードできます
+    /   .main__exhibit__box__text
+    /     %h4.bold
+    /       出品画像
+    /       %span{class: "exhibit_must font-white"}
+    /         必須
+    /     %p{class: "exhibit_text"}
+    /       最大4枚までアップロードできます
     /   .upload_image_box
-    /     %ul.upload_image_box--img.back-silver
-    /       %li
-    /         .upload_image_box--img--image.middle
-    /           参考画像
-    /         .upload_image_box--img--buttun
-    /           %a.middle-center 編集
-    /           %a.middle-center 削除
-    /       / %li
-    /       /   .upload_image_box--img--image.middle
-    /       /     参考画像
-    /       /   .upload_image_box--img--buttun
-    /       /     %a.middle-center 編集
-    /       /     %a.middle-center 削除
-    /     .upload_image_box--text.back-gray
-    /       = item.fields_for :images do |f|
-    /         .upload_item_image.bold 念じる
-    /         %br
-    /         .upload_item_image.bold またはファイルしてクリックをアップロード
+    /     %input.image_hidden{type: "file"}
+    /     %pre.upload_item_image.bold
+    /       ドラッグアンドドロップ
+    /       またはクリックしてファイルをアップロード
