@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item,only:[:edit,:update,:show,:destroy]
+  before_action :set_item,:user_collation,only:[:edit,:update,:show,:destroy]
 
   def index
     @item = Item.order("RAND()")
@@ -18,12 +18,10 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if user_collation
-      if @item.update(exhibit_params)
-        redirect_to root_path notice:'編集できました'
-      else
-        redirect_to root_path notice: 'エラーが発生しました。'
-      end
+    if @item.update(exhibit_params)
+      redirect_to root_path notice:'編集できました'
+    else
+      redirect_to root_path notice: 'エラーが発生しました。'
     end
   end
 
@@ -41,13 +39,12 @@ class ItemsController < ApplicationController
 
 
   def destroy
-    if user_collation
-      if @item.destroy
-        redirect_to root_path notice:'削除できました'
-      else
-        redirect_to root_path notice: 'エラーが発生しました。'
-      end
+    if @item.destroy
+      redirect_to root_path notice:'削除できました'
+    else
+      redirect_to root_path notice: 'エラーが発生しました。'
     end
+
   end
 
   private
@@ -57,10 +54,11 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+    user_collation
   end
 
   def user_collation
-    @item.user_id == current_user.id
+    return redirect_to root_path  unless @item.user_id == current_user.id
   end
 end
 
