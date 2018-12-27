@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item,only:[:edit,:update,:show,:destroy]
 
   def index
     @item = Item.order("RAND()")
@@ -17,8 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
-    if @item.user_id == current_user.id
+    if user_collation
       if @item.update(exhibit_params)
         redirect_to root_path notice:'編集できました'
       else
@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-  	@item = Item.find(params[:id])
     @user = @item.user
   end
 
@@ -42,8 +41,7 @@ class ItemsController < ApplicationController
 
 
   def destroy
-    @item = Item.find(params[:id])
-    if @item.user_id == current_user.id
+    if user_collation
       if @item.destroy
         redirect_to root_path notice:'削除できました'
       else
@@ -57,6 +55,13 @@ class ItemsController < ApplicationController
     params[:item].permit(:name,:description,:condition_id,:postage_id,:delivery_method_id,:prefecture_id,:delivery_day_id,:price,:category_id,images_attributes:[:id,:image,]).merge(user_id:current_user.id)
   end
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def user_collation
+    @item.user_id == current_user.id
+  end
 end
 
 
