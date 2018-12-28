@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item,only:[:edit,:update,:show,:destroy]
-  before_action :user_collation,only:[:edit,:update,:destroy]
+  # before_action :user_collation,only:[:edit,:update,:destroy]
   def index
     @item = Item.order("RAND()")
     @items = Item.new
@@ -53,12 +53,12 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
-    user_collation
+    # user_collation
   end
 
-  def user_collation
-    return redirect_to root_path  unless @item.user_id == current_user.id
-  end
+  # def user_collation
+  #   return redirect_to root_path  unless @item.user_id == current_user.id
+  # end
 end
 
 

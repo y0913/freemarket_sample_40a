@@ -36,6 +36,9 @@ class TransactionsController < ApplicationController
   end
 
   def after
+    @item = Item.find(params[:id])
+    @trade = @item.trade
+    @user = @trade.buyer
   end
 
   def condition
