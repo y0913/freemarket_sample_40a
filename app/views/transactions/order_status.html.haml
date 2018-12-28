@@ -1,141 +1,70 @@
-.item__details
- %h2.item-name.bold
-  = @item.name
- .item__details__main-content
-  .item__details__main-content-boxes
-   .item__details__main-content-boxes__subject.back-silver
-    = image_tag @item.images.first.image,class: "main"
-    .photos
-     .small-photo
-      - @item.images.each do |image|
-       %img.sub{:src => image.image}/
-
-   %table.item-detail-table
-    %tr
-     %th.back-silver 出品者
-     %td
-      = link_to @item.user.nickname, "https://www.mercari.com/jp/u/914459821/", class: "items-link_to"
-      .user-rating
-       .item-user-ratings
-       %i.fas.fa-laugh
-       %span 4
-       .item-user-ratings
-       %i.fas.fa-meh
-       %span 8
-       .item-user-ratings
-       %i.fas.fa-frown
-       %span 6
-    %tr
-     %th.back-silver カテゴリー
-     %td
-      .item-detail-table-sub-category
-      %i.fa.fa-chevron-right.items-link_to
-      = link_to "ジャケット/アウター", "https://www.mercari.com/jp/category/334/", class: "items-link_to"
-      .item-detail-table-sub-sub-category
-      %i.fa.fa-chevron-right.items-link_to
-      = link_to "ダウンジャケット", "https://www.mercari.com/jp/category/318/", class: "items-link_to"
-    %tr
-     %th.back-silver ブランド
-     %td
-      = link_to @item.brand.name, "https://www.mercari.com/jp/brand/572/", class: "items-link_to"
-    %tr
-     %th.back-silver 商品のサイズ
-     %td
-      = @item.size.size
-    %tr
-     %th.back-silver 商品の状態
-     %td
-      = @item.condition.condition
-    %tr
-     %th.back-silver 配送料の負担
-     %td
-      = @item.postage.burden
-    %tr
-     %th.back-silver 配送の方法
-     %td
-      = @item.delivery_method.method
-    %tr
-     %th.back-silver 発送元地域
-     %td
-      = link_to @item.prefecture.prefecture, "https://www.mercari.com/jp/area/1/", class: "items-link_to"
-    %tr
-     %th.back-silver 発送日の目安
-     %td
-      = @item.delivery_day.day
- .item-price-box
-  %span.item-price.bold
-   = converting_to_jpy(@item.price)
-  %span.item-tax (税込)
-  %span.item-shipping-fee 送料込み
-  - if @item.trade.transaction_state_id == 1
-   = form_tag("/transaction/#{@item.id}", method: :post) do
-    %input.submit{:type => "submit", :value => "商品の発送をしたので、発送通知をする", :class => "buy-btn status-red center width100"}/
-  - else
-   %p.submit{:class => "buy-btn status-gray center", :width => 620}/
-   商品の発送をしました
-
-  / = link_to "商品の発送をしたので、発送通知をする", "/transaction/buy/#{@item.id}", class: "buy-btn, status-red",method: :post
-  .item-button-container
-   .item-button-container__left
-    %button{:name => "like", :type => "button"}
-     %i.far.fa-heart
-     %span いいね！
-     %span
-      = @item.likes_count
-    %button{:name => "report", :type => "button"}
-     %i.far.fa-flag
-     %span 不適切な商品の報告
-   .item-button__right.items-link_to
-    = fa_icon "lock"
-    = link_to "あんしん・あんぜんへの取り組み", "https://www.mercari.com/jp/safe/description/"
-
-  .item-edit__box__main-contents__message
-  .message-content__box
-
-.message-content__box
- .message-content__box__form
-  %form.message-form{:method => "post"}
-  %input{:type => "hidden"}
-  %p.attention 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-  %input{:type => "hidden"}
-  %input{:type => "hidden"}
-  %textarea.text{:type => "text", :name => "body"}
-  .message-sumit__details
-   %button{:type => "submit", :class => "submit"}
-    %span.font-white コメントする
-.next_or_back
- .previous-product.items-link_to
-  =fa_icon "chevron-left"
-  = link_to "前の商品へ", "https://item.mercari.com/jp/"
- .next-product.items-link_to
-  = link_to "次の商品へ", "https://item.mercari.com/jp/"
-  = fa_icon "chevron-right"
-
-.item-snsbox
- .sns
-  .facebook
-   %i.fab.fa-facebook-square
-  .twitter
-   %i.fab.fa-twitter-square
-  .pinterest
-   %i.fab.fa-pinterest-square
-
-/ ユーザーの出品アイテム(一時コメントアウト中)
-/ .items-show
-/  .item-show__list
-/   %section.items-link_to
-/    = @item.user.nickname
-/    さんの出品
-/   .item-show__list__box
-/    - @user.items.each do |item|
-/     .item-show__list__box__in
-/      = image_tag item.images.first.image
-/      .item-show__list__box__in__detail
-/       %h3
-/        = item.name
-/       .item-show__list__box__in__detail__container
-/        .item-show__list__box__detail__box__in__container__price.bold
-/         = converting_to_jpy(@item.price)
-/         %i.far.fa-heart
-/          = item.likes_count
-/       %p.item-tax__position (税込)
+- breadcrumb :mypage
+.main-content
+  = render 'modules/item-sidebar'
+  - if @trade.transaction_state_id == 1
+    .abeshi-right-content.center
+      .abeshi-right-content__box.middle-center
+        %h2.bold 取引画面
+      .abeshi-right-content__box.middle-center.back-yellow
+        .center.padbot
+          .trade_box.middle-center
+            %i.fa.fa-truck
+            %p.font-red.bold らくらくメルカリ便で発送する
+          %br
+          %p 商品が購入され支払いされました。発送してください。らくらくメルカリ便では、
+          %br
+          %p コンビニへの持ち込み、ヤマト営業所への持ち込み、またはご自宅への集荷依頼を
+          %br
+          %p 選択できます。
+      %ul.flow
+        %li 商品が売れた後の流れ
+        %li 出品者のよくある質問
+        %li らくらくメルカリ便とは?
+      .abeshi-right-content__box.middle-center.margin0
+        = form_tag("/transaction/#{@item.id}", method: :post) do
+          %input.submit{:type => "submit", :value => "コンビニから発送", :class => "post-btn bold"}/
+      .abeshi-right-content__box.middle-center.margin0
+        = form_tag("/transaction/#{@item.id}", method: :post) do
+          %input.submit{:type => "submit", :value => "ヤマトの営業所へ持ち込んで発送", :class => "post-btn bold"}/
+      .abeshi-right-content__box.middle-center.margin0
+        = form_tag("/transaction/#{@item.id}", method: :post) do
+          %input.submit{:type => "submit", :value => "ヤマトの集荷サービスを利用して発送", :class => "post-btn bold"}/
+      .message-content__box
+        .message-content__box__form.margin0
+          %form.message-form{:method => "post"}
+          %input{:type => "hidden"}
+          %p.attention 取引メッセージの内容は、必要に応じて事務局で確認しています
+          %input{:type => "hidden"}
+          %input{:type => "hidden"}
+          %textarea.text{:type => "text", :name => "body"}
+          .message-sumit__details
+            %button{:type => "submit", :class => "submit"}
+              %span.font-white 取引メッセージを送る
+  - elsif @trade.transaction_state_id == 2
+    .abeshi-right-content.center
+      .abeshi-right-content__box.middle-center
+        %h2.bold 取引画面
+      .abeshi-right-content__box.middle-center.back-yellow
+        .center.padbot
+          .trade_box.middle-center
+            %i.fa.fa-check
+            %p.font-red.bold 商品の発送を通知しました
+          %p 商品の配送には平均で2〜4日かかります。購入者からの受取評価をお待ちください。
+          %br
+          %p 2019年1月5日 13:00までに購入者からの評価が行われず、購入者からの問い合わせがない場合は、
+          %br
+          %p 事務局で取引を完了します。
+      %ul.flow
+        %li 商品が売れた後の流れ
+        %li 出品者のよくある質問
+      .message-content__box
+        .message-content__box__form.margin0
+          %form.message-form{:method => "post"}
+          %input{:type => "hidden"}
+          %p.attention 取引メッセージの内容は、必要に応じて事務局で確認しています
+          %input{:type => "hidden"}
+          %input{:type => "hidden"}
+          %textarea.text{:type => "text", :name => "body"}
+          .message-sumit__details
+            %button{:type => "submit", :class => "submit"}
+              %span.font-white 取引メッセージを送る

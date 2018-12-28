@@ -35,17 +35,11 @@ class TransactionsController < ApplicationController
     @trade = @item.trade
   end
 
-  def after
-    @item = Item.find(params[:id])
-    @trade = @item.trade
-    @user = @trade.buyer
-  end
-
   def condition
     @item = Item.find(params[:id])
     @trade = Trade.find_by(item_id: @item.id)
     @trade.transaction_state_id = 2
     @trade.save
-    redirect_to controller: 'transactions', action: 'after'
+    redirect_to controller: 'transactions', action: 'order_status'
   end
 end
