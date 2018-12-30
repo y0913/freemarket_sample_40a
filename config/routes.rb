@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'mypage/completed' => 'mypages#completed'
   get 'mypage/purchase' => 'mypages#purchase'
   get 'mypage/purchased' => 'mypages#purchased'
+  get 'mypage/deliver_address' => 'mypages#deliver_address'
   resources :mypages, path: 'mypage'
   delete 'items/:id' =>'items#destroy'
   # これ必要な数とアクションでルーティングしないとrake routesがキモい
@@ -21,7 +22,6 @@ Rails.application.routes.draw do
       post 'pay/:id' => 'transactions#pay'
       get 'done/:id' => 'transactions#done'
       get 'order_status/:id' => 'transactions#order_status'
-      get 'after/:id' => 'transactions#after'
       post ':id' => 'transactions#condition'
     end
   end

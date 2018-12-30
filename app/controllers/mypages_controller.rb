@@ -39,6 +39,10 @@ def purchased
   @trades = Trade.where(buyer_id: @user.id, transaction_state_id: 2)
 end
 
+def deliver_address
+  @user = current_user
+end
+
 def edit
   @items = Item.new
 end
