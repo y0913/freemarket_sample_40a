@@ -62,7 +62,7 @@ def review
 end
 
 def good
-  @rates = current_user.rates.order("created_at DESC")
+  @rates = current_user.rates.order("created_at DESC").where(rate: 1)
 end
 
 private
