@@ -18,7 +18,7 @@
       - if @trades.present?
         - @trades.each do |trade|
           %ul.abeshi-right-content__block__object
-            = link_to item_path(trade.item_id) do
+            = link_to "/transaction/bought/#{trade.item.id}" do
               %li
                 .abeshi-right-content__block__object__link-box
                   =image_tag trade.item.images.first.image, alt: "item-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
