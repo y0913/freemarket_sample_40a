@@ -61,6 +61,10 @@ def review
   @rates = current_user.rates.order("created_at DESC")
 end
 
+def good
+  @rates = current_user.rates.order("created_at DESC")
+end
+
 private
 def before_login
   redirect_to new_user_session_path unless user_signed_in?
