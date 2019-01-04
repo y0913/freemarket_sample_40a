@@ -5,10 +5,10 @@
     %P アカウントをお持ちでない方はこちら
     = link_to "新規会員登録",new_user_registration_path, class: "font-white"
   .login-form-inner
-    = link_to new_user_session_path, class: "facebook font-white" do
+    = link_to '/users/auth/facebook', class: "facebook font-white" do
       %i.fab.fa-facebook
       .content-box Facebookで登録
-    = link_to new_user_session_path, class: "google back-red font-white" do
+    = link_to '/users/auth/google_oauth2', class: "google back-red font-white" do
       %i.fab.fa-google-plus-g
       .content-box Google+で登録
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
@@ -17,8 +17,11 @@
         = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: 'login_field'
       .field
         = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: 'login_field'
-        .g-recaptcha.recaptcha_field{"data-sitekey" => "xxxxxxxxxx"}
+        .g-recaptcha.recaptcha_field{"data-sitekey" => "xxxxx"}
       .actions
         = f.submit "ログイン", class: 'login_btn back-red font-white'
       - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
         = link_to "パスワードをお忘れの方へ", new_password_path(resource_name), class: 'forgot-password'
+
+/ export RECAPTCHA_SITE_KEY="6LfEgoAUAAAAAPyiT83mFSvLzy9PdZXknXRVDf6d"
+/ ENV['RECAPTCHA_SITE_KEY']

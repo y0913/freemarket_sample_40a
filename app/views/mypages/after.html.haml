@@ -1,0 +1,41 @@
+- breadcrumb :mypage
+.main-content
+  = render 'modules/item-sidebar'
+  .abeshi-right-content.center
+    .abeshi-right-content__box.middle-center
+      %h2.bold 取引画面
+    .abeshi-right-content__box.middle-center.back-yellow
+      .center.padbot
+        .trade_box.middle-center
+          %i.fa.fa-truck
+          %p.font-red.bold らくらくメルカリ便で発送する
+        %br
+        %p 商品が購入され支払いされました。発送してください。らくらくメルカリ便では、
+        %br
+        %p コンビニへの持ち込み、ヤマト営業所への持ち込み、またはご自宅への集荷依頼を
+        %br
+        %p 選択できます。
+    %ul.flow
+      %li 商品が売れた後の流れ
+      %li 出品者のよくある質問
+      %li らくらくメルカリ便とは?
+    .abeshi-right-content__box.middle-center.margin0
+      = form_tag("/transaction/#{@item.id}", method: :post) do
+        %input.submit{:type => "submit", :value => "コンビニから発送", :class => "post-btn bold"}/
+    .abeshi-right-content__box.middle-center.margin0
+      = form_tag("/transaction/#{@item.id}", method: :post) do
+        %input.submit{:type => "submit", :value => "ヤマトの営業所へ持ち込んで発送", :class => "post-btn bold"}/
+    .abeshi-right-content__box.middle-center.margin0
+      = form_tag("/transaction/#{@item.id}", method: :post) do
+        %input.submit{:type => "submit", :value => "ヤマトの集荷サービスを利用して発送", :class => "post-btn bold"}/
+    .message-content__box
+      .message-content__box__form.margin0
+        %form.message-form{:method => "post"}
+        %input{:type => "hidden"}
+        %p.attention 取引メッセージの内容は、必要に応じて事務局で確認しています
+        %input{:type => "hidden"}
+        %input{:type => "hidden"}
+        %textarea.text{:type => "text", :name => "body"}
+        .message-sumit__details
+          %button{:type => "submit", :class => "submit"}
+            %span.font-white 取引メッセージを送る

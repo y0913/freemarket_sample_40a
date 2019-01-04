@@ -79,3 +79,19 @@ a.buy_mypage {
 .margin-30px {
   margin: 30px;
 }
+
+.margin-B10px {
+  padding-bottom: 10px;
+}
+
+.content-check-box{
+  display: flex;
+  .check-box {
+    line-height: 20px;
+    font-size: 21px;
+  }
+  p {
+    line-height: 20px;
+    padding-left: 5px;
+  }
+}

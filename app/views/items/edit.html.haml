@@ -1,0 +1,198 @@
+.exhibit_wrapper
+  = form_with model:@item,local: true,class: :main__exhibit do |item|
+    .main__exhibit__title.middle-center
+      %h3.bold
+        商品の情報を入力
+    .main__exhibit__box
+    - @item.images.each do |image|
+      = render "item_excard"
+    .main__exhibit__box
+      .main__exhibit__box__name
+        %p{class: "bold"}
+          商品名
+          %span{class: "exhibit_must font-white"}
+            必須
+        .main__exhibit__box__name__input
+          = item.text_field :name,required:true,maxlength:"40",class: :exhibit_input,placeholder: '商品名（必須40文字まで）'
+      .main__exhibit__box__detail
+        %p{class: "bold"}
+          商品の説明
+          %span{class: "exhibit_must font-white"}
+            必須
+        .main__exhibit__box__detail__textarea
+          = item.text_area  :description,required:true,maxlength:"1000",class: :exhibit_textarea,placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+    .main__exhibit__halfbox
+      %p{class: "font-gray"}
+        商品の詳細
+      .main__exhibit__halfbox__item
+        %p{class: "bold"}
+          カテゴリー
+          %span{class: "exhibit_must font-white"}
+            必須
+        .select_box.hide{id: "select_box"}
+          %i.fa.fa-angle-down.exhibit
+          = item.collection_select :category_id, Category.all, :id, :name,{include_blank: "---"},{class: "exhibit_select",id: 1,required:true}
+        / 階層カテゴリ部分、現状不要ですが将来的に利用する可能性があるためコメントアウトしています。
+        / .select_box.second.1
+        /   %i.fa.fa-angle-down.exhibit
+        /   %select{class: "exhibit_select", id: "2"}
+        /     %option{value: '3'}
+        /       \---
+        /     %option{value: '4'}
+        /       Tシャツ
+        /     %option{value: '5'}
+        /       スカート
+        / .select_box.second.2
+        /   %i.fa.fa-angle-down.exhibit
+        /   %select{class: "exhibit_select", id: "3"}
+        /     %option{value: '6'}
+        /       \---
+        /     %option{value: '7'}
+        /       パーカー
+        /     %option{value: '8'}
+        /       ジャケット
+        / .select_box.third.1
+        /   %i.fa.fa-angle-down.exhibit
+        /   %select{class: "exhibit_select", id: "4"}
+        /     %option{value: '9'}
+        /       \---
+        /     %option{value: '10'}
+        /       美しいやつ
+        /     %option{value: '11'}
+        /       美しくないやつ
+        / .select_box.third.2
+        /   %i.fa.fa-angle-down.exhibit
+        /   %select{class: "exhibit_select", id: "5"}
+        /     %option{value: '12'}
+        /       \---
+        /     %option{value: '13'}
+        /       可愛くないやつ
+        /     %option{value: '14'}
+        /       可愛いやつ
+        / .select_box.third.3
+        /   %i.fa.fa-angle-down.exhibit
+        /   %select{class: "exhibit_select", id: "6"}
+        /     %option{value: '15'}
+        /       \---
+        /     %option{value: '16'}
+        /       男前なやつ
+        /     %option{value: '17'}
+        /       男前じゃないやつ
+        / .select_box.third.4
+        /   %i.fa.fa-angle-down.exhibit
+        /   %select{class: "exhibit_select", id: "7"}
+        /     %option{value: '18'}
+        /       \---
+        /     %option{value: '19'}
+        /       格好よくないやつ
+        /     %option{value: '20'}
+        /       格好いいやつ
+        / サイズはアソシエーションが完成したら？
+        / .category.size
+        /   %p{class: "bold"}
+        /     サイズ
+        /     %span{class: "exhibit_must font-white"}
+        /       必須
+        / .select_box.hide.size
+        /   %i.fa.fa-angle-down.exhibit
+        /   = item.select :category_id, [["\---",0],["S",1],["M",2],["L",3]],{},{class: "exhibit_select", id: "1"}
+        .category.brand
+          %p{class: "bold"}
+            ブランド
+            %span{class: "exhibit_should"}
+              任意
+        .select_box.hide.brand
+          %input{class: "exhibit_select", placeholder: '例）阿部寛'}
+        %p{class: "top bold"}
+          商品の状態
+          %span{class: "exhibit_must font-white"}
+            必須
+        .select_box
+          %i.fa.fa-angle-down.exhibit
+          = item.collection_select :condition_id, Condition.all, :id, :condition,{include_blank: "---"},{required:true,class: "exhibit_select"}
+    .main__exhibit__halfbox
+      %p{class: "font-gray"}
+        配送について
+        %a{href: "", class: "help"}
+          ?
+      .main__exhibit__halfbox__item
+        %p{class: "bold"}
+          配送料の負担
+          %span{class: "exhibit_must font-white"}
+            必須
+        .select_box
+          %i.fa.fa-angle-down.exhibit
+          = item.collection_select :postage_id,Postage.all, :id, :burden,{include_blank: "---"},{required:true,class: "exhibit_select",id: 8}
+        .delivery_hide
+          %p{class: "bold"}
+            配送料の負担
+            %span{class: "exhibit_must font-white"}
+              必須
+          .select_box
+            %i.fa.fa-angle-down.exhibit
+            = item.collection_select :delivery_method_id,DeliveryMethod.all, :id, :method,{include_blank: "---"},{required:true,class: "exhibit_select",id: 9}
+        %p{class: "top bold"}
+          発送元の地域
+          %span{class: "exhibit_must font-white"}
+            必須
+        .select_box
+          %i.fa.fa-angle-down.exhibit
+          = item.collection_select :prefecture_id,Prefecture.all, :id, :prefecture,{include_blank: "---"},{required:true,class: "exhibit_select"}
+        %p{class: "top bold"}
+          発送までの日数
+          %span{class: "exhibit_must font-white"}
+            必須
+        .select_box
+          %i.fa.fa-angle-down.exhibit
+          = item.collection_select :delivery_day_id,DeliveryDay.all, :id, :day,{include_blank: "---"},{required:true,class: "exhibit_select"}
+    .main__exhibit__halfbox
+      %p{class: "font-gray"}
+        販売価格(300~9,999,999)
+        %a{href: "", class: "help"}
+          ?
+      .main__exhibit__halfbox__item
+        .main__exhibit__halfbox__item__price
+          .main__exhibit__halfbox__item__price__left
+            %p{class: "exhibit_price bold"}
+              価格
+              %span{class: "exhibit_must font-white"}
+                必須
+          .main__exhibit__halfbox__item__price__right
+            %p{class: "exhibit_enn"}
+              ¥
+            = item.number_field  :price,class: "price__input",placeholder: '例）300',id: "price",required:true
+        .main__exhibit__halfbox__item__cost
+          %p{class: "exhibit_cost"}
+            販売手数料(10%)
+          %p{class: "exhibit_cost price"}
+            \-
+        .main__exhibit__halfbox__item__salary
+          %p{class: "exhibit_salary bold"}
+            販売利益
+          %p{class: "exhibit_salary price bold"}
+            \-
+    .main__exhibit__box
+      %p{class: "exhibit_btn-box"}
+        禁止されている出品、行為を必ずご確認ください。
+        %br
+        またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+        %br
+        また、出品をもちまして加盟店規約に同意したことになります。
+        = item.submit "出品する",class: "exhibit_btn back-red font-white"
+      %button{class: "exhibit_return font-white"}
+        もどる
+
+    / 本来の画像アップロード部分
+    / .main__exhibit__box
+    /   .main__exhibit__box__text
+    /     %h4.bold
+    /       出品画像
+    /       %span{class: "exhibit_must font-white"}
+    /         必須
+    /     %p{class: "exhibit_text"}
+    /       最大4枚までアップロードできます
+    /   .upload_image_box
+    /     %input.image_hidden{type: "file"}
+    /     %pre.upload_item_image.bold
+    /       ドラッグアンドドロップ
+    /       またはクリックしてファイルをアップロード
