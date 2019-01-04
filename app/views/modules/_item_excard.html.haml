@@ -1,0 +1,9 @@
+= item.fields_for :images,image do |f|
+        %h4.bold
+          出品画像
+          %span{class: "exhibit_must font-white"}
+            必須
+        %p{class: "exhibit_text"}
+          最大4枚までアップロードできます
+        .upload_image_box
+          = f.file_field :image,class: :exhibit_input,placeholder: '商品名（必須40文字まで）'

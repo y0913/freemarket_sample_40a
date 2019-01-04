@@ -23,7 +23,6 @@ select.select-default{
  width: 700px;
  .pickup__area__items-box{
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
   &__items__boxes{
   	display: flex;
@@ -32,13 +31,29 @@ select.select-default{
  }
 }
 
+.pickup__area__items-box__items{
+ margin-left: 15px;
+}
 
 .pickup__area__items-box__items__photo{
- .top_image{
-  width: 160px;
-  height: 160px;
+	width: 160px;
+  .top_image{
+   width: 160px;
+   height: 160px;
  }
 }
+
+
+.pickup__area__items-box__items__photo{
+ &__body{
+ 	width: 160px;
+ 	height: 110px;
+ }
+}
+
+h4.pickup__area__items-box__items__name{
+     width: 160px;
+ 	}
 
 p.pickup__area__items-box__items__tax{
  font-size: 10px;
