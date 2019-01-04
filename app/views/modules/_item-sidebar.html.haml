@@ -8,7 +8,7 @@
         %li.right
           %a{href: "/items/#{@item.id}"}
             = image_tag @item.images.first.image, class: "trade_item_img"
-            %h4.marginT-8px #{@item.name}
+            %h4.marginT-8px #{@item.name.truncate(9)}
             %br
             = converting_to_jpy(@item.price)
       .side_item
@@ -42,7 +42,7 @@
         %li.right
           %p 〒111-1111
           %p 奈良県大和高田市111
-          %p.bold #{@user.nickname}様
+          %p.bold #{@trade.buyer.nickname}様
   .left-content__bar
     %h4 購入者情報
     %ul.marginT-8px
@@ -51,4 +51,4 @@
           %li.left
             = image_tag("avatar.jpg", class: "avater-image")
           %li.right
-            %h4 #{@user.nickname}
+            %h4 #{@trade.buyer.nickname}

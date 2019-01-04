@@ -8,9 +8,9 @@
       .abeshi-right-content__block__user-name.bold #{@user.nickname}
       .abeshi-right-content__block__user-about
         %p.abeshi-right-content__block__review 評価
-        %span.bold 10
+        %span.bold #{@user.rates.count}
         %p.abeshi-right-content__block__exhibit 出品数
-        %span.bold 10点
+        %span.bold #{@user.items.count}
 
     .abeshi-right-content__block
       %ul.abeshi-right-content__block__tabs.back-gray
