@@ -141,5 +141,9 @@ $(document).on('turbolinks:load', function() {
           $('.exhibit_salary.price').html(`<p class="exhibit_salary.price">-</p>`)
         }
       });
+      $(".rate-box").on('click', function(){
+        $(".rate-box").removeClass('click')
+        $(this).addClass('click')
+      })
     })
 })

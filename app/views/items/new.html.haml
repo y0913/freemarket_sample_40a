@@ -1,7 +1,7 @@
 / カテゴリの階層化する場合、selectのidの値をJSを参考にして適切なものにしてください
 
 .exhibit_wrapper
-  = form_with model:@item, url:"/items" ,method: :post,local: true,class: :main__exhibit do |item|
+  = form_with model:@item,local: true,class: :main__exhibit do |item|
     .main__exhibit__title.middle-center
       %h3.bold
         商品の情報を入力
@@ -69,7 +69,7 @@
             必須
         .select_box.hide{id: "select_box"}
           %i.fa.fa-angle-down.exhibit
-          = item.collection_select :category_id, Category.all, :id, :name,{include_blank: "---",selected:0},{class: "exhibit_select",id: 1,required:true}
+          = item.collection_select :category_id, Category.all, :id, :name,{include_blank: "---"},{class: "exhibit_select",id: 1,required:true}
         / 階層カテゴリ部分、現状不要ですが将来的に利用する可能性があるためコメントアウトしています。
         / .select_box.second.1
         /   %i.fa.fa-angle-down.exhibit
@@ -147,7 +147,7 @@
             必須
         .select_box
           %i.fa.fa-angle-down.exhibit
-          = item.collection_select :condition_id, Condition.all, :id, :condition,{include_blank: "---",selected:0},{required:true,class: "exhibit_select"}
+          = item.collection_select :condition_id, Condition.all, :id, :condition,{include_blank: "---"},{required:true,class: "exhibit_select"}
     .main__exhibit__halfbox
       %p{class: "font-gray"}
         配送について
@@ -160,7 +160,7 @@
             必須
         .select_box
           %i.fa.fa-angle-down.exhibit
-          = item.collection_select :postage_id,Postage.all, :id, :burden,{include_blank: "---",selected:0},{required:true,class: "exhibit_select",id: 8}
+          = item.collection_select :postage_id,Postage.all, :id, :burden,{include_blank: "---"},{required:true,class: "exhibit_select",id: 8}
         .delivery_hide
           %p{class: "bold"}
             配送料の負担
@@ -168,21 +168,21 @@
               必須
           .select_box
             %i.fa.fa-angle-down.exhibit
-            = item.collection_select :delivery_method_id,DeliveryMethod.all, :id, :method,{include_blank: "---",selected:0},{required:true,class: "exhibit_select",id: 9}
+            = item.collection_select :delivery_method_id,DeliveryMethod.all, :id, :method,{include_blank: "---"},{required:true,class: "exhibit_select",id: 9}
         %p{class: "top bold"}
           発送元の地域
           %span{class: "exhibit_must font-white"}
             必須
         .select_box
           %i.fa.fa-angle-down.exhibit
-          = item.collection_select :prefecture_id,Prefecture.all, :id, :prefecture,{include_blank: "---",selected:0},{required:true,class: "exhibit_select"}
+          = item.collection_select :prefecture_id,Prefecture.all, :id, :prefecture,{include_blank: "---"},{required:true,class: "exhibit_select"}
         %p{class: "top bold"}
           発送までの日数
           %span{class: "exhibit_must font-white"}
             必須
         .select_box
           %i.fa.fa-angle-down.exhibit
-          = item.collection_select :delivery_day_id,DeliveryDay.all, :id, :day,{include_blank: "---",selected:0},{required:true,class: "exhibit_select"}
+          = item.collection_select :delivery_day_id,DeliveryDay.all, :id, :day,{include_blank: "---"},{required:true,class: "exhibit_select"}
     .main__exhibit__halfbox
       %p{class: "font-gray"}
         販売価格(300~9,999,999)

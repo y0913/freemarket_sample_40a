@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :transactions, dependent: :destroy
+  has_one :trade, dependent: :destroy
   belongs_to :user, optional: true
   belongs_to :prefecture
   belongs_to :condition

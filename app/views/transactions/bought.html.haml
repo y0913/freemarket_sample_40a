@@ -1,36 +1,86 @@
-.abeshi-right-content.center
-  .abeshi-right-content__box.middle-center
-    %h2.bold.confirm-buy 購入を確定しますか?
-  .abeshi-right-content__box
-    .width-320.center.text-center
-      = image_tag "item-abeshi.jpg", alt: "avatar",class: "right-content__box--img marginT-8px;",width:"148px",heigth:"148px"
-      %h4.abeshi-right-content__box--title.bold.marginT-8px 人肉ミート
-      .abeshi-right-content__box--price.marginT-8px
-        %h1 ¥ 680
-        .abeshi-right-content__box--price--postage 送料込み
-      .link-bar.back-gray.marginT-8px ポイントはありません
-      .abeshi-right-content__box--payment.bold.marginT-8px
-        %h1 支払い金額
-        %h1 ¥ 680
-      .font-red.marginT-8px 配送先と支払い方法の入力を完了してください。
-      .link-bar.buttun-disabled.marginT-8px.font-white 購入する
-
-
-  .abeshi-right-content__box
-    .width-320.center
-      .abeshi-right-content__box__inner-address
-        .bold 配送先
-        .abeshi-right-content__box__inner-address--text
-          - text = "〒553-3456 \n魔界村 屍人町 右目2−1−5 \nぞんびさん"
-          = simple_format text
-        .abeshi-right-content__box__inner-address--change
-          = link_to "変更する＞", root_path
-  .abeshi-right-content__box
-    .width-320.center
-      .abeshi-right-content__box__inner-address
-        .bold 支払い方法
-        .abeshi-right-content__box__inner-address--text
-          - text = "対価は支払ってもらう！\nお前の命でな！"
-          = simple_format text
-        .abeshi-right-content__box__inner-address--change
-          = link_to "変更する＞", root_path
+- breadcrumb :mypage
+.main-content
+  = render 'modules/item-sidebar'
+  - if @trade.transaction_state_id == 1
+    .abeshi-right-content.center
+      .abeshi-right-content__box.middle-center
+        %h2.bold 取引画面
+      .abeshi-right-content__box.middle-center.back-yellow
+        .center.padbot
+          .trade_box.middle-center
+            %i.fa.fa-clock-o
+            %p.font-red.bold 発送をお待ちください
+          %br
+          %p 出品者からの発送通知をお待ちください。
+      %ul.flow
+        %li 購入した後の流れ
+        %li 出品者からのお届け先の確認について
+      .message-content__box
+        .message-content__box__form.margin0
+          %form.message-form{:method => "post"}
+          %input{:type => "hidden"}
+          %p.attention 取引メッセージの内容は、必要に応じて事務局で確認しています
+          %input{:type => "hidden"}
+          %input{:type => "hidden"}
+          %textarea.text{:type => "text", :name => "body"}
+          .message-sumit__details
+            %button{:type => "submit", :class => "submit"}
+              %span.font-white 取引メッセージを送る
+  - elsif @trade.transaction_state_id == 2
+    .abeshi-right-content.center
+      .abeshi-right-content__box.middle-center
+        %h2.bold 取引画面
+      .abeshi-right-content__box.middle-center.back-yellow
+        .center.padbot
+          .trade_box.middle-center
+            %i.fas.fa-laugh
+            %p.font-red.bold 受取評価をしてください
+          %p 商品が発送されました。商品が到着したら、出品者の評価をしてください。
+      %ul.flow
+        %li 購入した後の流れ
+        %li 購入者のよくある質問
+      .abeshi-right-content__box.middle-center.margin0
+        = form_with model: @rate, url: "/rate/#{@item.id}", local: true do |form|
+          .content-check-box
+            = form.check_box :agreement, :as => :boolean, class: "check-box"
+            %p 商品の中身を確認しました。
+          .rating-box
+            .rate-box
+              = form.radio_button :rate, 1, class: "brand", id: 'good', checked: true
+              %i.fas.fa-laugh.rate-face.good
+              = form.label "良い", for: 'good'
+            .rate-box
+              = form.radio_button :rate, 2, class: "brand", id: 'normal', checked: true
+              %i.fas.fa-meh.rate-face.normal
+              = form.label '普通', for: 'normal'
+            .rate-box
+              = form.radio_button :rate, 3, class: "brand", id: 'bad', checked: true
+              %i.fas.fa-frown.rate-face.bad
+              = form.label '悪い', for: 'bad'
+          %p 評価のコメントを記入しましょう。
+          = form.text_area :comment, class: "comment-box", placeholder: "コメントはなくても構いませんが、お礼のメッセージなどを書くと喜ばれます。"
+          = form.submit "評価を投稿する", class: "rate-action bold"
+  - elsif @trade.transaction_state_id == 3
+    .abeshi-right-content.center
+      .abeshi-right-content__box.middle-center
+        %h2.bold 取引画面
+      .abeshi-right-content__box.middle-center.back-yellow
+        .center.padbot
+          .trade_box.middle-center
+            %i.fa.fa-check
+            %p.font-red.bold 受取評価をしました
+          %p 出品者からの評価が終わると取引完了となります。しばらくお待ちください。
+      %ul.flow
+        %li 購入した後の流れ
+  - elsif @trade.transaction_state_id == 4
+    .abeshi-right-content.center
+      .abeshi-right-content__box.middle-center
+        %h2.bold 取引画面
+      .abeshi-right-content__box.middle-center.back-yellow
+        .center.padbot
+          .trade_box.middle-center
+            %i.fa.fa-check
+            %p.font-red.bold 取引が完了しました
+          %p この度はメルカリのご利用ありがとうございました
+      %ul.flow
+        %li 販売代金の受取について

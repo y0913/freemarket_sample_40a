@@ -1,0 +1,45 @@
+- breadcrumb :mypage_card
+.main-content
+  = render 'modules/mypage-sidebar'
+  = form_with class: "abeshi-right-content" do |form|
+    .abeshi-right-content__box.middle-center
+      %h2.bold 住所変更
+    .abeshi-right-content__box
+      .abeshi-right-content__box__contena
+        .abeshi-card-number
+          %h4.bold お名前
+          %span{class: "exhibit_must font-white "} 必須
+        = form.text_field :first_name, class: "card-number", placeholder: '例）山田'
+        = form.text_field :last_name, class: "card-number marginT-8px", placeholder: '例）彩'
+        .abeshi-card-expiration
+          %h4.bold お名前カナ
+          %span{class: "exhibit_must font-white "} 必須
+        = form.text_field :first_name, class: "card-number", placeholder: '例）ヤマダ'
+        = form.text_field :last_name, class: "card-number marginT-8px", placeholder: '例）アヤ'
+        .abeshi-card-expiration
+          %h4.bold 郵便番号
+          %span{class: "exhibit_must font-white "} 必須
+        = form.number_field :first_name, class: "card-number", placeholder: '例）1234567'
+        .abeshi-card-expiration
+          %h4.bold 都道府県
+          %span{class: "exhibit_must font-white "} 必須
+        .exhibit_select.margin0.relative-box
+          = form.collection_select :prefecture_id,Prefecture.all, :id, :prefecture,{include_blank: "---"},{required:true,class: "exhibit_select margin0 relative-box"}
+          %i.fa.fa-angle-down.exhibit.absolute
+        .abeshi-card-expiration
+          %h4.bold 市区町村
+          %span{class: "exhibit_must font-white "} 必須
+        = form.text_field :first_name, class: "card-number", placeholder: '例）横浜市緑区'
+        .abeshi-card-expiration
+          %h4.bold 番地
+          %span{class: "exhibit_must font-white "} 必須
+        = form.text_field :first_name, class: "card-number", placeholder: '例）青山1-1-1'
+        .abeshi-card-expiration
+          %h4.bold 建物名
+          %span{class: "exhibit_should"} 任意
+        = form.text_field :first_name, class: "card-number", placeholder: '例）柳ビル103'
+        .abeshi-card-expiration
+          %h4.bold 電話
+          %span{class: "exhibit_should"} 任意
+        = form.number_field :first_name, class: "card-number", placeholder: '例）09012345678'
+        = form.submit "変更する",class: "link-bar back-red font-white abeshi-right-content__box__contena__card--bar top40"
