@@ -4,30 +4,30 @@
     %h2.l-chapter-head.middle-center.bold 本人情報の登録
     .text-center.middle-center お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
 
-    %form.l-single-inner{action: "https://www.mercari.com/jp/mypage/identification/save/", method: "POST", novalidate: ""}
+    %form.l-single-inner
       .form-new-group
         %label.new.bold お名前
         %span.form-require.back-red.font-white 必須
-        %input.new.input-default{name: "family_name_kanji", placeholder: "例）阿部", type: "text", value: ""}/
-        %input.new.input-default{name: "first_name_kanji", placeholder: "例）寛", type: "text", value: ""}/
+        %input.new.input-default{first_name: "family_name_kanji",required:true, placeholder: "例）阿部", type: "text", value: ""}/
+        %input.new.input-default{last_name: "first_name_kanji", required:true,  placeholder: "例）寛", type: "text", value: ""}/
 
       .form-new-group
         %label.new.bold お名前カナ
         %span.form-require.back-red.font-white 必須
-        %input.new.input-default{name: "family_name_kana", placeholder: "例）アベ", type:"text", value: ""}/
-        %input.new.input-default{name: "first_name_kana", placeholder: "例）ヒロシ", type: "text", value: ""}/
+        %input.new.input-default{first_name_kana: "family_name_kana",required:true, placeholder: "例）アベ", type:"text", value: ""}/
+        %input.new.input-default{last_name_kana: "first_name_kana", placeholder: "例）ヒロシ", type: "text", value: ""}/
 
       .form-new-group
         %label.new.bold{for: "zip_code"} 郵便番号
         %span.form-arbitrary.font-white 任意
-        %input.new.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}/
+        %input.new.input-default{card_nember: "zip_code", placeholder: "例）1234567", type: "text", value: ""}/
 
       .form-new-group
         %label.new.bold{for: "prefecture"} 都道府県
         %span.form-require.back-red.font-white 必須
         .select-wrap.new
           %i.fa.new.fa-chevron-down.prefec.font-gray
-          %select.select-default{name: "prefecture"}
+          %select.select-default{name: "prefecture",required:true}
             %option{value: ""} --
             %option 大阪府
             %option 兵庫県
@@ -38,12 +38,12 @@
       .form-new-group
         %label.new.bold{for: "city"} 市区町村
         %span.form-require.back-red.font-white 必須
-        %input.new.input-default{name: "city", placeholder: "例）大阪市北区", type: "text", value: ""}/
+        %input.new.input-default{name: "city", required:true,placeholder: "例）大阪市北区", type: "text", value: ""}/
 
       .form-new-group
         %label.new.bold{for: "address1_label"} 番地
         %span.form-require.back-red.font-white 必須
-        %input.new.input-default{name: "address1", placeholder: "例）中崎西2−4−43", type: "text", value:""}/
+        %input.new.input-default{name: "address1",required:true, placeholder: "例）中崎西2−4−43", type: "text", value:""}/
       .form-new-group
         %label.new.bold{for: "address2_label"} 建物名
         %span.form-arbitrary.font-white 任意
@@ -56,7 +56,7 @@
         .birthday
           .select-wrap.new
             %i.fa.new.fa-chevron-down.warp.font-gray
-            %select.select-default2{name: "year"}
+            %select.select-default2{name: "year",required:true}
               %option{value: ""} --
               %option{value: "1994"} 1994
               %option{value: "1995"} 1995
@@ -64,7 +64,7 @@
             %span 年
           .select-wrap.new
             %i.fa.new.fa-chevron-down.warp.font-gray
-            %select.select-default2{name: "month"}
+            %select.select-default2{name: "month",required:true}
               %option{value: ""} --
               %option{value: "1"} 1
               %option{value: "2"} 2
@@ -81,7 +81,7 @@
             %span 月
           .select-wrap.new
             %i.fa.new.fa-chevron-down.warp.font-gray
-            %select.select-default2{name: "day"}
+            %select.select-default2{name: "day",required:true}
               %option{value: ""} --
               %option{value: "1"} 1
               %option{value: "2"} 2
@@ -116,8 +116,10 @@
               %option{value: "31"} 31
             %span 日
         .form-info-text.font-gray ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
-      %button.btn-default.btn-red.new.font-white.back-red{type: "submit"} 登録する
+      %button.btn-default.btn-red.new.font-white.back-red{type: "submit",required:true,href: "/"} 登録する
       .form-new-group.text-right
         %p.edit-profile-box.middle
           %a{href: "/jp/help_center/article/423/", target: "_blank", class: "edit-profile"}本人情報の登録について
           %i.fa.new.fa-chevron-right.bottom
+
+/ {action: "https://www.mercari.com/jp/mypage/identification/save/", method: "POST", novalidate: ""}
