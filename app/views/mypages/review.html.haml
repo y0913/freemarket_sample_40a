@@ -27,12 +27,24 @@
                 .abeshi-right-content__block__object__link-box
                   = image_tag "avatar.jpg", alt: "avatar",class: "abeshi-right-content__block--avatar"
                   .abeshi-right-content__block__object__link-box__body.line21
-                    %i.fas.fa-laugh.good
-                    %p 出品者
-                    %br
-                    = rate.trade.user.nickname
-                    %br
-                    = rate.comment
+                    - if rate.rate == 1
+                      %i.fas.fa-laugh.good
+                    - elsif rate.rate == 2
+                      %i.fas.fa-meh.normal
+                    - elsif rate.rate == 3
+                      %i.fas.fa-frown
+                    - if rate.user_id == rate.trade.user_id
+                      %p 購入者
+                      %br
+                      = rate.trade.buyer.nickname
+                      %br
+                      = rate.comment
+                    - elsif rate.user_id == rate.trade.buyer_id
+                      %p 出品者
+                      %br
+                      = rate.trade.user.nickname
+                      %br
+                      = rate.comment
                     .abeshi-right-content__block__object__link-box__body--time
                       %i.fa.fa-history
                       = rate.created_at.strftime("%Y年%m月%d日 %H:%M")
