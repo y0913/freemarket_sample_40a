@@ -1,5 +1,6 @@
 class MypagesController < ApplicationController
 
+before_action :before_login
 
 def index
   @user = current_user
@@ -54,6 +55,11 @@ end
 
 def logout
   @items = Item.new
+end
+
+private
+def before_login
+  redirect_to new_user_session_path unless user_signed_in?
 end
 
 end

@@ -1,4 +1,7 @@
 class TransactionsController < ApplicationController
+
+  before_action :before_login
+
   def buy
     @item = Item.find(params[:id])
     @user = current_user
@@ -47,5 +50,10 @@ class TransactionsController < ApplicationController
     @trade.transaction_state_id = 2
     @trade.save
     redirect_to controller: 'transactions', action: 'order_status'
+  end
+
+  private
+  def before_login
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
