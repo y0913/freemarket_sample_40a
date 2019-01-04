@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'mypage/deliver_address' => 'mypages#deliver_address'
   get 'mypage/review' => 'mypages#review'
   get 'mypage/good' => 'mypages#good'
+  get 'mypage/normal' => 'mypages#normal'
 
   resources :mypages, path: 'mypage'
   delete 'items/:id' =>'items#destroy'
