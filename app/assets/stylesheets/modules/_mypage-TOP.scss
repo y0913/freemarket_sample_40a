@@ -27,9 +27,6 @@
   }
 }
 
-
-//
-
 .main-content{
   padding: 40px;
   width: 1100px;
@@ -127,4 +124,173 @@
 
 .top_image {
   object-fit: cover;
+}
+
+.trade_box {
+  display: flex;
+  line-height: 32px;
+  vertical-align: middle;
+  padding: 24px 0 8px;
+  i {
+    margin: 0 8px 0 0;
+    font-size: 32px;
+    color: #ea352d;
+  }
+}
+
+p.wait {
+  margin-top: 8px;
+  padding-bottom: 24px;
+}
+
+.nothing_box {
+  height: 236px;
+  background-color: #fff;
+  text-align: center;
+  &_sub {
+    padding-top: 45px;
+    a.thin_mercari {
+      img.mercari_thin {
+        height: 80px;
+        width: 100px;
+      }
+    }
+  }
+  &_text {
+    padding-top: 30px;
+    color: #B3B3B3;
+  }
+}
+
+.width100 {
+  width: 100%;
+}
+
+.padbot {
+  padding-bottom: 24px;
+}
+
+.back-yellow {
+  background-color: #fff6de!important;
+  text-align: center;
+}
+
+.margin0 {
+  margin-top: 0!important;
+}
+
+ul.flow {
+  text-align: right;
+  padding: 16px 24px 8px;
+  background-color: white;
+  li {
+    color: #0099e8;
+    line-height: 24px;
+  }
+}
+
+.height {
+  height: 236px;
+}
+
+.side_item {
+  @include border-line;
+  background-color: white;
+  display: flex;
+  li.left {
+    width: 100px;
+  }
+  li.right {
+    width: 180px;
+    display: block;
+    a {
+      display: block;
+      img.trade_item_img {
+        width: 148px;
+        height: 148px;
+        objecet-fit: cover;
+      }
+      h4 {
+        overflow: hidden;
+      }
+    }
+    p {
+      line-height: 16px;
+    }
+  }
+}
+
+.avater-image {
+  border-radius: 50px;
+}
+
+.post-btn {
+  color: #fff;
+  width: 652px;
+  height: 48px;
+  border: 1px solid #ea352d;
+  margin-top: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #ea352d;
+}
+
+.rating-box {
+  @include flex-between;
+}
+
+.rate-box {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #ccc;
+  margin: 24px 0 24px 0;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  .rate-face {
+    font-size: 27px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+  }
+  label {
+    padding-top: 45px;
+    text-align: center;
+    width: 70px;
+    height: 70px;
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.comment-box {
+  width: 260px;
+  height: 120px;
+  margin-top: 8px;
+  padding: 10px 16px 8px 16px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.rate-action {
+  width: 260px;
+  height: 50px;
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  background-color: #aaa;
+  color: #fff;
+}
+
+.normal {
+  color: #FFCC00;
+}
+
+.good {
+  color: pink;
+}
+
+.click {
+  border: 3px solid #ccc;
 }

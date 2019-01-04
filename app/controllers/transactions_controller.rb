@@ -1,4 +1,7 @@
 class TransactionsController < ApplicationController
+
+  before_action :before_login
+
   def buy
     @item = Item.find(params[:id])
     @user = current_user
@@ -17,6 +20,8 @@ class TransactionsController < ApplicationController
     )
     @item.item_state_id = 3
     @item.save
+    @trade = Trade.new(user_id: @item.user_id, item_id: @item.id, transaction_state_id: 1, buyer_id: current_user.id)
+    @trade.save
     redirect_to controller: 'transactions', action: 'done'
   end
 
@@ -25,5 +30,30 @@ class TransactionsController < ApplicationController
     @user = current_user
     @address = @user.address
     render :done, layout: "sub-layout"
+  end
+
+  def order_status
+    @item = Item.find(params[:id])
+    @user = @item.user
+    @trade = @item.trade
+  end
+
+  def bought
+    @item = Item.find(params[:id])
+    @user = @item.user
+    @trade = @item.trade
+  end
+
+  def condition
+    @item = Item.find(params[:id])
+    @trade = Trade.find_by(item_id: @item.id)
+    @trade.transaction_state_id = 2
+    @trade.save
+    redirect_to controller: 'transactions', action: 'order_status'
+  end
+
+  private
+  def before_login
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
