@@ -234,3 +234,61 @@ ul.flow {
   font-size: 16px;
   background-color: #ea352d;
 }
+
+.rating-box {
+  @include flex-between;
+}
+
+.rate-box {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #ccc;
+  margin: 24px 0 24px 0;
+  border-radius: 4px;
+  position: relative;
+  .rate-face {
+    font-size: 27px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+  }
+  label {
+    padding-top: 45px;
+    text-align: center;
+    width: 70px;
+    height: 70px;
+    display: block;
+  }
+}
+
+.comment-box {
+  width: 260px;
+  height: 120px;
+  margin-top: 8px;
+  padding: 10px 16px 8px 16px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.rate-action {
+  width: 260px;
+  height: 50px;
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  background-color: #aaa;
+  color: #fff;
+}
+
+.normal {
+  color: #FFCC00;
+}
+
+.good {
+  color: pink;
+}
+
+.click {
+  background-color: green;
+}
