@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'mypage/purchase' => 'mypages#purchase'
   get 'mypage/purchased' => 'mypages#purchased'
   get 'mypage/deliver_address' => 'mypages#deliver_address'
+  get 'mypage/review' => 'mypages#review'
   resources :mypages, path: 'mypage'
   delete 'items/:id' =>'items#destroy'
   # これ必要な数とアクションでルーティングしないとrake routesがキモい
