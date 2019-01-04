@@ -40,16 +40,48 @@
         %li 購入した後の流れ
         %li 購入者のよくある質問
       .abeshi-right-content__box.middle-center.margin0
-        = form_with
-          %input{:type => "checkbox"}
-      .message-content__box
-        .message-content__box__form.margin0
-          %form.message-form{:method => "post"}
-          %input{:type => "hidden"}
-          %p.attention 取引メッセージの内容は、必要に応じて事務局で確認しています
-          %input{:type => "hidden"}
-          %input{:type => "hidden"}
-          %textarea.text{:type => "text", :name => "body"}
-          .message-sumit__details
-            %button{:type => "submit", :class => "submit"}
-              %span.font-white 取引メッセージを送る
+        = form_with model: @rate, url: "/rate/#{@item.id}", local: true do |form|
+          .content-check-box
+            = form.check_box :agreement, :as => :boolean, class: "check-box"
+            / %input{:type => "checkbox", :class => "check-box", :as => :boolean, :checked_value => "true", :unchecked_value => "false"}
+            %p 商品の中身を確認しました。
+          .rating-box
+            .rate-box
+              = form.radio_button :rate, 1, class: "brand", id: 'good'
+              %i.fas.fa-laugh.rate-face.good
+              = form.label "良い", for: 'good'
+            .rate-box
+              = form.radio_button :rate, 2, class: "brand", id: 'normal'
+              %i.fas.fa-meh.rate-face.normal
+              = form.label '普通', for: 'normal'
+            .rate-box
+              = form.radio_button :rate, 3, class: "brand", id: 'bad'
+              %i.fas.fa-frown.rate-face
+              = form.label '悪い', for: 'bad'
+          %p 評価のコメントを記入しましょう。
+          = form.text_area :comment, class: "comment-box", placeholder: "コメントはなくても構いませんが、お礼のメッセージなどを書くと喜ばれます。"
+          = form.submit "評価を投稿する", class: "rate-action bold"
+  - elsif @trade.transaction_state_id == 3
+    .abeshi-right-content.center
+      .abeshi-right-content__box.middle-center
+        %h2.bold 取引画面
+      .abeshi-right-content__box.middle-center.back-yellow
+        .center.padbot
+          .trade_box.middle-center
+            %i.fa.fa-check
+            %p.font-red.bold 受取評価をしました
+          %p 出品者からの評価が終わると取引完了となります。しばらくお待ちください。
+      %ul.flow
+        %li 購入した後の流れ
+  - elsif @trade.transaction_state_id == 4
+    .abeshi-right-content.center
+      .abeshi-right-content__box.middle-center
+        %h2.bold 取引画面
+      .abeshi-right-content__box.middle-center.back-yellow
+        .center.padbot
+          .trade_box.middle-center
+            %i.fa.fa-check
+            %p.font-red.bold 取引が完了しました
+          %p この度はメルカリのご利用ありがとうございました
+      %ul.flow
+        %li 販売代金の受取について
