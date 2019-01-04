@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item,only:[:edit,:update,:show,:destroy]
   before_action :user_collation,only:[:edit,:update,:destroy]
+  before_action :user_login,only:[:buy,:new]
   def index
     @item = Item.order("RAND()")
     @items = Item.new
@@ -57,6 +58,10 @@ class ItemsController < ApplicationController
 
   def user_collation
     return redirect_to root_path  unless @item.user_id == current_user.id
+  end
+
+  def user_login
+    return redirect_to new_user_session_path  unless user_signed_in?
   end
 end
 
