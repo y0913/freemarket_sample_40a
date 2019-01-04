@@ -6,7 +6,7 @@
           = image_tag("abecari-logo.svg", class: "mercari-image")
       = form_with url: items_path, method: :get, local: true ,html: {class: "main-header__inner__top__form"} do |f|
         .main-header__inner__top__form__search-field.back-silver
-          = f.text_field :id, class: 'main-header__inner__top__form__search-field__text-field', placeholder: 'キーワードから探す'
+          = f.text_field :keyword, class: 'main-header__inner__top__form__search-field__text-field', placeholder: 'キーワードから探す'
           = button_tag type: 'submit', class: 'main-header__inner__top__form__search-field__search-btn' do
             %i.fa.fa-search
     .main-header__inner__nav-box
