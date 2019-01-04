@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
 
   before_action :before_login
   before_action :set_item, only:[:buy, :pay, :done, :order_status, :bought, :condition]
-  before_action :buy_redirect
+  before_action :buy_redirect, only:[:buy]
 
   def buy
     @item = Item.find(params[:id])
@@ -64,6 +64,6 @@ class TransactionsController < ApplicationController
   end
 
   def buy_redirect
-    redirect_to root_path @item.item_state_id == 3
+    redirect_to item_path(@item.id) if @item.item_state_id == 3
   end
 end
