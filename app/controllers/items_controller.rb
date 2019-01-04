@@ -53,7 +53,6 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
-    user_collation
   end
 
   def user_collation
