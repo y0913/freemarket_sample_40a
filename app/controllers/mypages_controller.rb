@@ -21,22 +21,22 @@ end
 
 def in_progress
   @user = current_user
-  @trades = Trade.where(user_id: @user.id, transaction_state_id: 1)
+  @trades = Trade.where(user_id: @user.id, transaction_state_id: 1).or(Trade.where(user_id: @user.id, transaction_state_id: 2)).or(Trade.where(user_id: @user.id, transaction_state_id: 3))
 end
 
 def completed
   @user = current_user
-  @trades = Trade.where(user_id: @user.id, transaction_state_id: 2)
+  @trades = Trade.where(user_id: @user.id, transaction_state_id: 4)
 end
 
 def purchase
   @user = current_user
-  @trades = Trade.where(buyer_id: @user.id, transaction_state_id: 1)
+  @trades = Trade.where(buyer_id: @user.id, transaction_state_id: 1).or(Trade.where(buyer_id: @user.id, transaction_state_id: 2)).or(Trade.where(buyer_id: @user.id, transaction_state_id: 3))
 end
 
 def purchased
   @user = current_user
-  @trades = Trade.where(buyer_id: @user.id, transaction_state_id: 2)
+  @trades = Trade.where(buyer_id: @user.id, transaction_state_id: 4)
 end
 
 def deliver_address

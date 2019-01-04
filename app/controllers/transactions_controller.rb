@@ -35,6 +35,12 @@ class TransactionsController < ApplicationController
     @trade = @item.trade
   end
 
+  def bought
+    @item = Item.find(params[:id])
+    @user = @item.user
+    @trade = @item.trade
+  end
+
   def condition
     @item = Item.find(params[:id])
     @trade = Trade.find_by(item_id: @item.id)
