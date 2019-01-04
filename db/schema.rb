@@ -130,10 +130,10 @@ ActiveRecord::Schema.define(version: 20181226120153) do
   end
 
   create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "rate", null: false
+    t.integer "rate", null: false
     t.integer "user_id", null: false
     t.text "comment"
-    t.integer "transaction_id", null: false
+    t.integer "trade_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -164,7 +164,7 @@ ActiveRecord::Schema.define(version: 20181226120153) do
   create_table "transaction_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id", null: false
     t.text "comment"
-    t.integer "transaction_id", null: false
+    t.integer "trade_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -192,7 +192,7 @@ ActiveRecord::Schema.define(version: 20181226120153) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "nickname", default: "太郎"
+    t.string "nickname"
     t.string "email", default: ""
     t.string "encrypted_password", default: ""
     t.bigint "tel"
