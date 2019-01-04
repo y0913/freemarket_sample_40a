@@ -1,0 +1,54 @@
+.left-content
+  .left-content__bar
+    %h4 取引情報
+    %ul.marginT-8px
+      .side_item.height
+        %li.left
+          %p 商品
+        %li.right
+          %a{href: "/items/#{@item.id}"}
+            = image_tag @item.images.first.image, class: "trade_item_img"
+            %h4.marginT-8px #{@item.name.truncate(9)}
+            %br
+            = converting_to_jpy(@item.price)
+      .side_item
+        %li.left
+          %p 送料
+        %li.right
+          %p #{@item.postage.burden}
+      .side_item
+        %li.left
+          %p 販売手数料
+        %li.right
+          = converting_to_jpy((@item.price / 10).floor())
+      .side_item
+        %li.left
+          %p 販売利益
+        %li.right
+          = converting_to_jpy(@item.price - (@item.price / 10).floor())
+      .side_item
+        %li.left
+          %p 購入日時
+        %li.right
+          = @trade.created_at.strftime("%m月%d日 %H:%M")
+      .side_item
+        %li.left
+          %p 商品ID
+        %li.right
+          %p m#{@item.id}
+      .side_item.height100
+        %li.left
+          %p お届け先
+        %li.right
+          %p 〒111-1111
+          %p 奈良県大和高田市111
+          %p.bold #{@trade.buyer.nickname}様
+  .left-content__bar
+    %h4 購入者情報
+    %ul.marginT-8px
+      %a{href: ""}
+        .side_item.middle-center
+          %li.left
+            = image_tag("avatar.jpg", class: "avater-image")
+          %li.right
+            %h4 #{@trade.buyer.nickname}
