@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'mypage/review' => 'mypages#review'
   get 'mypage/good' => 'mypages#good'
   get 'mypage/normal' => 'mypages#normal'
+  get 'mypage/bad' => 'mypages#bad'
 
   resources :mypages, path: 'mypage'
   delete 'items/:id' =>'items#destroy'
