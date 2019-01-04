@@ -43,7 +43,6 @@
         = form_with model: @rate, url: "/rate/#{@item.id}", local: true do |form|
           .content-check-box
             = form.check_box :agreement, :as => :boolean, class: "check-box"
-            / %input{:type => "checkbox", :class => "check-box", :as => :boolean, :checked_value => "true", :unchecked_value => "false"}
             %p 商品の中身を確認しました。
           .rating-box
             .rate-box

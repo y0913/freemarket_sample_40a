@@ -246,6 +246,7 @@ ul.flow {
   margin: 24px 0 24px 0;
   border-radius: 4px;
   position: relative;
+  cursor: pointer;
   .rate-face {
     font-size: 27px;
     position: absolute;
@@ -258,6 +259,7 @@ ul.flow {
     width: 70px;
     height: 70px;
     display: block;
+    cursor: pointer;
   }
 }
 
@@ -290,5 +292,5 @@ ul.flow {
 }
 
 .click {
-  background-color: green;
+  border: 3px solid #ccc;
 }
