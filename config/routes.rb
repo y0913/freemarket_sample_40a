@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks"}
   root 'items#index'
-<<<<<<< HEAD
+
   resources 'items' do
     collection do
       get 'search' => 'items#search'
     end
   end
-=======
-  resources 'items'
+
   post 'rate/:id' => 'rates#create'
->>>>>>> abeshi1019/master
   get 'mypage/card' => 'mypages#card'
   get 'mypage/card/create' => 'mypages#buy'
   get 'mypage/logout' => 'mypages#logout'
