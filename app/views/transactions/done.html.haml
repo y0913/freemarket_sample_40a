@@ -1,4 +1,11 @@
 .abeshi-right-content.center
+  .abeshi-right-content__box.middle-center.back-yellow
+    .center.padbot
+      .trade_box.middle-center
+        %i.fa.fa-clock-o
+        %p.font-red.bold 発送をお待ちください
+      %br
+      %p 出品者からの発送通知をお待ちください
   .abeshi-right-content__box.middle-center
     %h2.bold.confirm-buy 購入が完了しました
   .abeshi-right-content__box
@@ -44,4 +51,4 @@
         %br
         評価後に取引は完了です。
         %br
-        = link_to "マイページへもどる", root_path, class: "buy_mypage"
+        = link_to "マイページへもどる", mypages_path, class: "buy_mypage"
