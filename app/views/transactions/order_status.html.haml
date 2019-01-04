@@ -89,15 +89,15 @@
         = form_with model: @rate, url: "/rate/#{@item.id}", local: true do |form|
           .rating-box
             .rate-box
-              = form.radio_button :rate, 1, class: "brand", id: 'good'
+              = form.radio_button :rate, 1, class: "brand", id: 'good', checked: true
               %i.fas.fa-laugh.rate-face.good
               = form.label "良い", for: 'good'
             .rate-box
-              = form.radio_button :rate, 2, class: "brand", id: 'normal'
+              = form.radio_button :rate, 2, class: "brand", id: 'normal', checked: true
               %i.fas.fa-meh.rate-face.normal
               = form.label '普通', for: 'normal'
             .rate-box
-              = form.radio_button :rate, 3, class: "brand", id: 'bad'
+              = form.radio_button :rate, 3, class: "brand", id: 'bad', checked: true
               %i.fas.fa-frown.rate-face
               = form.label '悪い', for: 'bad'
           %p 評価のコメントを記入しましょう。
