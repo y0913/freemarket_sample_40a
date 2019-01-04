@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
-  before_action :basic_auth, if: :production?
+  before_action :basic_auth
   protect_from_forgery with: :exception
   layout :layout_by_resource
+  before_action :set_category_brand
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
 
@@ -22,4 +24,14 @@ class ApplicationController < ActionController::Base
       username == 'admin' && password == 'merukari40a'
     end
   end
+
+  def set_category_brand
+    @categorys = Category.where(parent_id: nil)
+    @brands = Brand.order("created_at DESC")
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+  end
+
 end

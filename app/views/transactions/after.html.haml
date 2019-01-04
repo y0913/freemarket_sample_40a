@@ -1,0 +1,31 @@
+- breadcrumb :mypage
+.main-content
+  = render 'modules/item-sidebar'
+
+  .abeshi-right-content.center
+    .abeshi-right-content__box.middle-center
+      %h2.bold 取引画面
+    .abeshi-right-content__box.middle-center.back-yellow
+      .center.padbot
+        .trade_box.middle-center
+          %i.fa.fa-check
+          %p.font-red.bold 商品の発送を通知しました
+        %p 商品の配送には平均で2〜4日かかります。購入者からの受取評価をお待ちください。
+        %br
+        %p 2019年1月5日 13:00までに購入者からの評価が行われず、購入者からの問い合わせがない場合は、
+        %br
+        %p 事務局で取引を完了します。
+    %ul.flow
+      %li 商品が売れた後の流れ
+      %li 出品者のよくある質問
+    .message-content__box
+      .message-content__box__form.margin0
+        %form.message-form{:method => "post"}
+        %input{:type => "hidden"}
+        %p.attention 取引メッセージの内容は、必要に応じて事務局で確認しています
+        %input{:type => "hidden"}
+        %input{:type => "hidden"}
+        %textarea.text{:type => "text", :name => "body"}
+        .message-sumit__details
+          %button{:type => "submit", :class => "submit"}
+            %span.font-white 取引メッセージを送る

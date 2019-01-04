@@ -1,0 +1,38 @@
+- breadcrumb :mypage
+.main-content
+  = render 'modules/mypage-sidebar'
+
+  .abeshi-right-content
+    .abeshi-right-content__block
+      %h4.abeshi-right-content__block__title.middle.bold.back-silver 出品した商品
+      %ul.abeshi-right-content__block__tabs
+        %li
+          %h4
+            = link_to "出品中", mypage_listing_path,class:"middle-center bold"
+        %li
+          %h4
+            = link_to "取引中", mypage_in_progress_path,class:"middle-center bold"
+        %li.active
+          %h4
+            = link_to "売却済み", mypage_completed_path,class:"middle-center bold"
+
+      - if @trades.present?
+        - @trades.each do |trade|
+          %ul.abeshi-right-content__block__object
+            = link_to "/transaction/order_status/#{trade.item_id}" do
+              %li
+                .abeshi-right-content__block__object__link-box
+                  =image_tag trade.item.images.first.image, alt: "item-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+                  .abeshi-right-content__block__object__link-box__body
+                    .abeshi-right-content__block__object__link-box__body--text #{trade.item.name}
+                    .abeshi-right-content__block__object__link-box__body__detail.middle
+                      .status-red 取引完了
+                  %i.fa.fa-angle-right.fa-2x
+      - else
+        .nothing_box
+          .nothing_box_sub
+            %a{href: "", class: "thin_mercari"}
+              %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?819506670", class: "mercari_thin"}
+          .nothing_box_text
+            %p
+              売却済みの商品がありません
