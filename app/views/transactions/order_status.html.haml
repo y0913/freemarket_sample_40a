@@ -68,3 +68,50 @@
           .message-sumit__details
             %button{:type => "submit", :class => "submit"}
               %span.font-white 取引メッセージを送る
+  - elsif @trade.transaction_state_id == 3
+    .abeshi-right-content.center
+      .abeshi-right-content__box.middle-center
+        %h2.bold 取引画面
+      .abeshi-right-content__box.middle-center.back-yellow
+        .center.padbot
+          .trade_box.middle-center
+            %i.fa.fa-check
+            %p.font-red.bold 評価をしてください
+          %p 購入者に商品が到着し評価がありました。
+          %br
+          %p 購入者の評価を行なって取引を完了してください。
+          %br
+          %p ※評価は取引が終わった後で見ることができます。
+      %ul.flow
+        %li 商品が売れた後の流れ
+        %li 出品者のよくある質問
+      .abeshi-right-content__box.middle-center.margin0
+        = form_with model: @rate, url: "/rate/#{@item.id}", local: true do |form|
+          .rating-box
+            .rate-box
+              = form.radio_button :rate, 1, class: "brand", id: 'good'
+              %i.fas.fa-laugh.rate-face.good
+              = form.label "良い", for: 'good'
+            .rate-box
+              = form.radio_button :rate, 2, class: "brand", id: 'normal'
+              %i.fas.fa-meh.rate-face.normal
+              = form.label '普通', for: 'normal'
+            .rate-box
+              = form.radio_button :rate, 3, class: "brand", id: 'bad'
+              %i.fas.fa-frown.rate-face
+              = form.label '悪い', for: 'bad'
+          %p 評価のコメントを記入しましょう。
+          = form.text_area :comment, class: "comment-box", placeholder: "コメントはなくても構いませんが、お礼のメッセージなどを書くと喜ばれます。"
+          = form.submit "評価を投稿する", class: "rate-action bold"
+  - elsif @trade.transaction_state_id == 4
+    .abeshi-right-content.center
+      .abeshi-right-content__box.middle-center
+        %h2.bold 取引画面
+      .abeshi-right-content__box.middle-center.back-yellow
+        .center.padbot
+          .trade_box.middle-center
+            %i.fa.fa-check
+            %p.font-red.bold 取引が完了しました
+          %p この度はメルカリのご利用ありがとうございました
+      %ul.flow
+        %li 販売代金の受取について
