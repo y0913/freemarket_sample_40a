@@ -3,7 +3,6 @@ class MypagesController < ApplicationController
 before_action :before_login
 
 def index
-  @user = current_user
 end
 
 
@@ -16,28 +15,23 @@ def card
 end
 
 def listing
-  @user = current_user
-  @items = @user.items.where(item_state_id: 1).order("created_at DESC")
+  @items = current_user.items.where(item_state_id: 1).order("created_at DESC")
 end
 
 def in_progress
-  @user = current_user
-  @trades = Trade.where(user_id: @user.id).where.not(transaction_state_id: 4)
+  @trades = Trade.where(user_id: current_user.id).where.not(transaction_state_id: 4)
 end
 
 def completed
-  @user = current_user
-  @trades = Trade.where(user_id: @user.id, transaction_state_id: 4)
+  @trades = Trade.where(user_id: current_user.id, transaction_state_id: 4)
 end
 
 def purchase
-  @user = current_user
-  @trades = Trade.where(buyer_id: @user.id).where.not(transaction_state_id: 4)
+  @trades = Trade.where(buyer_id: current_user.id).where.not(transaction_state_id: 4)
 end
 
 def purchased
-  @user = current_user
-  @trades = Trade.where(buyer_id: @user.id, transaction_state_id: 4)
+  @trades = Trade.where(buyer_id: current_user.id, transaction_state_id: 4)
 end
 
 def deliver_address
@@ -50,7 +44,6 @@ end
 
 def show
   @items = Item.new
-  @user = current_user
 end
 
 def logout
