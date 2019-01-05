@@ -87,9 +87,9 @@
    %button{:type => "submit", :class => "submit"}
     %span.font-white 出品を停止する
   .item-edit__box__main-contents__button
-   %button{:type => "submit", :class => "submit"}
-    %span.font-white
-     = link_to "この商品を削除する",item_path(@item), method: :delete
+   %button{:type => "submit", :class => "submit", :id => "openModal"}
+    %span.font-white この商品を削除する
+
  - else
   .item-button-container
    .item-button-container__left
@@ -155,3 +155,21 @@
 /         %i.far.fa-heart
 /          = item.likes_count
 /       %p.item-tax__position (税込)
+
+%section#modalArea.modalArea
+ .modalBg
+ .modalWrapper
+  .modalContents
+   .kakunin.middle-center.bold 確認
+   削除すると二度と復活できません。
+   %br/
+   削除する代わりに停止することもできます。
+   %br/
+   %br/
+   本当に削除しますか？
+   %br/
+  .under-text-content.middle-center
+   %li#closeModal.cancel-button
+    =link_to 'キャンセル',method: :post
+   %li.delete-product-button
+    =link_to '削除する', "", method: :delete
