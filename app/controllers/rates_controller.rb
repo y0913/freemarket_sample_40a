@@ -3,7 +3,7 @@ class RatesController < ApplicationController
     @item = Item.find(params[:id])
     @trade = Trade.find_by(item_id: @item.id)
     if @trade.buyer_id == current_user.id
-      @rate = Rate.new(rate: params[:rate], user_id: @item.user_id, comment: params[:comment], trade_id: @trade.id, agreement: params[:agreement])
+      @rate = Rate.new(rate: params[:rate], user_id: @item.user_id, comment: params[:comment], trade_id: @trade.id)
       @rate.save
       if @rate.save
         @trade.transaction_state_id = 3
@@ -11,7 +11,7 @@ class RatesController < ApplicationController
       end
       redirect_to controller: 'transactions', action: 'bought'
     elsif @item.user_id == current_user.id
-      @rate = Rate.new(rate: params[:rate], user_id: @trade.buyer_id, comment: params[:comment], trade_id: @trade.id, agreement: params[:true])
+      @rate = Rate.new(rate: params[:rate], user_id: @trade.buyer_id, comment: params[:comment], trade_id: @trade.id)
       @rate.save
       if @rate.save
          @trade.transaction_state_id = 4
