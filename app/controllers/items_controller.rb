@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item,only:[:edit,:update,:show,:destroy]
   before_action :user_collation,only:[:edit,:update,:destroy]
-  before_action :user_login,only:[:buy,:new]
+  before_action :user_login,only:[:new]
 
   def index
     @item = Item.order("RAND()")
@@ -17,9 +17,6 @@ class ItemsController < ApplicationController
   def show
   	@item = Item.find(params[:id])
     @user = @item.user
-  end
-
-  def buy
   end
 
   def create
