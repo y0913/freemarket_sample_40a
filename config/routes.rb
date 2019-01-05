@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'user/:id' => 'users#show'
 
   post 'rate/:id' => 'rates#create'
   get 'mypage/card' => 'mypages#card'
