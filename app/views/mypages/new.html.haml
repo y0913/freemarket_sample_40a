@@ -10,22 +10,17 @@
         %span.form-require.back-red.font-white 必須
         = form.text_field :first_name, class: "new input-default", required: true, placeholder: "例）阿部", value: ""
         = form.text_field :last_name, class: "new input-default", required: true, placeholder: "例）寛", value: ""
-        / %input.new.input-default{last_name: "first_name_kanji", required:true,  placeholder: "例）寛", type: "text", value: ""}
 
       .form-new-group
         %label.new.bold お名前カナ
         %span.form-require.back-red.font-white 必須
         = form.text_field :first_name_kana, class: "new input-default", required: true, placeholder: "例）アベ", value: ""
         = form.text_field :last_name_kana, class: "new input-default", required: true, placeholder: "例）ヒロシ", value: ""
-        / %input.new.input-default{first_name_kana: "family_name_kana",required:true, placeholder: "例）アベ", type:"text", value: ""}/
-        / %input.new.input-default{last_name_kana: "first_name_kana", placeholder: "例）ヒロシ", type: "text", value: ""}/
 
       .form-new-group
-        %label.new.bold{for: "zip_code"} 郵便番号
+        %label.new.bold{for: "post_number"} 郵便番号
         %span.form-arbitrary.font-white 任意
-        = form.fields_for :address do |f|
-          = f.number_field :post_numder,class: "new input-default",placeholder: "例）1234567", value:""
-        / %input.new.input-default{card_nember: "zip_code", placeholder: "例）1234567", type: "text", value: ""}/
+        = form.number_field :post_number, class: "new input-default", placeholder: "例）1234567", value:""
 
       .form-new-group
         %label.new.bold{for: "prefecture"} 都道府県
@@ -33,25 +28,21 @@
         .select-wrap.new
           %i.fa.new.fa-chevron-down.prefec.font-gray
           = form.collection_select :prefecture_id,Prefecture.all, :id, :prefecture,{include_blank: "---"},{class: "exhibit_select"}
+
       .form-new-group
         %label.new.bold{for: "city"} 市区町村
         %span.form-require.back-red.font-white 必須
-        = form.fields_for :address do |f|
-          = f.text_field :city,class: "new input-default",placeholder: "例）大阪市北区", value:""
-        / %input.new.input-default{name: "city", required:true,placeholder: "例）大阪市北区", type: "text", value: ""}/
+        = form.text_field :city,class: "new input-default",placeholder: "例）大阪市北区", value:""
 
       .form-new-group
         %label.new.bold{for: "address1_label"} 番地
         %span.form-require.back-red.font-white 必須
-        = form.fields_for :address do |f|
-          = f.text_field :address,class: "new input-default",placeholder: "例）中崎西2−4−4", value:""
-        / %input.new.input-default{name: "address1",required:true, placeholder: "例）中崎西2−4−43", type: "text", value:""}/
+        = form.text_field :address,class: "new input-default",placeholder: "例）中崎西2−4−4", value:""
+
       .form-new-group
         %label.new.bold{for: "address2_label"} 建物名
         %span.form-arbitrary.font-white 任意
-        = form.fields_for :address do |f|
-          = f.text_field :building,class: "new input-default",placeholder: "例）山本ビル梅田5階", value:""
-        / %input.new.input-default{name: "address2", placeholder: "例）山本ビル梅田5階", type: "text", value: ""}/
+        = form.text_field :building,class: "new input-default",placeholder: "例）山本ビル梅田5階", value:""
 
       .form-new-group
         .class
@@ -76,5 +67,3 @@
         %p.edit-profile-box.middle
           %a{href: "/jp/help_center/article/423/", target: "_blank", class: "edit-profile"}本人情報の登録について
           %i.fa.new.fa-chevron-right.bottom
-
-/ {action: "https://www.mercari.com/jp/mypage/identification/save/", method: "POST", novalidate: ""}

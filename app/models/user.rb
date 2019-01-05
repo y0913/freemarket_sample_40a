@@ -6,7 +6,6 @@ class User < ApplicationRecord
   has_many :item_comments
   has_many :sns_credentials, dependent: :destroy
   has_one :address
-  accepts_nested_attributes_for :address
   has_many :items, dependent: :destroy
   # has_many :transaction_users, dependent: :destroy
   has_many :transactions, dependent: :destroy
