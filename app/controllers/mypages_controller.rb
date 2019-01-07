@@ -51,19 +51,19 @@ def logout
 end
 
 def review
-  @rates = current_user.rates.order("created_at DESC")
+  @rates = current_user.rates.order("created_at DESC").limit(10)
 end
 
 def good
-  @rates = current_user.rates.order("created_at DESC").where(rate: 1)
+  @rates = current_user.rates.order("created_at DESC").where(rate: 1).limit(10)
 end
 
 def normal
-  @rates = current_user.rates.order("created_at DESC").where(rate: 2)
+  @rates = current_user.rates.order("created_at DESC").where(rate: 2).limit(10)
 end
 
 def bad
-  @rates = current_user.rates.order("created_at DESC").where(rate: 3)
+  @rates = current_user.rates.order("created_at DESC").where(rate: 3).limit(10)
 end
 
 private
