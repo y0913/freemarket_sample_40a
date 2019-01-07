@@ -4,6 +4,9 @@
  .item__details__main-content
   .item__details__main-content-boxes
    .item__details__main-content-boxes__subject.back-silver
+    - if @item.item_state_id == 3
+     .sold-item-big
+      .sold-item--text-big SOLD
     = image_tag @item.images.first.image,class: "main"
     .photos
      .small-photo
