@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :set_item,only:[:edit,:update,:show,:destroy]
+  before_action :set_item,only:[:edit,:update,:show,:destroy, :stop]
   before_action :user_collation,only:[:edit,:update,:destroy]
   before_action :user_login,only:[:new]
 
   def index
-    @item = Item.order("created_at DESC").limit(4)
+    @item = Item.order("created_at DESC").limit(4).where.not(item_state_id: 2)
     @items = Item.new
   end
 
@@ -41,6 +41,12 @@ class ItemsController < ApplicationController
         redirect_to root_path notice: 'エラーが発生しました。'
       end
     end
+  end
+
+  def stop
+    @item.item_state_id = 2
+    @item.save
+    redirect_to root_path
   end
 
   def edit
