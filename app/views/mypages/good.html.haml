@@ -1,0 +1,21 @@
+- breadcrumb :mypage
+.main-content
+  = render 'modules/mypage-sidebar'
+
+  .abeshi-right-content
+    .abeshi-right-content__block
+      %h4.abeshi-right-content__block__title.middle.bold.back-silver 評価一覧
+      %ul.abeshi-right-content__block__tabs
+        %li
+          %h4
+            = link_to "すべて", mypage_review_path,class:"middle-center bold"
+        %li.active
+          %h4
+            = link_to "良い", mypage_good_path,class:"middle-center bold"
+        %li
+          %h4
+            = link_to "普通", mypage_normal_path,class:"middle-center bold"
+        %li
+          %h4
+            = link_to "悪い", mypage_bad_path,class:"middle-center bold"
+      = render 'modules/review'

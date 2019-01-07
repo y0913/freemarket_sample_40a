@@ -4,6 +4,9 @@
  .item__details__main-content
   .item__details__main-content-boxes
    .item__details__main-content-boxes__subject.back-silver
+    - if @item.item_state_id == 3
+     .sold-item-big
+      .sold-item--text-big SOLD
     = image_tag @item.images.first.image,class: "main"
     .photos
      .small-photo
@@ -14,17 +17,17 @@
     %tr
      %th.back-silver 出品者
      %td
-      = link_to @item.user.nickname, "https://www.mercari.com/jp/u/914459821/", class: "items-link_to"
+      = link_to @item.user.nickname, "/user/#{current_user.id}", class: "items-link_to"
       .user-rating
        .item-user-ratings
        %i.fas.fa-laugh
-       %span 4
+       %span #{@goods.count}
        .item-user-ratings
        %i.fas.fa-meh
-       %span 8
+       %span #{@normals.count}
        .item-user-ratings
        %i.fas.fa-frown
-       %span 6
+       %span #{@bads.count}
     %tr
      %th.back-silver カテゴリー
      %td
@@ -84,8 +87,9 @@
    = link_to "商品の編集", "https://www.mercari.com/jp/sell/edit/m80275965494/", method: :edit
   .item-edit__box__or or
   .item-edit__box__main-contents
-   %button{:type => "submit", :class => "submit"}
-    %span.font-white 出品を停止する
+   = form_tag("/item/#{@item.id}", method: :post, action: :stop) do
+    %button{:type => "submit", :class => "submit"}
+     %span.font-white 出品を停止する
   .item-edit__box__main-contents__button
    %button{:type => "submit", :class => "submit", :id => "openModal"}
     %span.font-white この商品を削除する
