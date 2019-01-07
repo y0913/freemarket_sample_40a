@@ -3,7 +3,6 @@ class MypagesController < ApplicationController
 before_action :before_login
 
 def index
-  @user = current_user
 end
 
 
@@ -29,28 +28,23 @@ def card
 end
 
 def listing
-  @user = current_user
-  @items = @user.items.where(item_state_id: 1).order("created_at DESC")
+  @items = current_user.items.where.not(item_state_id: 3).order("created_at DESC")
 end
 
 def in_progress
-  @user = current_user
-  @trades = Trade.where(user_id: @user.id, transaction_state_id: 1).or(Trade.where(user_id: @user.id, transaction_state_id: 2)).or(Trade.where(user_id: @user.id, transaction_state_id: 3))
+  @trades = Trade.where(user_id: current_user.id).where.not(transaction_state_id: 4)
 end
 
 def completed
-  @user = current_user
-  @trades = Trade.where(user_id: @user.id, transaction_state_id: 4)
+  @trades = Trade.where(user_id: current_user.id, transaction_state_id: 4)
 end
 
 def purchase
-  @user = current_user
-  @trades = Trade.where(buyer_id: @user.id, transaction_state_id: 1).or(Trade.where(buyer_id: @user.id, transaction_state_id: 2)).or(Trade.where(buyer_id: @user.id, transaction_state_id: 3))
+  @trades = Trade.where(buyer_id: current_user.id).where.not(transaction_state_id: 4)
 end
 
 def purchased
-  @user = current_user
-  @trades = Trade.where(buyer_id: @user.id, transaction_state_id: 4)
+  @trades = Trade.where(buyer_id: current_user.id, transaction_state_id: 4)
 end
 
 def deliver_address
@@ -63,7 +57,6 @@ end
 
 def show
   @items = Item.new
-  @user = current_user
 end
 
 def logout
@@ -71,19 +64,19 @@ def logout
 end
 
 def review
-  @rates = current_user.rates.order("created_at DESC")
+  @rates = current_user.rates.order("created_at DESC").limit(10)
 end
 
 def good
-  @rates = current_user.rates.order("created_at DESC").where(rate: 1)
+  @rates = current_user.rates.order("created_at DESC").where(rate: 1).limit(10)
 end
 
 def normal
-  @rates = current_user.rates.order("created_at DESC").where(rate: 2)
+  @rates = current_user.rates.order("created_at DESC").where(rate: 2).limit(10)
 end
 
 def bad
-  @rates = current_user.rates.order("created_at DESC").where(rate: 3)
+  @rates = current_user.rates.order("created_at DESC").where(rate: 3).limit(10)
 end
 
 private
