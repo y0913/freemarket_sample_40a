@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'search' => 'items#search'
     end
   end
+  post 'item/:id' => 'items#stop'
 
   get 'user/:id' => 'users#show'
 

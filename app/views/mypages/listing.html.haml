@@ -25,8 +25,12 @@
                   =image_tag item.images.first.image, alt: "item-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
                   .abeshi-right-content__block__object__link-box__body
                     .abeshi-right-content__block__object__link-box__body--text #{item.name}
-                    .abeshi-right-content__block__object__link-box__body__detail.middle
-                      .status-blue 出品中
+                    - if item.item_state_id == 1
+                      .abeshi-right-content__block__object__link-box__body__detail.middle
+                        .status-blue 出品中
+                    - if item.item_state_id == 2
+                      .abeshi-right-content__block__object__link-box__body__detail.middle
+                        .status-blue 公開停止中
                   %i.fa.fa-angle-right.fa-2x
       - else
         .nothing_box

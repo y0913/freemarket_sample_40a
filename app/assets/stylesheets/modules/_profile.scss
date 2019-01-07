@@ -51,6 +51,7 @@
     &-box {
       width: 220px;
       margin-right: 20px;
+      position: relative;
       img.profile-img {
         width: 220px;
         height: 220px;
@@ -61,7 +62,6 @@
         height: 110px;
         padding: 16px;
         margin-bottom: 20px;
-        position: relative;
       }
     }
   }
@@ -75,4 +75,23 @@
   position: absolute;
   bottom: 15px;
   font-size: 20px;
+}
+
+.sold-item-normal {
+  width: 90px;
+  height: 45px;
+  border: 45px solid red;
+  border-right: 45px solid transparent;
+  border-bottom: 45px solid transparent;
+  border-left: 45px solid red;
+  position: absolute;
+}
+
+.sold-item--text-normal {
+  color: white;
+  font-size: 21px;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: -27px;
+  left: -45px;
 }
