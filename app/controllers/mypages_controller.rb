@@ -15,7 +15,7 @@ def card
 end
 
 def listing
-  @items = current_user.items.where(item_state_id: 1).order("created_at DESC")
+  @items = current_user.items.where.not(item_state_id: 3).order("created_at DESC")
 end
 
 def in_progress
