@@ -1,0 +1,39 @@
+.user-detail
+  .user-detail-profile-box
+    %a.user-photo{href: ""}
+      = image_tag("avatar.jpg", class: "avater-image-big")
+      %p.user-nickname #{@user.nickname}
+      .user-detail-profile-box-score
+        %p.bold 評価 #{@user.rates.count}
+        %p.bold 出品数 #{@user.items.count}
+  .user-detail-rating
+    .user-detail-rating-box
+      %i.fas.fa-laugh.good.pdr30
+      = @goods.count
+    .user-detail-rating-box
+      %i.fas.fa-meh.normal.pdr30
+      = @normals.count
+    .user-detail-rating-box
+      %i.fas.fa-frown.pdr30
+      = @bads.count
+  .user-detail-introduce
+    = @user.introduction
+  .item-snsbox
+    .sns
+      .facebook
+        %i.fab.fa-facebook-square
+      .twitter
+        %i.fab.fa-twitter-square
+      .pinterest
+        %i.fab.fa-pinterest-square
+  %h2.bold この出品者の商品
+  .user-detail-item
+    - @items.each do |item|
+      %a.user-detail-item-box{href: "/items/#{item.id}"}
+        - if item.item_state_id == 3
+          .sold-item-normal
+            .sold-item--text-normal SOLD
+        = image_tag item.images.first.image,class: "profile-img",alt: "商品画像"
+        .user-detail-item-box-body
+          %p #{item.name}
+          %p.bold.b0 #{converting_to_jpy(item.price)}

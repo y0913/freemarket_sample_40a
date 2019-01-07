@@ -41,22 +41,22 @@
         %li 購入者のよくある質問
       .abeshi-right-content__box.middle-center.margin0
         = form_with model: @rate, url: "/rate/#{@item.id}", local: true do |form|
-          .content-check-box
-            = form.check_box :agreement, :as => :boolean, class: "check-box"
-            %p 商品の中身を確認しました。
           .rating-box
             .rate-box
-              = form.radio_button :rate, 1, class: "brand", id: 'good', checked: true
+              = form.radio_button :rate, 1, class: "brand", id: 'good'
+              = form.label "", for: 'good'
               %i.fas.fa-laugh.rate-face.good
-              = form.label "良い", for: 'good'
+              %p 良い
             .rate-box
-              = form.radio_button :rate, 2, class: "brand", id: 'normal', checked: true
+              = form.radio_button :rate, 2, class: "brand", id: 'normal'
+              = form.label "", for: 'normal'
               %i.fas.fa-meh.rate-face.normal
-              = form.label '普通', for: 'normal'
+              %p 普通
             .rate-box
-              = form.radio_button :rate, 3, class: "brand", id: 'bad', checked: true
+              = form.radio_button :rate, 3, class: "brand", id: 'bad'
+              = form.label "", for: 'bad'
               %i.fas.fa-frown.rate-face.bad
-              = form.label '悪い', for: 'bad'
+              %p 悪い
           %p 評価のコメントを記入しましょう。
           = form.text_area :comment, class: "comment-box", placeholder: "コメントはなくても構いませんが、お礼のメッセージなどを書くと喜ばれます。"
           = form.submit "評価を投稿する", class: "rate-action bold"

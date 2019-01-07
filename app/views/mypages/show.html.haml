@@ -1,3 +1,4 @@
+/ いらないビューかも？
 - breadcrumb :mypage
 .main-content
   = render 'modules/mypage-sidebar'
@@ -5,7 +6,7 @@
   .abeshi-right-content
     .abeshi-right-content__block#back-img.middle-center
       = image_tag "avatar.jpg", alt: "avatar",class: "right-content__block--avatar"
-      .abeshi-right-content__block__user-name.bold #{@user.nickname}
+      .abeshi-right-content__block__user-name.bold #{current_user.nickname}
       .abeshi-right-content__block__user-about
         %p.abeshi-right-content__block__review 評価
         %span.bold 10

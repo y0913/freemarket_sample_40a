@@ -4,50 +4,45 @@
     %h2.l-chapter-head.middle-center.bold 本人情報の登録
     .text-center.middle-center お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
 
-    %form.l-single-inner{action: "https://www.mercari.com/jp/mypage/identification/save/", method: "POST", novalidate: ""}
+    = form_with url: mypages_path, class: "l-single-inner", local: true do |form|
       .form-new-group
         %label.new.bold お名前
         %span.form-require.back-red.font-white 必須
-        %input.new.input-default{name: "family_name_kanji", placeholder: "例）阿部", type: "text", value: ""}/
-        %input.new.input-default{name: "first_name_kanji", placeholder: "例）寛", type: "text", value: ""}/
+        = form.text_field :first_name, class: "new input-default", required: true, placeholder: "例）阿部", value: ""
+        = form.text_field :last_name, class: "new input-default", required: true, placeholder: "例）寛", value: ""
 
       .form-new-group
         %label.new.bold お名前カナ
         %span.form-require.back-red.font-white 必須
-        %input.new.input-default{name: "family_name_kana", placeholder: "例）アベ", type:"text", value: ""}/
-        %input.new.input-default{name: "first_name_kana", placeholder: "例）ヒロシ", type: "text", value: ""}/
+        = form.text_field :first_name_kana, class: "new input-default", required: true, placeholder: "例）アベ", value: ""
+        = form.text_field :last_name_kana, class: "new input-default", required: true, placeholder: "例）ヒロシ", value: ""
 
       .form-new-group
-        %label.new.bold{for: "zip_code"} 郵便番号
+        %label.new.bold{for: "post_number"} 郵便番号
         %span.form-arbitrary.font-white 任意
-        %input.new.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}/
+        = form.number_field :post_number, class: "new input-default", placeholder: "例）1234567", value:""
 
       .form-new-group
         %label.new.bold{for: "prefecture"} 都道府県
         %span.form-require.back-red.font-white 必須
         .select-wrap.new
           %i.fa.new.fa-chevron-down.prefec.font-gray
-          %select.select-default{name: "prefecture"}
-            %option{value: ""} --
-            %option 大阪府
-            %option 兵庫県
-            %option 京都府
-            %option 滋賀県
-            %option 奈良県
-            %option 和歌山県
+          = form.collection_select :prefecture_id,Prefecture.all, :id, :prefecture,{include_blank: "---"},{class: "exhibit_select"}
+
       .form-new-group
         %label.new.bold{for: "city"} 市区町村
         %span.form-require.back-red.font-white 必須
-        %input.new.input-default{name: "city", placeholder: "例）大阪市北区", type: "text", value: ""}/
+        = form.text_field :city,class: "new input-default",placeholder: "例）大阪市北区", value:""
 
       .form-new-group
         %label.new.bold{for: "address1_label"} 番地
         %span.form-require.back-red.font-white 必須
-        %input.new.input-default{name: "address1", placeholder: "例）中崎西2−4−43", type: "text", value:""}/
+        = form.text_field :address,class: "new input-default",placeholder: "例）中崎西2−4−4", value:""
+
       .form-new-group
         %label.new.bold{for: "address2_label"} 建物名
         %span.form-arbitrary.font-white 任意
-        %input.new.input-default{name: "address2", placeholder: "例）山本ビル梅田5階", type: "text", value: ""}/
+        = form.text_field :building,class: "new input-default",placeholder: "例）山本ビル梅田5階", value:""
 
       .form-new-group
         .class
@@ -56,67 +51,18 @@
         .birthday
           .select-wrap.new
             %i.fa.new.fa-chevron-down.warp.font-gray
-            %select.select-default2{name: "year"}
-              %option{value: ""} --
-              %option{value: "1994"} 1994
-              %option{value: "1995"} 1995
-              %option{value: "1996"} 1996
+            = form.select :birth_year, ["1993", "1994", "1995"], {prompt: "--"}, {class: "select-default2"}
             %span 年
           .select-wrap.new
             %i.fa.new.fa-chevron-down.warp.font-gray
-            %select.select-default2{name: "month"}
-              %option{value: ""} --
-              %option{value: "1"} 1
-              %option{value: "2"} 2
-              %option{value: "3"} 3
-              %option{value: "4"} 4
-              %option{value: "5"} 5
-              %option{value: "6"} 6
-              %option{value: "7"} 7
-              %option{value: "8"} 8
-              %option{value: "9"} 9
-              %option{value: "10"} 10
-              %option{value: "11"} 11
-              %option{value: "12"} 12
+            = form.select :birth_month, ["1", "2", "3","4","5","6","7","8","9","10","11","12"], {prompt: "--"}, {class: "select-default2"}
             %span 月
           .select-wrap.new
             %i.fa.new.fa-chevron-down.warp.font-gray
-            %select.select-default2{name: "day"}
-              %option{value: ""} --
-              %option{value: "1"} 1
-              %option{value: "2"} 2
-              %option{value: "3"} 3
-              %option{value: "4"} 4
-              %option{value: "5"} 5
-              %option{value: "6"} 6
-              %option{value: "7"} 7
-              %option{value: "8"} 8
-              %option{value: "9"} 9
-              %option{value: "10"} 10
-              %option{value: "11"} 11
-              %option{value: "12"} 12
-              %option{value: "13"} 13
-              %option{value: "14"} 14
-              %option{value: "15"} 15
-              %option{value: "16"} 16
-              %option{value: "17"} 17
-              %option{value: "18"} 18
-              %option{value: "19"} 19
-              %option{value: "20"} 20
-              %option{value: "21"} 21
-              %option{value: "22"} 22
-              %option{value: "23"} 23
-              %option{value: "24"} 24
-              %option{value: "25"} 25
-              %option{value: "26"} 26
-              %option{value: "27"} 27
-              %option{value: "28"} 28
-              %option{value: "29"} 29
-              %option{value: "30"} 30
-              %option{value: "31"} 31
+            = form.select :birth_day, ["1", "2", "3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"], {prompt: "--"}, {class: "select-default2"}
             %span 日
         .form-info-text.font-gray ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
-      %button.btn-default.btn-red.new.font-white.back-red{type: "submit"} 登録する
+      %button.btn-default.btn-red.new.font-white.back-red{type: "submit",required:true,url: "/mypage", method: :post} 登録する
       .form-new-group.text-right
         %p.edit-profile-box.middle
           %a{href: "/jp/help_center/article/423/", target: "_blank", class: "edit-profile"}本人情報の登録について
