@@ -141,9 +141,10 @@ $(document).on('turbolinks:load', function() {
           $('.exhibit_salary.price').html(`<p class="exhibit_salary.price">-</p>`)
         }
       });
-      $(".rate-box").on('click', function(){
-        $(".rate-box").removeClass('click')
+        $(".rate-box").children("label").on('click', function(){
+        $(".rate-box").children("label").removeClass('click')
         $(this).addClass('click')
+        $(this).checked = true;
       })
     })
 })
