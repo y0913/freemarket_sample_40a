@@ -17,17 +17,17 @@
     %tr
      %th.back-silver 出品者
      %td
-      = link_to @item.user.nickname, "https://www.mercari.com/jp/u/914459821/", class: "items-link_to"
+      = link_to @item.user.nickname, "/user/#{current_user.id}", class: "items-link_to"
       .user-rating
        .item-user-ratings
        %i.fas.fa-laugh
-       %span 4
+       %span #{@goods.count}
        .item-user-ratings
        %i.fas.fa-meh
-       %span 8
+       %span #{@normals.count}
        .item-user-ratings
        %i.fas.fa-frown
-       %span 6
+       %span #{@bads.count}
     %tr
      %th.back-silver カテゴリー
      %td

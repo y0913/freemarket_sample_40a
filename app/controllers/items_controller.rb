@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :user_login,only:[:new]
 
   def index
-    @item = Item.order("RAND()")
+    @item = Item.order("created_at DESC").limit(4)
     @items = Item.new
   end
 
@@ -17,6 +17,9 @@ class ItemsController < ApplicationController
   def show
   	@item = Item.find(params[:id])
     @user = @item.user
+    @goods = Rate.where(rate: 1, user_id: @user.id)
+    @normals = Rate.where(rate: 2, user_id: @user.id)
+    @bads = Rate.where(rate: 3, user_id: @user.id)
   end
 
   def create
