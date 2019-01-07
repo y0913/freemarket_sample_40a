@@ -14,8 +14,8 @@ class RatesController < ApplicationController
       @rate = Rate.new(rate: params[:rate], user_id: @trade.buyer_id, comment: params[:comment], trade_id: @trade.id, agreement: params[:true])
       @rate.save
       if @rate.save
-         @trade.transaction_state_id = 4
-         @trade.save
+        @trade.transaction_state_id = 4
+        @trade.save
       end
       redirect_to controller: 'transactions', action: 'order_status'
     end

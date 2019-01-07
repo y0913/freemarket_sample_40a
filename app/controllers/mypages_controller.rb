@@ -57,6 +57,22 @@ def logout
   @items = Item.new
 end
 
+def review
+  @rates = current_user.rates.order("created_at DESC")
+end
+
+def good
+  @rates = current_user.rates.order("created_at DESC").where(rate: 1)
+end
+
+def normal
+  @rates = current_user.rates.order("created_at DESC").where(rate: 2)
+end
+
+def bad
+  @rates = current_user.rates.order("created_at DESC").where(rate: 3)
+end
+
 private
 def before_login
   redirect_to new_user_session_path unless user_signed_in?
