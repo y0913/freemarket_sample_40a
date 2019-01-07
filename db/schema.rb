@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20181226120153) do
 
   create_table "delivery_methods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "method", null: false
+    t.integer "postage_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

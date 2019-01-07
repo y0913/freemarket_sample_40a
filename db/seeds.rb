@@ -30,8 +30,12 @@ CSV.foreach('db/delivery_day.csv') do |row|
   DeliveryDay.find_or_create_by(day: row[0])
 end
 
+CSV.foreach('db/postage.csv') do |row|
+  Postage.find_or_create_by(burden: row[0])
+end
+
 CSV.foreach('db/delivery_method.csv') do |row|
-  DeliveryMethod.find_or_create_by(method: row[0])
+  DeliveryMethod.find_or_create_by(method: row[0], postage_id: row[1])
 end
 
 # CSV.foreach('db/image.csv') do |row|
@@ -40,10 +44,6 @@ end
 
 CSV.foreach('db/item_state.csv') do |row|
   ItemState.find_or_create_by(state: row[0])
-end
-
-CSV.foreach('db/postage.csv') do |row|
-  Postage.find_or_create_by(burden: row[0])
 end
 
 CSV.foreach('db/prefecture.csv') do |row|
