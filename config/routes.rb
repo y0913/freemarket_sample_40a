@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
   post 'item/:id' => 'items#stop'
+  get 'category/:id' => 'items#category'
 
   get 'user/:id' => 'users#show'
 
