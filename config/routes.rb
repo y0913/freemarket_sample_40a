@@ -7,7 +7,9 @@ Rails.application.routes.draw do
       get 'search' => 'items#search'
     end
   end
+  post 'item/:id' => 'items#stop'
 
+  get 'user/:id' => 'users#show'
 
   post 'rate/:id' => 'rates#create'
   get 'mypage/card' => 'mypages#card'
@@ -19,6 +21,11 @@ Rails.application.routes.draw do
   get 'mypage/purchase' => 'mypages#purchase'
   get 'mypage/purchased' => 'mypages#purchased'
   get 'mypage/deliver_address' => 'mypages#deliver_address'
+  get 'mypage/review' => 'mypages#review'
+  get 'mypage/good' => 'mypages#good'
+  get 'mypage/normal' => 'mypages#normal'
+  get 'mypage/bad' => 'mypages#bad'
+
   resources :mypages, path: 'mypage'
   delete 'items/:id' =>'items#destroy'
   # これ必要な数とアクションでルーティングしないとrake routesがキモい

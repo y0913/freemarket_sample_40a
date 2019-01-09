@@ -15,7 +15,7 @@ CSV.foreach('db/brand.csv') do |row|
 end
 
 CSV.foreach('db/category.csv') do |row|
-  Category.find_or_create_by(name: row[0], parent_id: row[1])
+  Category.find_or_create_by(name: row[0], parent_id: row[1], how_size: row[2])
 end
 
 # CSV.foreach('db/category_item.csv') do |row|
@@ -30,8 +30,12 @@ CSV.foreach('db/delivery_day.csv') do |row|
   DeliveryDay.find_or_create_by(day: row[0])
 end
 
+CSV.foreach('db/postage.csv') do |row|
+  Postage.find_or_create_by(burden: row[0])
+end
+
 CSV.foreach('db/delivery_method.csv') do |row|
-  DeliveryMethod.find_or_create_by(method: row[0])
+  DeliveryMethod.find_or_create_by(method: row[0], postage_id: row[1])
 end
 
 # CSV.foreach('db/image.csv') do |row|
@@ -42,16 +46,12 @@ CSV.foreach('db/item_state.csv') do |row|
   ItemState.find_or_create_by(state: row[0])
 end
 
-CSV.foreach('db/postage.csv') do |row|
-  Postage.find_or_create_by(burden: row[0])
-end
-
 CSV.foreach('db/prefecture.csv') do |row|
   Prefecture.find_or_create_by(prefecture: row[0])
 end
 
 CSV.foreach('db/size.csv') do |row|
-  Size.find_or_create_by(size: row[0])
+  Size.find_or_create_by(size: row[0], sizing: row[1])
 end
 
 CSV.foreach('db/transaction_state.csv') do |row|

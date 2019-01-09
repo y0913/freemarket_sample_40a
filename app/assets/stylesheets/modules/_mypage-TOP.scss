@@ -208,7 +208,7 @@ ul.flow {
       img.trade_item_img {
         width: 148px;
         height: 148px;
-        objecet-fit: cover;
+        object-fit: cover;
       }
       h4 {
         overflow: hidden;
@@ -254,12 +254,16 @@ ul.flow {
     left: 20px;
   }
   label {
-    padding-top: 45px;
     text-align: center;
-    width: 70px;
-    height: 70px;
+    width: 100%;
+    height: 100%;
     display: block;
     cursor: pointer;
+  }
+  p {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
   }
 }
 
@@ -293,4 +297,8 @@ ul.flow {
 
 .click {
   border: 3px solid #ccc;
+}
+
+.line21 {
+  line-height: 21px;
 }
