@@ -33,14 +33,14 @@
      %td
       .item-detail-table-sub-category
       %i.fa.fa-chevron-right.items-link_to
-      = link_to "ジャケット/アウター", "https://www.mercari.com/jp/category/334/", class: "items-link_to"
+      = link_to "ジャケット/アウター", class: "items-link_to"
       .item-detail-table-sub-sub-category
       %i.fa.fa-chevron-right.items-link_to
-      = link_to "ダウンジャケット", "https://www.mercari.com/jp/category/318/", class: "items-link_to"
+      = link_to "ダウンジャケット", class: "items-link_to"
     %tr
      %th.back-silver ブランド
      %td
-      = link_to @item.brand.name, "https://www.mercari.com/jp/brand/572/", class: "items-link_to"
+      = link_to @item.brand.name, class: "items-link_to"
     %tr
      %th.back-silver 商品のサイズ
      %td
@@ -60,7 +60,7 @@
     %tr
      %th.back-silver 発送元地域
      %td
-      = link_to @item.prefecture.prefecture, "https://www.mercari.com/jp/area/1/", class: "items-link_to"
+      = link_to @item.prefecture.prefecture, class: "items-link_to"
     %tr
      %th.back-silver 発送日の目安
      %td
@@ -84,7 +84,7 @@
  .item-edit__box-main
  - if user_signed_in? && (@item.user_id == current_user.id)
   .item-edit__box__price.back-red.font-white
-   = link_to "商品の編集", "https://www.mercari.com/jp/sell/edit/m80275965494/", method: :edit
+   = link_to "商品の編集", "/items/#{@item.id}/edit", method: :get
   .item-edit__box__or or
   .item-edit__box__main-contents
    = form_tag("/item/#{@item.id}", method: :post, action: :stop) do
