@@ -84,7 +84,7 @@
  .item-edit__box-main
  - if user_signed_in? && (@item.user_id == current_user.id)
   .item-edit__box__price.back-red.font-white
-   = link_to "商品の編集", "/items/#{@item.id}/edit", method: :edit
+   = link_to "商品の編集", "/items/#{@item.id}/edit", method: :get
   .item-edit__box__or or
   .item-edit__box__main-contents
    = form_tag("/item/#{@item.id}", method: :post, action: :stop) do
