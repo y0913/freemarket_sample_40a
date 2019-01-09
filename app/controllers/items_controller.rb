@@ -5,12 +5,12 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.order("created_at DESC").limit(4).where.not(item_state_id: 2)
-    @items = Item.new
-
-    woman
-    man
-    other
-
+    params[:id] = 1
+    @woman = category
+    params[:id] = 2
+    @man = category
+    params[:id] = 3
+    @other = category
   end
 
   def new
@@ -43,11 +43,11 @@ class ItemsController < ApplicationController
     @categories = []
     @categories << @category
     if @category.children.present?
-      @category.children.each do |category1|
-        @categories << category1
-        if category1.children.present?
-          category1.children.each do |category2|
-            @categories << category2
+      @category.children.each do |second_category|
+        @categories << second_category
+        case second_category.children.present?
+          when second_category.children.each do |third_category|
+            @categories << third_category
           end
         end
       end
@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
         @items << category.items
       end
     end
-    @items = @items.flatten
+    @items = @items.flatten.sort_by{|i|i.created_at}.reverse
   end
 
   def destroy
@@ -87,63 +87,6 @@ class ItemsController < ApplicationController
     else
       redirect_to root_path notice: 'エラーが発生しました。'
     end
-  end
-
-  def woman
-    @items_woman = []
-    @woman = Category.find(1)
-    @women = []
-    @women << @woman
-    @woman.children.each do |woman1|
-      @women << woman1
-      woman1.children.each do |woman2|
-        @women << woman2
-      end
-    end
-    @women.each do |woman|
-      if woman.items.present?
-        @items_woman << woman.items
-      end
-    end
-    @items_woman = @items_woman.flatten
-  end
-
-  def man
-    @items_man = []
-    @man = Category.find(2)
-    @men = []
-    @men << @man
-    @man.children.each do |man1|
-      @men << man1
-      man1.children.each do |man2|
-        @men << man2
-      end
-    end
-    @men.each do |man|
-      if man.items.present?
-        @items_man << man.items
-      end
-    end
-    @items_man = @items_man.flatten
-  end
-
-  def other
-    @items_other = []
-    @other = Category.find(3)
-    @others = []
-    @others << @other
-    @other.children.each do |other1|
-      @others << other1
-      other1.children.each do |other2|
-        @others << other2
-      end
-    end
-    @others.each do |other|
-      if other.items.present?
-        @items_other << other.items
-      end
-    end
-    @items_other = @items_other.flatten
   end
 
   private
