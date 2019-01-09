@@ -8,7 +8,7 @@
   .pickup__area__text-center
     = link_to "レディース新着アイテム",new_item_path
   .pickup__area__items-box
-    - @woman.first(4).each do |item|
+    - @items_for_woman.first(4).each do |item|
       = render partial: "modules/category-index", locals: { item: item }
   .pickup__view-all
     = link_to "すべての商品を見る",new_item_path
@@ -16,7 +16,7 @@
   .pickup__area__text-center
     = link_to "メンズ新着アイテム",new_item_path
   .pickup__area__items-box
-    - @man.first(4).each do |item|
+    - @items_for_man.first(4).each do |item|
       = render partial: "modules/category-index", locals: { item: item }
   .pickup__view-all
     = link_to "すべての商品を見る",new_item_path
@@ -24,7 +24,7 @@
   .pickup__area__text-center
     = link_to "その他新着アイテム",new_item_path
   .pickup__area__items-box
-    - @other.first(4).each do |item|
+    - @items_for_others.first(4).each do |item|
       = render partial: "modules/category-index", locals: { item: item }
   .pickup__view-all
     = link_to "すべての商品を見る",new_item_path
