@@ -42,7 +42,9 @@
         %li.right
           %p 〒111-1111
           %p 奈良県大和高田市111
-          %p.bold #{@trade.buyer.nickname}様
+          .flex-box
+            %p.bold #{@trade.buyer.nickname}
+            %p 様
   .left-content__bar
     %h4 購入者情報
     %ul.marginT-8px
