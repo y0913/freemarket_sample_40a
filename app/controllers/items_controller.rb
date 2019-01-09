@@ -1,16 +1,14 @@
 class ItemsController < ApplicationController
+  include CategorySearch
   before_action :set_item,only:[:edit,:update,:show,:destroy, :stop]
   before_action :user_collation,only:[:edit,:update,:destroy]
   before_action :user_login,only:[:new]
 
   def index
     @item = Item.order("created_at DESC").limit(4).where.not(item_state_id: 2)
-    params[:id] = 1
-    @woman = category
-    params[:id] = 2
-    @man = category
-    params[:id] = 3
-    @other = category
+    @woman = category_search(1)
+    @man = category_search(2)
+    @other = category_search(3)
   end
 
   def new
