@@ -8,50 +8,24 @@
     .pickup__area__text-center
       = link_to "レディース新着アイテム",new_item_path
     .pickup__area__items-box
-      - @item.first(4).each do |item|
-        .pickup__area__items-box__items
-          = link_to item_path(item) do
-            .pickup__area__items-box__items__photo
-              - if item.item_state_id == 3
-                .sold-item-big
-                  .sold-item--text-big SOLD
-              = image_tag item.images.first.image,class: "top_image",alt: "商品画像"
-            .pickup__area__items-box__items__body
-              %h4.pickup__area__items-box__items__name
-                = item.name
-              .pickup__area__items-box__items__num
-                .pickup__area__items-box__items__num__price.bold
-                  =converting_to_jpy(item.price)
-                .pickup__area__items-box__items__num__likes
-                  %i.far.fa-heart
-                  %span
-                  =item.likes_count
-              %p.pickup__area__items-box__items__tax (税込)
+      - @items_for_woman.first(4).each do |item|
+        = render partial: "modules/category-index", locals: { item: item }
     .pickup__view-all
       = link_to "すべての商品を見る",new_item_path
   %section.pickup__area
     .pickup__area__text-center
       = link_to "メンズ新着アイテム",new_item_path
     .pickup__area__items-box
-      - @item.first(4).each do |item|
-        .pickup__area__items-box__items
-          = link_to item_path(item) do
-            .pickup__area__items-box__items__photo
-              - if item.item_state_id == 3
-                .sold-item-big
-                  .sold-item--text-big SOLD
-              = image_tag item.images.first.image,class: "top_image",alt: "商品画像"
-            .pickup__area__items-box__items__body
-              %h4.pickup__area__items-box__items__name
-                = item.name
-              .pickup__area__items-box__items__num
-                .pickup__area__items-box__items__num__price.bold
-                  = converting_to_jpy(item.price)
-                .pickup__area__items-box__items__num__likes
-                  %i.far.fa-heart
-                  %span
-                  =item.likes_count
-              %p.pickup__area__items-box__items__tax (税込)
+      - @items_for_man.first(4).each do |item|
+        = render partial: "modules/category-index", locals: { item: item }
+    .pickup__view-all
+      = link_to "すべての商品を見る",new_item_path
+  %section.pickup__area
+    .pickup__area__text-center
+      = link_to "その他新着アイテム",new_item_path
+    .pickup__area__items-box
+      - @items_for_others.first(4).each do |item|
+        = render partial: "modules/category-index", locals: { item: item }
     .pickup__view-all
       = link_to "すべての商品を見る",new_item_path
 %section.pickup
@@ -61,23 +35,6 @@
       = link_to "DIV新着アイテム",new_item_path
     .pickup__area__items-box
       - @item.first(4).each do |item|
-        .pickup__area__items-box__items
-          = link_to item_path(item) do
-            .pickup__area__items-box__items__photo
-              - if item.item_state_id == 3
-                .sold-item-big
-                  .sold-item--text-big SOLD
-              = image_tag item.images.first.image,class: "top_image",alt: "商品画像"
-            .pickup__area__items-box__items__body
-              %h4.pickup__area__items-box__items__name
-                = item.name
-              .pickup__area__items-box__items__num
-                .pickup__area__items-box__items__num__price.bold
-                  = converting_to_jpy(item.price)
-                .pickup__area__items-box__items__num__likes
-                  %i.far.fa-heart
-                  %span
-                  =item.likes_count
-              %p.pickup__area__items-box__items__tax (税込)
+        = render partial: "modules/category-index", locals: { item: item }
     .pickup__view-all
       = link_to "すべての商品を見る",new_item_path

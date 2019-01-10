@@ -1,0 +1,14 @@
+.category-main
+  %h1.bold #{@category.name}の商品一覧
+  .category-main-box
+    - @items.first(20).each do |item|
+      .category-main-box-item
+        - if item.item_state_id == 3
+          .sold-item-big
+            .sold-item--text-big SOLD
+        = link_to item_path(item) do
+          = image_tag item.images.first.image,class: "category-image",alt: "商品画像"
+          .category-content
+            %p.category-name #{item.name}
+            %p.category-price #{converting_to_jpy(item.price)}
+            %p.category-tax (税込)
