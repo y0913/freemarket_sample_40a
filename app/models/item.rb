@@ -26,14 +26,4 @@ class Item < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :delivery_day_id, presence: true
   validates :price, presence: true,              numericality:{only_integer:true,greater_than_or_equal_to:300,less_than_or_equal_to:9999999}
-
-  def get_items_for(id)
-    category = Category.find(id)
-    categories = [
-      category,
-      category.children,
-      category.children.map { |category| category.children }
-    ].flatten.compact
-    categories.map { |category| category.items }.flatten.sort_by{|i|i.created_at}.reverse
-  end
 end
