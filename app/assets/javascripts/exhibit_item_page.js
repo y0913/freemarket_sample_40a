@@ -1,53 +1,7 @@
 $(document).on('turbolinks:load', function() {
     $(function() {
-      $('#select_box').on("change", function() {
-        const str = document.getElementById("1").value;
-        console.log(str)
-        if (str == 0) {
-        $('.second').css('display', 'none');
-        $('.third').css('display', 'none');
-        $('.size').css('display', 'none');
-        $('.brand').css('display', 'none');
-        }
-        if (str == 1) {
-        $('.second').css('display', 'none');
-        $('.third').css('display', 'none');
-        $('.size').css('display', 'none');
-        $('.brand').css('display', 'none');
-        $('.second.1').css('display', 'block');
-        }
-        if (str == 2) {
-        $('.second').css('display', 'none');
-        $('.third').css('display', 'none');
-        $('.size').css('display', 'none');
-        $('.brand').css('display', 'none');
-        $('.second.2').css('display', 'block');
-        }
-      })
-      $('.second.1').on("change", function() {
-        const str1 = document.getElementById("2").value;
-        console.log(str1)
-        if (str1 == 3) {
-        $('.third').css('display', 'none');
-        $('.size').css('display', 'none');
-        $('.brand').css('display', 'none');
-        }
-        if (str1 == 4) {
-        $('.third').css('display', 'none');
-        $('.size').css('display', 'none');
-        $('.brand').css('display', 'none');
-        $('.third.1').css('display', 'block');
-        }
-        if (str1 == 5) {
-        $('.third').css('display', 'none');
-        $('.size').css('display', 'none');
-        $('.brand').css('display', 'none');
-        $('.third.2').css('display', 'block');
-        }
-      })
       $('.second.2').on("change", function() {
         const str1 = document.getElementById("3").value;
-        console.log(str1)
         if (str1 == 6) {
         $('.third').css('display', 'none');
         $('.size').css('display', 'none');
@@ -68,7 +22,6 @@ $(document).on('turbolinks:load', function() {
       })
       $('.third.1').on("change", function() {
         const str2 = document.getElementById("4").value;
-        console.log(str2)
         if (str2 == 9) {
         $('.size').css('display', 'none');
         $('.brand').css('display', 'none');
@@ -81,7 +34,6 @@ $(document).on('turbolinks:load', function() {
       })
       $('.third.2').on("change", function() {
         const str2 = document.getElementById("5").value;
-        console.log(str2)
         if (str2 == 12) {
         $('.size').css('display', 'none');
         $('.brand').css('display', 'none');
@@ -93,7 +45,6 @@ $(document).on('turbolinks:load', function() {
       })
       $('.third.3').on("change", function() {
         const str2 = document.getElementById("6").value;
-        console.log(str2)
         if (str2 == 15) {
         $('.size').css('display', 'none');
         $('.brand').css('display', 'none');
@@ -105,7 +56,6 @@ $(document).on('turbolinks:load', function() {
       })
       $('.third.4').on("change", function() {
         const str2 = document.getElementById("7").value;
-        console.log(str2)
         if (str2 == 18) {
         $('.size').css('display', 'none');
         $('.brand').css('display', 'none');
@@ -117,7 +67,7 @@ $(document).on('turbolinks:load', function() {
       })
       $('.select_box').on("change", function() {
         const str3 = document.getElementById("8").value;
-        console.log(str3)
+
         if (str3 == "") {
         $('.delivery_hide').css('display', 'none');
         }
