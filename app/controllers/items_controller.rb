@@ -30,7 +30,12 @@ class ItemsController < ApplicationController
 
   def create
     @item =Item.new(exhibit_params)
-    @item.save
+    if @item.save
+      respond_to do |format|
+        format.js
+        format.html {redirect_to root_path}
+      end
+    end
   end
 
   def search
