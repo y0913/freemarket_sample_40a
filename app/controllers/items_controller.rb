@@ -38,11 +38,6 @@ class ItemsController < ApplicationController
     @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
   end
 
-  def category
-    @category = Category.find(params[:id])
-    @items = Item.new.get_items_for(params[:id])
-  end
-
   def destroy
     item = Item.find(params[:id])
     if item.user_id == current_user.id
