@@ -3,9 +3,15 @@ class ItemsController < ApplicationController
   before_action :user_collation,only:[:edit,:update,:destroy]
   before_action :user_login,only:[:new]
 
+  WOMAN = 1
+  MAN = 2
+  OTHERS = 3
+
   def index
     @item = Item.order("created_at DESC").limit(4).where.not(item_state_id: 2)
-    @items = Item.new
+    @items_for_woman = Category.get_items_for(WOMAN)
+    @items_for_man = Category.get_items_for(MAN)
+    @items_for_others = Category.get_items_for(OTHERS)
   end
 
   def new
@@ -60,6 +66,7 @@ class ItemsController < ApplicationController
       redirect_to root_path notice: 'エラーが発生しました。'
     end
   end
+
   private
   def exhibit_params
     params[:item].permit(:name,:description,:condition_id,:postage_id,:delivery_method_id,:prefecture_id,:delivery_day_id,:price,:category_id,images_attributes:[:id,:image]).merge(user_id:current_user.id)

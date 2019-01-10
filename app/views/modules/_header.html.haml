@@ -17,15 +17,15 @@
             %ul.category__first-child
               - @categorys.each do |category1|
                 %li.category__list__first
-                  = link_to "#{category1.name}",new_item_path
+                  = link_to "#{category1.name}",category_path(category1)
                   %ul.category__second-child
                     - Category.where(parent_id: category1.id).each do |category2|
                       %li.category__list__second
-                        = link_to "#{category2.name}",new_item_path
+                        = link_to "#{category2.name}",category_path(category2)
                         %ul.category__third-child
                           - Category.where(parent_id: category2.id).each do |category3|
                             %li.category__list__third
-                              = link_to "#{category3.name}",new_item_path
+                              = link_to "#{category3.name}",category_path(category3)
           %li.category__list
             = link_to "ブランドから探す",new_item_path
             %ul.brand__first-child
