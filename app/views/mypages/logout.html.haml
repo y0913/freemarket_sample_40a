@@ -1,5 +1,5 @@
 .logout.main-content
   = render 'modules/mypage-sidebar'
   .logout-content.middle-center
-    %a.logout-content-inner.middle-center.font-white.back-red{href: "/"}
-      %buttun.logout-btn.font-white{type: "submit"}ログアウト
+    = link_to destroy_user_session_path, class: "logout-content-inner middle-center font-white back-red", method: :delete do
+      %buttun.logout-btn.font-white ログアウト
