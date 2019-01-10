@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
         format.html { redirect_to :root }
         format.json { render json: {categories:@children,size:@size} }
       end
+    end
 
   def show
     @category = Category.find(params[:id])
