@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     end
   end
   post 'item/:id' => 'items#stop'
-  get 'category/:id' => 'items#category'
-
   get 'user/:id' => 'users#show'
-
   post 'rate/:id' => 'rates#create'
+
+  resources :categories, only:[:show], path: 'category'
+
   get 'mypage/card' => 'mypages#card'
   get 'mypage/card/create' => 'mypages#buy'
   get 'mypage/logout' => 'mypages#logout'
