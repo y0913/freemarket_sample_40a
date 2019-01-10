@@ -67,79 +67,25 @@
           カテゴリー
           %span{class: "exhibit_must font-white"}
             必須
-        .select_box.hide{id: "select_box"}
+        #category_box
+          .select_box{id: "select_box"}
+            %i.fa.fa-angle-down.exhibit
+            = item.collection_select :category_id, Category.where(parent_id:nil), :id, :name,{include_blank: "---"},{class: "exhibit_select exhibit_select_category",required:true}
+
+        .category.size
+          %p{class: "bold"}
+            サイズ
+            %span{class: "exhibit_must font-white"}
+              必須
+        .select_box.size
           %i.fa.fa-angle-down.exhibit
-          = item.collection_select :category_id, Category.all, :id, :name,{include_blank: "---"},{class: "exhibit_select",id: 1,required:true}
-        / 階層カテゴリ部分、現状不要ですが将来的に利用する可能性があるためコメントアウトしています。
-        / .select_box.second.1
-        /   %i.fa.fa-angle-down.exhibit
-        /   %select{class: "exhibit_select", id: "2"}
-        /     %option{value: '3'}
-        /       \---
-        /     %option{value: '4'}
-        /       Tシャツ
-        /     %option{value: '5'}
-        /       スカート
-        / .select_box.second.2
-        /   %i.fa.fa-angle-down.exhibit
-        /   %select{class: "exhibit_select", id: "3"}
-        /     %option{value: '6'}
-        /       \---
-        /     %option{value: '7'}
-        /       パーカー
-        /     %option{value: '8'}
-        /       ジャケット
-        / .select_box.third.1
-        /   %i.fa.fa-angle-down.exhibit
-        /   %select{class: "exhibit_select", id: "4"}
-        /     %option{value: '9'}
-        /       \---
-        /     %option{value: '10'}
-        /       美しいやつ
-        /     %option{value: '11'}
-        /       美しくないやつ
-        / .select_box.third.2
-        /   %i.fa.fa-angle-down.exhibit
-        /   %select{class: "exhibit_select", id: "5"}
-        /     %option{value: '12'}
-        /       \---
-        /     %option{value: '13'}
-        /       可愛くないやつ
-        /     %option{value: '14'}
-        /       可愛いやつ
-        / .select_box.third.3
-        /   %i.fa.fa-angle-down.exhibit
-        /   %select{class: "exhibit_select", id: "6"}
-        /     %option{value: '15'}
-        /       \---
-        /     %option{value: '16'}
-        /       男前なやつ
-        /     %option{value: '17'}
-        /       男前じゃないやつ
-        / .select_box.third.4
-        /   %i.fa.fa-angle-down.exhibit
-        /   %select{class: "exhibit_select", id: "7"}
-        /     %option{value: '18'}
-        /       \---
-        /     %option{value: '19'}
-        /       格好よくないやつ
-        /     %option{value: '20'}
-        /       格好いいやつ
-        / サイズはアソシエーションが完成したら？
-        / .category.size
-        /   %p{class: "bold"}
-        /     サイズ
-        /     %span{class: "exhibit_must font-white"}
-        /       必須
-        / .select_box.hide.size
-        /   %i.fa.fa-angle-down.exhibit
-        /   = item.select :category_id, [["\---",0],["S",1],["M",2],["L",3]],{},{class: "exhibit_select", id: "1"}
+          %select.exhibit_select.exhibit_select_size{name: "item[size_id]"}
         .category.brand
           %p{class: "bold"}
             ブランド
             %span{class: "exhibit_should"}
               任意
-        .select_box.hide.brand
+        .select_box.brand
           %input{class: "exhibit_select", placeholder: '例）阿部寛'}
         %p{class: "top bold"}
           商品の状態
