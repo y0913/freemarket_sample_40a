@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   post 'items/category/search' => 'categories#search'
 
   get 'user/:id' => 'users#show'
-
   post 'rate/:id' => 'rates#create'
+
+  resources :categories, only:[:show], path: 'category'
+
   get 'mypage/card' => 'mypages#card'
   get 'mypage/card/create' => 'mypages#buy'
   get 'mypage/logout' => 'mypages#logout'
