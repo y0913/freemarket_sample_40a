@@ -9,9 +9,9 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.order("created_at DESC").limit(4).where.not(item_state_id: 2)
-    @items_for_woman = Item.new.get_items_for(WOMAN)
-    @items_for_man = Item.new.get_items_for(MAN)
-    @items_for_others = Item.new.get_items_for(OTHERS)
+    @items_for_woman = Category.get_items_for(WOMAN)
+    @items_for_man = Category.get_items_for(MAN)
+    @items_for_others = Category.get_items_for(OTHERS)
   end
 
   def new
