@@ -1,7 +1,7 @@
 / カテゴリの階層化する場合、selectのidの値をJSを参考にして適切なものにしてください
 
 .exhibit_wrapper
-  = form_with model:@item,local: true,class: :main__exhibit do |item|
+  = form_with model:@item,remote: true,class: :main__exhibit do |item|
     .main__exhibit__title.middle-center
       %h3.bold
         商品の情報を入力
@@ -162,7 +162,7 @@
         またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
         %br
         また、出品をもちまして加盟店規約に同意したことになります。
-        = item.submit "出品する",class: "exhibit_btn back-red font-white"
+        = item.submit "出品する",class: "exhibit_btn back-red font-white",:id => 'openModal2'
       %button{class: "exhibit_return font-white"}
         もどる
 
@@ -193,3 +193,12 @@
     /         .upload_item_image.bold 念じる
     /         %br
     /         .upload_item_image.bold またはファイルしてクリックをアップロード
+%section#modalArea2.modalArea2
+  .modalBg2
+    .modalinner2
+      .modalhead.bold 出品が完了しました
+      .sell-modal-body
+        .look あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
+        %a{:id => :closeModal, class: "btn-syuppin", :href => "/items/new"} 続けて出品する
+        %p.text-center2
+          %a{:href => "/"} トップページに戻る

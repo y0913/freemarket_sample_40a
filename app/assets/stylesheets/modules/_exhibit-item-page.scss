@@ -313,3 +313,67 @@ i.fa.fa-angle-down.exhibit {
 .top {
   margin-top: 40px;
 }
+
+#openModal2 {
+ position: relative!important;
+ top: 0!important;
+ left: 0!important;
+ transform: inherit!important;
+}
+
+.modalArea2 {
+ display: none;
+ position: fixed;
+ z-index: 10;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+}
+
+.modalBg2 {
+ width: 100%;
+ height: 100%;
+ background-color: rgba(30,30,30,0.7);
+ }
+
+.modalinner2 {
+ position: absolute;
+ top: 25%;
+ left: 50%;
+ transform:translate(-50%,-50%);
+ width: 600px;
+ background-color: white;
+}
+
+.modalhead{
+ line-height: 80px;
+ text-align: center;
+ font-size: 16px;
+ border-bottom: 1px solid #eee;
+}
+
+.sell-modal-body{
+ padding:40px;
+
+}
+
+.look{
+ text-align: center;
+}
+
+.btn-syuppin{
+margin: 40px auto 0;
+background-color: #ea352d;
+border:#ea352d;
+color: white;
+display: block;
+width: 100%;
+line-height: 48px;
+text-align: center;
+}
+.text-center2 {
+color:#0099e8;
+margin: 8px 0 0;
+text-align: center;
+}
