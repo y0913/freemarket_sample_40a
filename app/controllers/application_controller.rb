@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 
   def set_category_brand
     @categorys = Category.where(parent_id: nil)
-    @brands = Brand.order("created_at DESC")
+    @brands = Brand.order("created_at DESC").where.not(id: 1)
   end
 
   def configure_permitted_parameters
