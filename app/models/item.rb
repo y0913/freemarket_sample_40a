@@ -14,7 +14,7 @@ class Item < ApplicationRecord
   belongs_to :postage
   belongs_to :delivery_method
   belongs_to :size, optional: true
-  has_many :item_comments
+  has_many :item_comments, dependent: :destroy
   belongs_to :item_state
 
   validates :name, presence: true,               length: { maximum: 40 }
