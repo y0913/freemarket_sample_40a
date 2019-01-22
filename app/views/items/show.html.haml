@@ -87,9 +87,8 @@
    = link_to "商品の編集", "/items/#{@item.id}/edit", method: :get
   .item-edit__box__or or
   .item-edit__box__main-contents
-   = form_tag("/item/#{@item.id}", method: :post, action: :stop) do
-    %button{:type => "submit", :class => "submit"}
-     %span.font-white 出品を停止する
+   %button{:type => "submit", :class => "submit"}
+    %span.font-white 出品を停止する
   .item-edit__box__main-contents__button
    %button{:type => "submit", :class => "submit", :id => "openModal"}
     %span.font-white この商品を削除する
