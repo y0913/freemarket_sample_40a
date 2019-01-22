@@ -9,8 +9,8 @@
       .sold-item--text-big SOLD
     = image_tag @item.images.first.image,class: "main"
     .photos
-     .small-photo
-      - @item.images.each do |image|
+     - @item.images.each do |image|
+      .small-photo
        %img.sub{:src => image.image}/
 
    %table.item-detail-table
@@ -33,10 +33,13 @@
      %td
       .item-detail-table-sub-category
       %i.fa.fa-chevron-right.items-link_to
-      = link_to "ジャケット/アウター", class: "items-link_to"
-      .item-detail-table-sub-sub-category
+      = link_to "#{@item.category.parent.parent.name}", class: "items-link_to"
+      .item-detail-table-sub-category
       %i.fa.fa-chevron-right.items-link_to
-      = link_to "ダウンジャケット", class: "items-link_to"
+      = link_to "#{@item.category.parent.name}", class: "items-link_to"
+      .item-detail-table-sub-category
+      %i.fa.fa-chevron-right.items-link_to
+      = link_to "#{@item.category.name}", class: "items-link_to"
     %tr
      %th.back-silver ブランド
      %td
@@ -87,9 +90,8 @@
    = link_to "商品の編集", "/items/#{@item.id}/edit", method: :get
   .item-edit__box__or or
   .item-edit__box__main-contents
-   = form_tag("/item/#{@item.id}", method: :post, action: :stop) do
-    %button{:type => "submit", :class => "submit"}
-     %span.font-white 出品を停止する
+   %button{:type => "submit", :class => "submit"}
+    %span.font-white 出品を停止する
   .item-edit__box__main-contents__button
    %button{:type => "submit", :class => "submit", :id => "openModal"}
     %span.font-white この商品を削除する

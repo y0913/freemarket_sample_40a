@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', function() {
       });
     }
   });
-  $(function () {
+  $(function() {
     $('#openModal').click(function(){
         $('#modalArea').fadeIn();
     });
