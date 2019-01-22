@@ -15,7 +15,7 @@
         %h1 支払い金額
         %h1
           = converting_to_jpy(@item.price)
-      = form_tag(action: :pay, method: :post) do
+      = form_with(url: "/transaction/pay/#{@item.id}", action: :pay, method: :post) do
         %script.payjp-button{"data-key" => ENV["PAYJP_PUBLIC_KEY"], :src => "https://checkout.pay.jp", :type => "text/javascript"}
 
 
