@@ -21,13 +21,13 @@
         %li 出品者のよくある質問
         %li らくらくメルカリ便とは?
       .abeshi-right-content__box.middle-center.margin0
-        = form_tag("/transaction/#{@item.id}", method: :post) do
+        = form_with(url: "/transaction/#{@item.id}", method: :post) do
           %input.submit{:type => "submit", :value => "コンビニから発送", :class => "post-btn bold"}/
       .abeshi-right-content__box.middle-center.margin0
-        = form_tag("/transaction/#{@item.id}", method: :post) do
+        = form_with(url: "/transaction/#{@item.id}", method: :post) do
           %input.submit{:type => "submit", :value => "ヤマトの営業所へ持ち込んで発送", :class => "post-btn bold"}/
       .abeshi-right-content__box.middle-center.margin0
-        = form_tag("/transaction/#{@item.id}", method: :post) do
+        = form_with(url: "/transaction/#{@item.id}", method: :post) do
           %input.submit{:type => "submit", :value => "ヤマトの集荷サービスを利用して発送", :class => "post-btn bold"}/
       .message-content__box
         .message-content__box__form.margin0
