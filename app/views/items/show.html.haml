@@ -9,8 +9,8 @@
       .sold-item--text-big SOLD
     = image_tag @item.images.first.image,class: "main"
     .photos
-     .small-photo
-      - @item.images.each do |image|
+     - @item.images.each do |image|
+      .small-photo
        %img.sub{:src => image.image}/
 
    %table.item-detail-table
