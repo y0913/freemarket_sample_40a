@@ -361,3 +361,23 @@ table.item-detail-table{
   color:#0099e8;
   list-style: none;
 }
+
+.photos-big {
+  display: flex;
+}
+
+.main {
+  display: none;
+}
+
+#photo1 {
+  display: block;
+}
+
+.sub {
+  opacity: .4;
+}
+
+#mini1 {
+  opacity: 1;
+}

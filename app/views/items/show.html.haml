@@ -7,11 +7,13 @@
     - if @item.item_state_id == 3
      .sold-item-big
       .sold-item--text-big SOLD
-    = image_tag @item.images.first.image,class: "main"
+    .photos-big
+     - @item.images.each_with_index do |image, i|
+      = image_tag image.image,class: "main",id: "photo#{i + 1}"
     .photos
-     - @item.images.each do |image|
+     - @item.images.each_with_index do |image, i|
       .small-photo
-       %img.sub{:src => image.image}/
+       %img.sub{:src => image.image, id: "mini#{i + 1}"}/
 
    %table.item-detail-table
     %tr
