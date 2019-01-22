@@ -33,10 +33,13 @@
      %td
       .item-detail-table-sub-category
       %i.fa.fa-chevron-right.items-link_to
-      = link_to "ジャケット/アウター", class: "items-link_to"
-      .item-detail-table-sub-sub-category
+      = link_to "#{@item.category.parent.parent.name}", class: "items-link_to"
+      .item-detail-table-sub-category
       %i.fa.fa-chevron-right.items-link_to
-      = link_to "ダウンジャケット", class: "items-link_to"
+      = link_to "#{@item.category.parent.name}", class: "items-link_to"
+      .item-detail-table-sub-category
+      %i.fa.fa-chevron-right.items-link_to
+      = link_to "#{@item.category.name}", class: "items-link_to"
     %tr
      %th.back-silver ブランド
      %td
