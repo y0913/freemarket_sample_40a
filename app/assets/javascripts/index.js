@@ -16,6 +16,30 @@ $(document).on('turbolinks:load', function() {
       $('#modalArea').fadeOut();
     });
   });
+  $(function() {
+    $('#mini1').mouseover(function(){
+      $('.sub').css('opacity','.4');
+      $(this).css('opacity','1');
+      $('.main').not('#photo1').css('display','none');
+      $('#photo1').fadeIn();
+    })
+    $('#mini2').mouseover(function(){
+      $('.sub').css('opacity','.4');
+      $(this).css('opacity','1');
+      $('.main').not('#photo2').css('display','none');
+      $('#photo2').fadeIn();
+    })
+    $('#mini3').mouseover(function(){
+      $('.sub').css('opacity','.4');
+      $(this).css('opacity','1');
+      $('.main').not('#photo3').css('display','none');
+      $('#photo3').fadeIn();
+    })
+    $('#mini4').mouseover(function(){
+      $('.sub').css('opacity','.4');
+      $(this).css('opacity','1');
+      $('.main').not('#photo4').css('display','none');
+      $('#photo4').fadeIn();
+    })
+  });
 });
-
-
