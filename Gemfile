@@ -75,6 +75,7 @@ gem 'omniauth-google-oauth2'
 gem "payjp"
 gem 'fog-aws'
 gem 'mini_magick'
+gem 'ransack'
 group :production do
   gem 'unicorn'
 end
