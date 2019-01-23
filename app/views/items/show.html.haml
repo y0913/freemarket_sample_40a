@@ -33,12 +33,14 @@
     %tr
      %th.back-silver カテゴリー
      %td
-      .item-detail-table-sub-category
-      %i.fa.fa-chevron-right.items-link_to
-      = link_to "#{@item.category.parent.parent.name}", class: "items-link_to"
-      .item-detail-table-sub-category
-      %i.fa.fa-chevron-right.items-link_to
-      = link_to "#{@item.category.parent.name}", class: "items-link_to"
+      - if @item.category.parent.present? && @item.category.parent.parent.present?
+       .item-detail-table-sub-category
+       %i.fa.fa-chevron-right.items-link_to
+       = link_to "#{@item.category.parent.parent.name}", class: "items-link_to"
+      - if @item.category.parent.present?
+       .item-detail-table-sub-category
+       %i.fa.fa-chevron-right.items-link_to
+       = link_to "#{@item.category.parent.name}", class: "items-link_to"
       .item-detail-table-sub-category
       %i.fa.fa-chevron-right.items-link_to
       = link_to "#{@item.category.name}", class: "items-link_to"
@@ -181,3 +183,11 @@
     =link_to 'キャンセル',method: :post
    %li.delete-product-button
     =link_to '削除する', "", method: :delete
+
+%section#modalArea3.modalArea3
+ .modalBg3
+ .modalWrapper3
+  .modalContents3
+   .photos-big
+    - @item.images.each_with_index do |image, i|
+     = image_tag image.image,class: "large-photo",id: "modal#{i + 1}"
