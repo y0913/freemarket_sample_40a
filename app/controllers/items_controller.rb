@@ -36,6 +36,7 @@ class ItemsController < ApplicationController
         format.html {redirect_to root_path}
       end
     end
+    @comments = @item.comment.new
   end
 
   def search

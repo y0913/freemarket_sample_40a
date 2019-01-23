@@ -10,7 +10,8 @@
     詳細検索
   .search-result__container__left__main__contents
    %i.fas.fa-plus キーワードを追加する
-   %input{placeholder: "例)値下げ"}
+   / # = search_form_for(@q, url: search_items_path) do |f|
+   / %input{placeholder: "例)値下げ"}
   .search-result__container__left__main__contents__list
    %i.fas.fa-list-ul カテゴリーを選択する
    .dropdown-option
