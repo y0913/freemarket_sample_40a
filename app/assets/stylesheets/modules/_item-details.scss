@@ -52,7 +52,7 @@
 
 table.item-detail-table{
  border-collapse: collapse;
- height: 380px;
+ height: 375px;
  width: 300px;
  text-align: left;
  th{
@@ -360,4 +360,24 @@ table.item-detail-table{
   border-left: 1px solid #ccc;
   color:#0099e8;
   list-style: none;
+}
+
+.photos-big {
+  display: flex;
+}
+
+.main {
+  display: none;
+}
+
+#photo1 {
+  display: block;
+}
+
+.sub {
+  opacity: .4;
+}
+
+#mini1 {
+  opacity: 1;
 }
