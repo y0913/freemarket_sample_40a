@@ -33,12 +33,14 @@
     %tr
      %th.back-silver カテゴリー
      %td
-      .item-detail-table-sub-category
-      %i.fa.fa-chevron-right.items-link_to
-      = link_to "#{@item.category.parent.parent.name}", class: "items-link_to"
-      .item-detail-table-sub-category
-      %i.fa.fa-chevron-right.items-link_to
-      = link_to "#{@item.category.parent.name}", class: "items-link_to"
+      - if @item.category.parent.present? && @item.category.parent.parent.present?
+       .item-detail-table-sub-category
+       %i.fa.fa-chevron-right.items-link_to
+       = link_to "#{@item.category.parent.parent.name}", class: "items-link_to"
+      - if @item.category.parent.present?
+       .item-detail-table-sub-category
+       %i.fa.fa-chevron-right.items-link_to
+       = link_to "#{@item.category.parent.name}", class: "items-link_to"
       .item-detail-table-sub-category
       %i.fa.fa-chevron-right.items-link_to
       = link_to "#{@item.category.name}", class: "items-link_to"
