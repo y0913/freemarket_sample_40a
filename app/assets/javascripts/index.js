@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function() {
     $('#openModal').click(function(){
         $('#modalArea').fadeIn();
     });
-    $('#closeModal , #modalBg').click(function(){
+    $('#closeModal , #modalArea').click(function(){
       $('#modalArea').fadeOut();
     });
   });
@@ -42,4 +42,30 @@ $(document).on('turbolinks:load', function() {
       $('#photo4').fadeIn();
     })
   });
+  $(function() {
+    $('#mini1').click(function(){
+      $('#modalArea3').add('#modal1').fadeIn();
+    })
+    $('#modalArea3').click(function(){
+      $('#modalArea3').add('#modal1').fadeOut();
+    });
+    $('#mini2').click(function(){
+      $('#modalArea3').add('#modal2').fadeIn();
+    })
+    $('#modalArea3').click(function(){
+      $('#modalArea3').add('#modal2').fadeOut();
+    });
+    $('#mini3').click(function(){
+      $('#modalArea3').add('#modal3').fadeIn();
+    })
+    $('#modalArea3').click(function(){
+      $('#modalArea3').add('#modal3').fadeOut();
+    });
+    $('#mini4').click(function(){
+      $('#modalArea3').add('#modal4').fadeIn();
+    })
+    $('#modalArea3').click(function(){
+      $('#modalArea3').add('#modal4').fadeOut();
+    });
+  })
 });
