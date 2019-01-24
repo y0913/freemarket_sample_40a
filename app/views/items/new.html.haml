@@ -86,7 +86,8 @@
             %span{class: "exhibit_should"}
               任意
         .select_box.brand
-          %input{class: "exhibit_select", placeholder: '例）阿部寛'}
+          = item.text_field :brand,maxlength:"40",class: "exhibit_select exhibit_select_brand",placeholder: '阿部寛'
+        %ul#brand_options
         %p{class: "top bold"}
           商品の状態
           %span{class: "exhibit_must font-white"}
