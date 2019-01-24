@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     collection do
       get 'search' => 'items#search'
     end
+    resources :item_comments, only:[:new, :create]
   end
   post 'item/:id' => 'items#stop'
   post 'items/category/search' => 'categories#search'
