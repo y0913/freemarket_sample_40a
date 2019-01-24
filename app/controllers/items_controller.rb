@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item,only:[:edit,:update,:show,:destroy, :stop]
+  before_action :set_item,only:[:edit,:update,:show,:destroy,:stop]
   before_action :user_collation,only:[:edit,:update,:destroy]
   before_action :user_login,only:[:new, :show]
 
@@ -29,7 +29,10 @@ class ItemsController < ApplicationController
   end
 
   def create
+    brand = Brand.find_by(name:params[:item][:brand])
     @item =Item.new(exhibit_params)
+    brand == nil ? @item.brand_id = 1 : @item.brand_id = brand.id
+    @item.save
     if @item.save
       respond_to do |format|
         format.js
