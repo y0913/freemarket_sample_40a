@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources 'items' do
+    resources :item_comments, only: [:create]
     collection do
       get 'search' => 'items#search'
     end
-    resources :item_comments, only:[:new, :create]
   end
   post 'item/:id' => 'items#stop'
   # 出品ページのカテゴリー、ブランドの非同期通信用
@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
   get 'user/:id' => 'users#show'
   post 'rate/:id' => 'rates#create'
+  
+
+  #post 'item_comments/:id' => 'item_comments#create'
 
   resources :categories, only:[:show], path: 'category'
 

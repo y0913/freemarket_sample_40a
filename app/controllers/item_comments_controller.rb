@@ -1,12 +1,14 @@
 class ItemCommentsController < ApplicationController
+
   def create
-  	@item_comments = Item_comments.new(comment_params)
-  	binding.pry
-  	@item_comments = @comment.create(text: comment_params[:text], item_id: comment_params[:item_id], user_id: comment_params[:user_id])
+  	@item_comment = ItemComment.new(comment_params)
+  	if @item_comment.save
+  	  redirect_to items_path
+  	end
   end
 
+  private
   def comment_params
-  	binding.pry
-  	params.require(:item_comments).permit(:text, :item_id, :user_id, :body)
+  	params.require(:item_comment).permit(:comment).merge(item_id: params[:item_id], user_id: current_user.id)
   end
 end

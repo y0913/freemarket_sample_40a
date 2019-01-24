@@ -116,18 +116,18 @@
     = link_to "あんしん・あんぜんへの取り組み", "https://www.mercari.com/jp/safe/description/"
 
   .item-edit__box__main-contents__message
+  .message-content__box
    = if @item_comments
     @item_comments.each do |item_comment|
     comment.text
-  .message-content__box
 
 .message-content__box
  .message-content__box__form
-  %form.message-form{:method => "post"}
-  %input{:type => "hidden"}
   %p.attention 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-  = form_with model: @item_comments, url: "/items/#{@item.id}/item_comments", method: :post, remote: true do |f|
-   = f.text_field :@item_comments, type: "text", name: "body"
+  = form_for [@item, @comment], method: :post do |f|
+   = f.text_field :comment
+   / = f.text_field :@item_comments, type: "text", name: "comment"
+   = f.submit
   .message-sumit__details
 .next_or_back
  .previous-product.items-link_to
