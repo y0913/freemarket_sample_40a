@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   def create
     brand = Brand.find_by(name:params[:item][:brand])
     @item =Item.new(exhibit_params)
-    @item.brand_id = brand.id
+    brand == nil ? @item.brand_id = 1 : @item.brand_id = brand.id
     @item.save
   end
 
