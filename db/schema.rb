@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20181226120153) do
     t.integer "prefecture_id", null: false
     t.integer "delivery_day_id", null: false
     t.integer "price", null: false
-    t.integer "brand_id", default: 1
+    t.integer "brand_id"
     t.integer "likes_count", default: 0
     t.integer "category_id", null: false
     t.integer "item_state_id", default: 1, null: false
