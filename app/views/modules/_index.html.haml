@@ -2,7 +2,7 @@
   - @items.each do |item|
     .pickup__area__items-box__items
       = link_to new_item_path do
-        .pickup__area__items-box__items__photo
+        .pickup__area__items-box__items__photos
           = image_tag item.images.first.image,class: "top_image",alt: "商品画像"
         .pickup__area__items-box__items__body
           %h4.pickup__area__items-box__items__name

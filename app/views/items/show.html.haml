@@ -7,11 +7,13 @@
     - if @item.item_state_id == 3
      .sold-item-big
       .sold-item--text-big SOLD
-    = image_tag @item.images.first.image,class: "main"
+    .photos-big
+     - @item.images.each_with_index do |image, i|
+      = image_tag image.image,class: "main",id: "photo#{i + 1}"
     .photos
-     .small-photo
-      - @item.images.each do |image|
-       %img.sub{:src => image.image}/
+     - @item.images.each_with_index do |image, i|
+      .small-photo
+       %img.sub{:src => image.image, id: "mini#{i + 1}"}/
 
    %table.item-detail-table
     %tr
@@ -31,12 +33,17 @@
     %tr
      %th.back-silver カテゴリー
      %td
+      - if @item.category.parent.present? && @item.category.parent.parent.present?
+       .item-detail-table-sub-category
+       %i.fa.fa-chevron-right.items-link_to
+       = link_to "#{@item.category.parent.parent.name}", class: "items-link_to"
+      - if @item.category.parent.present?
+       .item-detail-table-sub-category
+       %i.fa.fa-chevron-right.items-link_to
+       = link_to "#{@item.category.parent.name}", class: "items-link_to"
       .item-detail-table-sub-category
       %i.fa.fa-chevron-right.items-link_to
-      = link_to "ジャケット/アウター", class: "items-link_to"
-      .item-detail-table-sub-sub-category
-      %i.fa.fa-chevron-right.items-link_to
-      = link_to "ダウンジャケット", class: "items-link_to"
+      = link_to "#{@item.category.name}", class: "items-link_to"
     %tr
      %th.back-silver ブランド
      %td
@@ -87,9 +94,8 @@
    = link_to "商品の編集", "/items/#{@item.id}/edit", method: :get
   .item-edit__box__or or
   .item-edit__box__main-contents
-   = form_tag("/item/#{@item.id}", method: :post, action: :stop) do
-    %button{:type => "submit", :class => "submit"}
-     %span.font-white 出品を停止する
+   %button{:type => "submit", :class => "submit"}
+    %span.font-white 出品を停止する
   .item-edit__box__main-contents__button
    %button{:type => "submit", :class => "submit", :id => "openModal"}
     %span.font-white この商品を削除する
@@ -177,3 +183,11 @@
     =link_to 'キャンセル',method: :post
    %li.delete-product-button
     =link_to '削除する', "", method: :delete
+
+%section#modalArea3.modalArea3
+ .modalBg3
+ .modalWrapper3
+  .modalContents3
+   .photos-big
+    - @item.images.each_with_index do |image, i|
+     = image_tag image.image,class: "large-photo",id: "modal#{i + 1}"

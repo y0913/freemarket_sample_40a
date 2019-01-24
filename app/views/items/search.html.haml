@@ -1,39 +1,55 @@
 .search-result__container
  .search-result__container__left
-  %select.select-default
+  .search-result__container__left__top
+   %select
+    %option 並び変え
+    %option 安い順
+    %option 高い順
   .search-result__container__left__main
-  .search-result__container__left__main__white
-   詳細検索
+   .search-result__container__left__main__white
+    詳細検索
   .search-result__container__left__main__contents
    %i.fas.fa-plus キーワードを追加する
-   %input{placeholder: "例)値下げ"} 
-  .serch-result__container__left__main__contents__list
-  %i.fas.fa-list-ul カテゴリーを選択する
-  .dropdown-option
-  %select
-   %option すべて
+   %input{placeholder: "例)値下げ"}
+  .search-result__container__left__main__contents__list
+   %i.fas.fa-list-ul カテゴリーを選択する
+   .dropdown-option
+    %select
+     %option すべて
+     %option メンズ
   .search-from__brand
    %i.fas.fa-tag ブランド名から探す
-  %input{placeholder: "例）シャネル"}
+   %input{placeholder: "例）シャネル"}
   .search-from__size
    %i.fas.fa-expand サイズを指定する
-  %select
-   %option すべて
+   .dropdown-option
+    %select
+     %option すべて
+     %option S
+     %option M
+     %option L
+     %option XL
   .input-price
    %i.fas.fa-coins 価格
-  %select
-   %option 選択してください
-  .input-price__box__min
-  %input{placeholder: "¥ Min"}
-  %span ~
-  %input{placeholder: "¥ Max"}
+   .dropdown-option
+   %select
+    %option 選択してください
+    %option 300 ~ 1000
+    %option 1000 ~ 5000
+    %option 5000 ~ 10000
+   .input-price__box__min
+    %input{placeholder: "¥ Min"}
+    %span ~
+    %input{placeholder: "¥ Max"}
   .item__conditions
   %i.fas.fa-star 商品の状態
   .item__conditions__labels
-   %input{:type => "checkbox"} すべて
-   %input{:type => "checkbox"} 新品未使用
-   %input{:type => "checkbox"} 未使用に近い
-   %input{:type => "checkbox"} 目立った傷や汚れなし
+   .item__conditions__labels__box
+    %input{:type => "checkbox"} すべて
+    %input{:type => "checkbox"} 新品未使用
+   .item__conditions__labels__box
+    %input{:type => "checkbox"} 未使用に近い
+    %input{:type => "checkbox"} 目傷や汚れなし
   .delivery__fee
   %i.fas.fa-truck-moving 配送料の負担
   .delivery__fee__condition
@@ -46,8 +62,8 @@
   %input{:type => "checkbox"} 販売中
   %input{:type => "checkbox"} 売り切れ
   .item-decision__box
-   %button クリア
-   %button 完了
+   %button.font-white.gray クリア
+   %button.font-white.back-red 完了
  .search__pickup__area__text-center
   %h3 検索結果
   = render 'modules/index'

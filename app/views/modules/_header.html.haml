@@ -46,10 +46,10 @@
                   .profile-area__avatar
                     = image_tag("avatar.jpg")
                   .profile-area__nickname
-                    %h4= current_user.nickname
+                    %a{href: "/user/#{current_user.id}"} #{current_user.nickname}
                   .profile-area__list.middle-center
-                    %li 評価:1
-                    %li 出品数:4
+                    %li 評価:#{current_user.rates.count}
+                    %li 出品数:#{current_user.items.count}
                   .profile-area__sales-point
                     %ul.center
                       %li

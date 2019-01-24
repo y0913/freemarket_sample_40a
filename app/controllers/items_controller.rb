@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item,only:[:edit,:update,:show,:destroy,:stop]
   before_action :user_collation,only:[:edit,:update,:destroy]
-  before_action :user_login,only:[:new]
+  before_action :user_login,only:[:new, :show]
 
   WOMAN = 1
   MAN = 2
@@ -33,6 +33,12 @@ class ItemsController < ApplicationController
     @item =Item.new(exhibit_params)
     brand == nil ? @item.brand_id = 1 : @item.brand_id = brand.id
     @item.save
+    if @item.save
+      respond_to do |format|
+        format.js
+        format.html {redirect_to root_path}
+      end
+    end
   end
 
   def search
