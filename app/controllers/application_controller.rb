@@ -29,8 +29,10 @@ class ApplicationController < ActionController::Base
     @categorys = Category.where(parent_id: nil)
     @brands = Brand.order("created_at DESC").where.not(id: 1)
     @sum = 0
-    current_user.profits.each do |price|
-      @sum = @sum + price.profit
+    if user_signed_in? && current_user.profits.present?
+      current_user.profits.each do |price|
+        @sum = @sum + price.profit
+      end
     end
   end
 
