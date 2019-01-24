@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     end
   end
   post 'item/:id' => 'items#stop'
+  # 出品ページのカテゴリー、ブランドの非同期通信用
   post 'items/category/search' => 'categories#search'
+  post 'items/brand/search' => 'brands#search'
 
   get 'user/:id' => 'users#show'
   post 'rate/:id' => 'rates#create'
