@@ -2,6 +2,7 @@ class RatesController < ApplicationController
   def create
     @item = Item.find(params[:id])
     @trade = Trade.find_by(item_id: @item.id)
+    @price = @item.price * 0.9
     if @trade.buyer_id == current_user.id
       @rate = Rate.new(rate_buy_params)
       @rate.save
@@ -16,6 +17,8 @@ class RatesController < ApplicationController
       if @rate.save
         @trade.transaction_state_id = 4
         @trade.save
+        @profit = Profit.new(user_id: current_user.id, item_id: @item.id, profit: @price)
+        @profit.save
       end
       redirect_to controller: 'transactions', action: 'order_status'
     end

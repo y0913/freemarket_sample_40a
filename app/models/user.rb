@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :transaction_comments, dependent: :destroy
   has_many :rates
   has_many :likes
+  has_many :profits
 
   def self.find_for_oauth(auth)
     sns = SnsCredential.where(uid: auth.uid, provider: auth.provider).first
