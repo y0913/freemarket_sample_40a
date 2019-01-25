@@ -47,11 +47,13 @@
     %tr
      %th.back-silver ブランド
      %td
-      = link_to @item.brand.name, class: "items-link_to"
+      - unless @item.brand_id == 1
+       = link_to @item.brand.name, class: "items-link_to"
     %tr
      %th.back-silver 商品のサイズ
      %td
-      = @item.size.size
+      - unless @item.brand_id == 1
+       = @item.size.size
     %tr
      %th.back-silver 商品の状態
      %td
