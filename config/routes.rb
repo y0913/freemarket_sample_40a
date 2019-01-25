@@ -32,8 +32,6 @@ Rails.application.routes.draw do
 
   resources :mypages, path: 'mypage'
   delete 'items/:id' =>'items#destroy'
-  # これ必要な数とアクションでルーティングしないとrake routesがキモい
-  # resources :transactions, path: 'transaction/buy/:item_id'
 
   resources :transactions, path: 'transaction' do
     collection do
