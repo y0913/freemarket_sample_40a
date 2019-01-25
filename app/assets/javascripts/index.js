@@ -32,10 +32,10 @@ $(document).on('turbolinks:load', function() {
   $(function() {
     $('.large-photo').each(function(index){
       $(`#mini${index + 1}`).click(function(){
-        $('#modalArea3').add(`#modal${index + 1}`).fadeIn();
+        $('#modalArea-photo').add(`#modal${index + 1}`).fadeIn();
       })
-      $('#modalArea3').click(function(){
-        $('#modalArea3').add(`#modal${index + 1}`).fadeOut();
+      $('#modalArea-photo').click(function(){
+        $('#modalArea-photo').add(`#modal${index + 1}`).fadeOut();
       });
     })
   })

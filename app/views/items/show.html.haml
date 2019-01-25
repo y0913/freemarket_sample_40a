@@ -186,10 +186,10 @@
    %li.delete-product-button
     =link_to '削除する', "", method: :delete
 
-%section#modalArea3.modalArea3
- .modalBg3
- .modalWrapper3
-  .modalContents3
+%section#modalArea-photo.modalArea-photo
+ .modalBg-photo
+ .modalWrapper-photo
+  .modalContents-photo
    .photos-big
     - @item.images.each_with_index do |image, i|
      = image_tag image.image,class: "large-photo",id: "modal#{i + 1}"
