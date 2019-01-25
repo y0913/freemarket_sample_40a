@@ -7,7 +7,6 @@ Rails.application.routes.draw do
       get 'search' => 'items#search'
     end
   end
-  post 'item/:id' => 'items#stop'
   # 出品ページのカテゴリー、ブランドの非同期通信用
   post 'items/category/search' => 'categories#search'
   post 'items/brand/search' => 'brands#search'
