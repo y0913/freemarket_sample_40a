@@ -4,7 +4,6 @@ class MypagesController < ApplicationController
   def index
   end
 
-
   def new
     @user = current_user
   end
@@ -22,7 +21,6 @@ class MypagesController < ApplicationController
   end
 
   def card
-    @items = Item.new
   end
 
   def listing

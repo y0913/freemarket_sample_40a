@@ -1,11 +1,9 @@
 class TransactionsController < ApplicationController
-
   before_action :before_login
-  before_action :set_item, only:[:buy, :pay, :done, :order_status, :bought, :condition]
+  before_action :set_item
   before_action :buy_redirect, only:[:buy]
 
   def buy
-    @item = Item.find(params[:id])
     @user = current_user
     @address = @user.address
     render :buy, layout: "sub-layout"
@@ -13,7 +11,6 @@ class TransactionsController < ApplicationController
 
   def pay
     @user = current_user
-    @item = Item.find(params[:id])
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     charge = Payjp::Charge.create(
       :amount => @item.price,
@@ -28,26 +25,22 @@ class TransactionsController < ApplicationController
   end
 
   def done
-    @item = Item.find(params[:id])
     @user = current_user
     @address = @user.address
     render :done, layout: "sub-layout"
   end
 
   def order_status
-    @item = Item.find(params[:id])
     @user = @item.user
     @trade = @item.trade
   end
 
   def bought
-    @item = Item.find(params[:id])
     @user = @item.user
     @trade = @item.trade
   end
 
   def condition
-    @item = Item.find(params[:id])
     @trade = Trade.find_by(item_id: @item.id)
     @trade.transaction_state_id = 2
     @trade.save
