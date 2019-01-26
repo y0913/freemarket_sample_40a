@@ -8,6 +8,7 @@ $(document).on('turbolinks:load', function() {
       });
     }
   });
+  // アイテム詳細画面で削除をクリックするとモーダルが発生
   $(function() {
     $('#openModal').click(function(){
         $('#modalArea').fadeIn();
@@ -16,56 +17,26 @@ $(document).on('turbolinks:load', function() {
       $('#modalArea').fadeOut();
     });
   });
+  // アイテム詳細画面で小さい画像をホバーすると大きい画像が変更される
   $(function() {
-    $('#mini1').mouseover(function(){
-      $('.sub').css('opacity','.4');
-      $(this).css('opacity','1');
-      $('.main').not('#photo1').css('display','none');
-      $('#photo1').fadeIn();
-    })
-    $('#mini2').mouseover(function(){
-      $('.sub').css('opacity','.4');
-      $(this).css('opacity','1');
-      $('.main').not('#photo2').css('display','none');
-      $('#photo2').fadeIn();
-    })
-    $('#mini3').mouseover(function(){
-      $('.sub').css('opacity','.4');
-      $(this).css('opacity','1');
-      $('.main').not('#photo3').css('display','none');
-      $('#photo3').fadeIn();
-    })
-    $('#mini4').mouseover(function(){
-      $('.sub').css('opacity','.4');
-      $(this).css('opacity','1');
-      $('.main').not('#photo4').css('display','none');
-      $('#photo4').fadeIn();
+    $('.main').each(function(index){
+      $(`#mini${index + 1}`).mouseover(function(){
+        $('.sub').css('opacity','.4');
+        $(this).css('opacity','1');
+        $('.main').not(`#photo${index + 1}`).css('display','none');
+        $(`#photo${index + 1}`).fadeIn();
+      })
     })
   });
+  // アイテム詳細画面で小さい画像をクリックするとアップで表示される
   $(function() {
-    $('#mini1').click(function(){
-      $('#modalArea3').add('#modal1').fadeIn();
+    $('.large-photo').each(function(index){
+      $(`#mini${index + 1}`).click(function(){
+        $('#modalArea-photo').add(`#modal${index + 1}`).fadeIn();
+      })
+      $('#modalArea-photo').click(function(){
+        $('#modalArea-photo').add(`#modal${index + 1}`).fadeOut();
+      });
     })
-    $('#modalArea3').click(function(){
-      $('#modalArea3').add('#modal1').fadeOut();
-    });
-    $('#mini2').click(function(){
-      $('#modalArea3').add('#modal2').fadeIn();
-    })
-    $('#modalArea3').click(function(){
-      $('#modalArea3').add('#modal2').fadeOut();
-    });
-    $('#mini3').click(function(){
-      $('#modalArea3').add('#modal3').fadeIn();
-    })
-    $('#modalArea3').click(function(){
-      $('#modalArea3').add('#modal3').fadeOut();
-    });
-    $('#mini4').click(function(){
-      $('#modalArea3').add('#modal4').fadeIn();
-    })
-    $('#modalArea3').click(function(){
-      $('#modalArea3').add('#modal4').fadeOut();
-    });
   })
 });
