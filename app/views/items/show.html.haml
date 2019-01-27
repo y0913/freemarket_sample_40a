@@ -19,7 +19,7 @@
     %tr
      %th.back-silver 出品者
      %td
-      = link_to @item.user.nickname, "/user/#{current_user.id}", class: "items-link_to"
+      = link_to @item.user.nickname, "/user/#{@item.user_id}", class: "items-link_to"
       .user-rating
        .item-user-ratings
        %i.fas.fa-laugh
