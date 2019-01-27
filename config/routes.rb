@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :categories, only:[:show], path: 'category'
 
+  resources :brands, only:[:show], path: 'brand'
+
   get 'mypage/card' => 'mypages#card'
   get 'mypage/card/create' => 'mypages#buy'
   get 'mypage/logout' => 'mypages#logout'
