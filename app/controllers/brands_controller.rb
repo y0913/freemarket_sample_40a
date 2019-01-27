@@ -7,4 +7,9 @@ class BrandsController < ApplicationController
         format.json { render json: {brands:@brands}}
       end
   end
+
+  def show
+    @brand = Brand.find(params[:id])
+    @items = @brand.items("created_at DESC")
+  end
 end
