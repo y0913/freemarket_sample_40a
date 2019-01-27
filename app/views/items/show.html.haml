@@ -35,20 +35,19 @@
      %td
       - if @item.category.parent.present? && @item.category.parent.parent.present?
        .item-detail-table-sub-category
-       %i.fa.fa-chevron-right.items-link_to
-       = link_to "#{@item.category.parent.parent.name}", class: "items-link_to"
+       = link_to "#{@item.category.parent.parent.name}",category_path(@item.category.parent.parent), class: "items-link_to"
       - if @item.category.parent.present?
        .item-detail-table-sub-category
        %i.fa.fa-chevron-right.items-link_to
-       = link_to "#{@item.category.parent.name}", class: "items-link_to"
+       = link_to "#{@item.category.parent.name}",category_path(@item.category.parent), class: "items-link_to"
       .item-detail-table-sub-category
       %i.fa.fa-chevron-right.items-link_to
-      = link_to "#{@item.category.name}", class: "items-link_to"
+      = link_to "#{@item.category.name}",category_path(@item.category), class: "items-link_to"
     %tr
      %th.back-silver ブランド
      %td
       - unless @item.brand_id == 1
-       = link_to @item.brand.name, class: "items-link_to"
+       = link_to @item.brand.name, brand_path(@item.brand), class: "items-link_to"
     %tr
      %th.back-silver 商品のサイズ
      %td
