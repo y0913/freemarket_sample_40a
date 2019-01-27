@@ -1,0 +1,11 @@
+.message-content__box
+  .message-content__box__form.margin0
+    %form.message-form{:method => "post"}
+    %input{:type => "hidden"}
+    %p.attention 取引メッセージの内容は、必要に応じて事務局で確認しています
+    %input{:type => "hidden"}
+    %input{:type => "hidden"}
+    %textarea.text{:type => "text", :name => "body"}
+    .message-sumit__details
+      %button{:type => "submit", :class => "submit"}
+        %span.font-white 取引メッセージを送る
