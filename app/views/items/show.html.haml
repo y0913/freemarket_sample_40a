@@ -83,8 +83,6 @@
    = link_to "売り切れました", root_path, class: "buy-btn status-gray",method: :get
   - elsif user_signed_in? && (@item.user_id != current_user.id) && @item.item_state_id == 1
    = link_to "購入画面へ進む", "/transaction/buy/#{@item.id}", class: "buy-btn, status-red",method: :get
-  - unless user_signed_in? || @item.item_state_id == 3
-   = link_to "購入画面へ進む", user_session_path, class: "buy-btn, status-red", method: :get
 
  .item-description
   %p.item-description-inner
