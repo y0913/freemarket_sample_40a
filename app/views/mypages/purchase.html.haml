@@ -26,11 +26,11 @@
                     .abeshi-right-content__block__object__link-box__body--text #{trade.item.name}
                     .abeshi-right-content__block__object__link-box__body__detail.middle
                       - if trade.transaction_state_id == 1
-                        .status-gray 発送待ち
+                        .status-gray 出品者の発送待ち
                       - elsif trade.transaction_state_id == 2
                         .status-gray 評価待ち
                       - elsif trade.transaction_state_id == 3
-                        .status-gray 相手の評価待ち
+                        .status-gray 出品者の評価待ち
                   %i.fa.fa-angle-right.fa-2x
       - else
         .nothing_box

@@ -29,17 +29,7 @@
       .abeshi-right-content__box.middle-center.margin0
         = form_with(url: "/transaction/#{@item.id}", method: :post) do
           %input.submit{:type => "submit", :value => "ヤマトの集荷サービスを利用して発送", :class => "post-btn bold"}/
-      .message-content__box
-        .message-content__box__form.margin0
-          %form.message-form{:method => "post"}
-          %input{:type => "hidden"}
-          %p.attention 取引メッセージの内容は、必要に応じて事務局で確認しています
-          %input{:type => "hidden"}
-          %input{:type => "hidden"}
-          %textarea.text{:type => "text", :name => "body"}
-          .message-sumit__details
-            %button{:type => "submit", :class => "submit"}
-              %span.font-white 取引メッセージを送る
+      = render 'modules/trade-comment'
   - elsif @trade.transaction_state_id == 2
     .abeshi-right-content.center
       .abeshi-right-content__box.middle-center
@@ -57,17 +47,7 @@
       %ul.flow
         %li 商品が売れた後の流れ
         %li 出品者のよくある質問
-      .message-content__box
-        .message-content__box__form.margin0
-          %form.message-form{:method => "post"}
-          %input{:type => "hidden"}
-          %p.attention 取引メッセージの内容は、必要に応じて事務局で確認しています
-          %input{:type => "hidden"}
-          %input{:type => "hidden"}
-          %textarea.text{:type => "text", :name => "body"}
-          .message-sumit__details
-            %button{:type => "submit", :class => "submit"}
-              %span.font-white 取引メッセージを送る
+      = render 'modules/trade-comment'
   - elsif @trade.transaction_state_id == 3
     .abeshi-right-content.center
       .abeshi-right-content__box.middle-center
@@ -89,17 +69,17 @@
         = form_with model: @rate, url: "/rate/#{@item.id}", local: true do |form|
           .rating-box
             .rate-box
-              = form.radio_button :rate, 1, class: "brand", id: 'good'
+              = form.radio_button :rate, 1, class: "hidden", id: 'good'
               = form.label "", for: 'good'
               %i.fas.fa-laugh.rate-face.good
               %p 良い
             .rate-box
-              = form.radio_button :rate, 2, class: "brand", id: 'normal'
+              = form.radio_button :rate, 2, class: "hidden", id: 'normal'
               = form.label "", for: 'normal'
               %i.fas.fa-meh.rate-face.normal
               %p 普通
             .rate-box
-              = form.radio_button :rate, 3, class: "brand", id: 'bad'
+              = form.radio_button :rate, 3, class: "hidden", id: 'bad'
               = form.label "", for: 'bad'
               %i.fas.fa-frown.rate-face.bad
               %p 悪い
@@ -118,3 +98,4 @@
           %p この度はメルカリのご利用ありがとうございました
       %ul.flow
         %li 販売代金の受取について
+      = render 'modules/trade-comment'

@@ -23,7 +23,7 @@
         .abeshi-card-expiration
           %h4.bold 都道府県
           %span{class: "exhibit_must font-white "} 必須
-        .exhibit_select.margin0.relative-box
+        .relative-box
           = form.collection_select :prefecture_id,Prefecture.all, :id, :prefecture,{include_blank: "---"},{required:true,class: "exhibit_select margin0 relative-box"}
           %i.fa.fa-angle-down.exhibit.absolute
         .abeshi-card-expiration

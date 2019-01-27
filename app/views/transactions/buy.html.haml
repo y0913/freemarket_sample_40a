@@ -34,8 +34,9 @@
           / = @address.address
           111
           %br
-          = @user.first_name
-          = @user.last_name
+          = @user.nickname
+          / = @user.first_name
+          / = @user.last_name
         .abeshi-right-content__box__inner-address--change
           = link_to "変更する＞", root_path
   .abeshi-right-content__box
