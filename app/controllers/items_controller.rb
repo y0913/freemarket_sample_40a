@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   OTHERS = 3
 
   def index
-    @item = Item.order("created_at DESC").limit(4)
+    @items = Item.where(brand_id: 5).order("created_at DESC").limit(4)
     @items_for_woman = Category.get_items_for(WOMAN)
     @items_for_man = Category.get_items_for(MAN)
     @items_for_others = Category.get_items_for(OTHERS)
