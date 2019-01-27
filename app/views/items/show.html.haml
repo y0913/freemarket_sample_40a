@@ -19,7 +19,7 @@
     %tr
      %th.back-silver 出品者
      %td
-      = link_to @item.user.nickname, "/user/#{current_user.id}", class: "items-link_to"
+      = link_to @item.user.nickname, "/user/#{@item.user_id}", class: "items-link_to"
       .user-rating
        .item-user-ratings
        %i.fas.fa-laugh
@@ -35,24 +35,23 @@
      %td
       - if @item.category.parent.present? && @item.category.parent.parent.present?
        .item-detail-table-sub-category
-       %i.fa.fa-chevron-right.items-link_to
-       = link_to "#{@item.category.parent.parent.name}", class: "items-link_to"
+       = link_to "#{@item.category.parent.parent.name}",category_path(@item.category.parent.parent), class: "items-link_to"
       - if @item.category.parent.present?
        .item-detail-table-sub-category
        %i.fa.fa-chevron-right.items-link_to
-       = link_to "#{@item.category.parent.name}", class: "items-link_to"
+       = link_to "#{@item.category.parent.name}",category_path(@item.category.parent), class: "items-link_to"
       .item-detail-table-sub-category
       %i.fa.fa-chevron-right.items-link_to
-      = link_to "#{@item.category.name}", class: "items-link_to"
+      = link_to "#{@item.category.name}",category_path(@item.category), class: "items-link_to"
     %tr
      %th.back-silver ブランド
      %td
       - unless @item.brand_id == 1
-       = link_to @item.brand.name, class: "items-link_to"
+       = link_to @item.brand.name, brand_path(@item.brand), class: "items-link_to"
     %tr
      %th.back-silver 商品のサイズ
      %td
-      - unless @item.brand_id == 1
+      - unless @item.size_id == 1
        = @item.size.size
     %tr
      %th.back-silver 商品の状態
@@ -83,8 +82,6 @@
    = link_to "売り切れました", root_path, class: "buy-btn status-gray",method: :get
   - elsif user_signed_in? && (@item.user_id != current_user.id) && @item.item_state_id == 1
    = link_to "購入画面へ進む", "/transaction/buy/#{@item.id}", class: "buy-btn, status-red",method: :get
-  - unless user_signed_in? || @item.item_state_id == 3
-   = link_to "購入画面へ進む", user_session_path, class: "buy-btn, status-red", method: :get
 
  .item-description
   %p.item-description-inner

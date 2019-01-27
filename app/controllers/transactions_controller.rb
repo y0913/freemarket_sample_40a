@@ -2,6 +2,7 @@ class TransactionsController < ApplicationController
   before_action :before_login
   before_action :set_item
   before_action :buy_redirect, only:[:buy]
+  before_action :done_redirect, only:[:done]
 
   def buy
     @user = current_user
@@ -58,5 +59,10 @@ class TransactionsController < ApplicationController
 
   def buy_redirect
     redirect_to item_path(@item.id) if @item.item_state_id == 3
+  end
+
+  def done_redirect
+    @trade = @item.trade
+    redirect_to item_path(@item.id) unless @trade.transaction_state_id == 1 && current_user.id = @trade.buyer_id
   end
 end
