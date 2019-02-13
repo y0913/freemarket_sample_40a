@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :condition
   belongs_to :category
   belongs_to :delivery_day
-  belongs_to :profit, optional: true
+  has_one :profit
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
   belongs_to :brand,optional: true

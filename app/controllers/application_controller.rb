@@ -28,6 +28,12 @@ class ApplicationController < ActionController::Base
   def set_category_brand
     @categorys = Category.where(parent_id: nil)
     @brands = Brand.order("created_at DESC").where.not(id: 1)
+    @sum = 0
+    if user_signed_in? && current_user.profits.present?
+      current_user.profits.each do |price|
+        @sum = @sum + price.profit
+      end
+    end
   end
 
   def configure_permitted_parameters

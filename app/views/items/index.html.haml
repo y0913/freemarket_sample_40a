@@ -6,7 +6,7 @@
   %h1.pickup__head.bold ピックアップカテゴリー
   %section.pickup__area
     .pickup__area__text-center
-      = link_to "レディース新着アイテム",new_item_path
+      = link_to "レディース新着アイテム",category_path(id: 1)
     .pickup__area__items-box
       - @items_for_woman.first(4).each do |item|
         = render partial: "modules/category-index", locals: { item: item }
@@ -14,7 +14,7 @@
       = link_to "すべての商品を見る",new_item_path
   %section.pickup__area
     .pickup__area__text-center
-      = link_to "メンズ新着アイテム",new_item_path
+      = link_to "メンズ新着アイテム",category_path(id: 2)
     .pickup__area__items-box
       - @items_for_man.first(4).each do |item|
         = render partial: "modules/category-index", locals: { item: item }
@@ -22,7 +22,7 @@
       = link_to "すべての商品を見る",new_item_path
   %section.pickup__area
     .pickup__area__text-center
-      = link_to "その他新着アイテム",new_item_path
+      = link_to "その他新着アイテム",category_path(id: 3)
     .pickup__area__items-box
       - @items_for_others.first(4).each do |item|
         = render partial: "modules/category-index", locals: { item: item }
@@ -32,9 +32,9 @@
   %h1.pickup__head.bold ピックアップブランド
   %section.pickup__area
     .pickup__area__text-center
-      = link_to "DIV新着アイテム",new_item_path
+      = link_to "DIV新着アイテム",brand_path(id: 5)
     .pickup__area__items-box
-      - @item.first(4).each do |item|
+      - @items.first(4).each do |item|
         = render partial: "modules/category-index", locals: { item: item }
     .pickup__view-all
       = link_to "すべての商品を見る",new_item_path
