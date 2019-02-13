@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
     @goods = Rate.where(rate: 1, user_id: id)
     @normals = Rate.where(rate: 2, user_id: id)
     @bads = Rate.where(rate: 3, user_id: id)
+    @comment = ItemComment.new
   end
 
   def create
